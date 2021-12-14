@@ -1,6 +1,5 @@
 package com.epam.jwd.service.impl;
 
-import com.epam.jwd.dao.api.Dao;
 import com.epam.jwd.dao.impl.AccountDaoImpl;
 import com.epam.jwd.dao.impl.UserDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
@@ -26,19 +25,19 @@ import java.util.Objects;
 public class UserServiceImpl implements Service<UserDto, Integer> {
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
-    private final Dao<User, Integer> daoUser = new UserDaoImpl();
+    private final UserDaoImpl daoUser = new UserDaoImpl();
     private final AccountDaoImpl daoAccount = new AccountDaoImpl();
     private final UserConverter converterUser = new UserConverter();
     private final AccountConverter converterAccount = new AccountConverter();
-    private final Validator<UserDto, Integer> validatorUser = new UserValidator();
-    private final Validator<AccountDto, Integer> validatorAccount = new AccountValidator();
+    private final UserValidator validatorUser = new UserValidator();
+    private final AccountValidator validatorAccount = new AccountValidator();
 
     @Override
-    public UserDto save(UserDto userDto) throws ServiceException, SQLException {
+    public UserDto create(UserDto userDto) throws ServiceException, SQLException {
         logger.info("save method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
-        User check = ((UserDaoImpl)daoUser).findByLogin(userDto.getLogin());
-        ((UserValidator)validatorUser).validateLoginUnique(check);
+        User check = daoUser.findByLogin(userDto.getLogin());
+        validatorUser.validateLoginUnique(check);
         User user = converterUser.convert(userDto);
         return converterUser.convert(daoUser.save(user));
     }
@@ -79,8 +78,8 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
 
     public UserDto getByLogin(String login) throws ServiceException {
         logger.info("get login method " + UserServiceImpl.class);
-        ((UserValidator)validatorUser).validateLogin(login);
-        User user = ((UserDaoImpl)daoUser).findByLogin(login);
+        validatorUser.validateLogin(login);
+        User user = daoUser.findByLogin(login);
         if (Objects.isNull(user)){
             throw new ServiceException(ValidateException.USER_NOT_FOUND);
         }
@@ -90,29 +89,26 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
     public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException {
         logger.info("create method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
-        User checkUser = ((UserDaoImpl)daoUser).findByLogin(userDto.getLogin());
-        ((UserValidator)validatorUser).validateLoginUnique(checkUser);
+        User checkUser = daoUser.findByLogin(userDto.getLogin());
+        validatorUser.validateLoginUnique(checkUser);
         validatorAccount.validate(accountDto);
         Account checkAccount = daoAccount.findByEmail(accountDto.getEmail());
-        ((AccountValidator)validatorAccount).validateEmailUnique((checkAccount));
+        validatorAccount.validateEmailUnique((checkAccount));
         User user = converterUser.convert(userDto);
         Account account = converterAccount.convert(accountDto);
-        ((UserDaoImpl)daoUser).savePerson(user, account);
+        daoUser.savePerson(user, account);
     }
 
     public Boolean updatePerson(UserDto userDto, AccountDto accountDto){
         logger.info("update method " + UserServiceImpl.class);
         User user = converterUser.convert(userDto);
         Account account = converterAccount.convert(accountDto);
-        ((UserDaoImpl)daoUser).updatePerson(user, account);
+        daoUser.updatePerson(user, account);
         return true;
     }
 
     public UserDto checkLoginPassword(String login ,String password) throws ServiceException {
-        ((UserValidator)validatorUser).validateLogin(login);
-        ((UserValidator)validatorUser).validatePassword(password);
-        User user = ((UserDaoImpl)daoUser).checkLoginPassword(login, password);
+        User user = daoUser.checkLoginPassword(login, password);
         return converterUser.convert(user);
     }
-
 }

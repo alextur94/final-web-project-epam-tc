@@ -1,8 +1,11 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.model.car.Car;
 import com.epam.jwd.dao.model.price.Price;
@@ -15,7 +18,7 @@ import java.util.Objects;
 
 public class CarDaoImpl implements Dao<Car, Integer> {
     private static final Logger logger = LogManager.getLogger(CarDaoImpl.class);
-    private PriceDaoImpl priceDao = new PriceDaoImpl();
+    private final PriceDaoImpl dao = new PriceDaoImpl();
 
     private static final String SQL_SAVE_CAR = "INSERT INTO car (brand, model, year, level, body, engine_volume, transmission, doors, color, available, price_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE_CAR_BY_ID = "UPDATE car SET brand = ?, model = ?, year = ?, level = ?, body = ?, engine_volume = ?, transmission = ?, doors = ?, color = ?, available = ?, price_id = ? WHERE id = ?";
@@ -28,7 +31,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
     @Override
     public Car save(Car entity) {
         logger.info("save method " + CarDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             Car car;
             connection.setAutoCommit(false);
@@ -47,7 +50,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
     @Override
     public Boolean update(Car car) {
         logger.info("update method " + CarDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return updateCarById(car, connection);
         } catch (SQLException throwables) {
@@ -61,7 +64,8 @@ public class CarDaoImpl implements Dao<Car, Integer> {
     @Override
     public Boolean delete(Car car) {
         logger.info("delete method " + CarDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return deleteCarById(car.getId(), connection);
         } catch (SQLException throwables) {
@@ -76,7 +80,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
     public List<Car> findAll() {
         logger.info("find all method " + CarDaoImpl.class);
         List<Car> car = new ArrayList<>();
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             car = findAllCars(connection);
         } catch (SQLException throwables) {
@@ -90,10 +94,24 @@ public class CarDaoImpl implements Dao<Car, Integer> {
     @Override
     public Car findById(Integer id) {
         logger.info("find by id method " + CarDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Car car = null;
         try {
             car = findCarById(id, connection);
+        } catch (SQLException throwables) {
+            logger.error(throwables);
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
+        return car;
+    }
+
+    public List<Car> findPage(Integer start, Integer end) {
+        logger.info("find page method " + CarDaoImpl.class);
+        List<Car> car = new ArrayList<>();
+        Connection connection = connectionPool.requestConnection();
+        try {
+            car = getPage(start, end, connection);
         } catch (SQLException throwables) {
             logger.error(throwables);
         } finally {
@@ -110,10 +128,10 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         statement.setByte(4, car.getLevel());
         statement.setByte(5, car.getBody());
         statement.setInt(6, car.getEngineVolume());
-        statement.setBoolean(7, car.getTransmission());
+        statement.setByte(7, car.getTransmission());
         statement.setByte(8, car.getDoors());
         statement.setString(9, car.getColor());
-        statement.setBoolean(10, car.getAvailable());
+        statement.setByte(10, car.getAvailable());
         statement.setInt(11, car.getPriceId());
         statement.executeUpdate();
         ResultSet resultSet = statement.getGeneratedKeys();
@@ -124,7 +142,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         return car;
     }
 
-    private Boolean updateCarById(Car car, Connection connection) throws SQLException {
+    public Boolean updateCarById(Car car, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_CAR_BY_ID);
         statement.setString(1, car.getBrand());
         statement.setString(2, car.getModel());
@@ -132,10 +150,10 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         statement.setByte(4, car.getLevel());
         statement.setByte(5, car.getBody());
         statement.setInt(6, car.getEngineVolume());
-        statement.setBoolean(7, car.getTransmission());
+        statement.setByte(7, car.getTransmission());
         statement.setByte(8, car.getDoors());
         statement.setString(9, car.getColor());
-        statement.setBoolean(10, car.getAvailable());
+        statement.setByte(10, car.getAvailable());
         statement.setInt(11, car.getPriceId());
         statement.setInt(12, car.getId());
         Boolean result = Objects.equals(statement.executeUpdate(), 1);
@@ -164,10 +182,37 @@ public class CarDaoImpl implements Dao<Car, Integer> {
                     .withLevel(resultSet.getByte(5))
                     .withBody(resultSet.getByte(6))
                     .withEngineVolume(resultSet.getInt(7))
-                    .withTransmission(resultSet.getBoolean(8))
+                    .withTransmission(resultSet.getByte(8))
                     .withDoors(resultSet.getByte(9))
                     .withColor(resultSet.getString(10))
-                    .withAvailable(resultSet.getBoolean(11))
+                    .withAvailable(resultSet.getByte(11))
+                    .withPriceId(resultSet.getInt(12))
+                    .build();
+            result.add(car);
+        }
+        statement.close();
+        resultSet.close();
+        return result;
+    }
+
+    private List<Car> getPage(Integer start, Integer end, Connection connection) throws SQLException {
+        List<Car> result = new ArrayList<>();
+        String PAGE = "select * from car limit "+start+","+end;
+        PreparedStatement statement = connection.prepareStatement(PAGE);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Car car = new Car.Builder()
+                    .withId(resultSet.getInt(1))
+                    .withBrand(resultSet.getString(2))
+                    .withModel(resultSet.getString(3))
+                    .withYear(resultSet.getInt(4))
+                    .withLevel(resultSet.getByte(5))
+                    .withBody(resultSet.getByte(6))
+                    .withEngineVolume(resultSet.getInt(7))
+                    .withTransmission(resultSet.getByte(8))
+                    .withDoors(resultSet.getByte(9))
+                    .withColor(resultSet.getString(10))
+                    .withAvailable(resultSet.getByte(11))
                     .withPriceId(resultSet.getInt(12))
                     .build();
             result.add(car);
@@ -191,10 +236,10 @@ public class CarDaoImpl implements Dao<Car, Integer> {
                     .withLevel(resultSet.getByte(5))
                     .withBody(resultSet.getByte(6))
                     .withEngineVolume(resultSet.getInt(7))
-                    .withTransmission(resultSet.getBoolean(8))
+                    .withTransmission(resultSet.getByte(8))
                     .withDoors(resultSet.getByte(9))
                     .withColor(resultSet.getString(10))
-                    .withAvailable(resultSet.getBoolean(11))
+                    .withAvailable(resultSet.getByte(11))
                     .withPriceId(resultSet.getInt(12))
                     .build();
         } else {
@@ -207,10 +252,11 @@ public class CarDaoImpl implements Dao<Car, Integer> {
 
     public Boolean saveCarPrice(Car car, Price price) {
         logger.info("save car and price method " + CarDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             connection.setAutoCommit(false);
-            priceDao.savePrice(price, connection);
+            dao.savePrice(price, connection);
             car.setPriceId(price.getId());
             saveCar(car, connection);
             connection.commit();

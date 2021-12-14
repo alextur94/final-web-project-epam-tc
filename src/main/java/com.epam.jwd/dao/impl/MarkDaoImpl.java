@@ -1,8 +1,11 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.model.mark.Mark;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +30,7 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
     @Override
     public Mark save(Mark mark) {
         logger.info("save method " + MarkDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return saveMark(mark, connection);
         } catch (SQLException throwables) {
@@ -41,7 +44,8 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
     @Override
     public Boolean update(Mark mark) {
         logger.info("update method " + MarkDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return updateMarkById(mark, connection);
         } catch (SQLException throwables) {
@@ -55,7 +59,8 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
     @Override
     public Boolean delete(Mark mark) {
         logger.info("delete method " + MarkDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return deleteMarkById(mark.getId(), connection);
         } catch (SQLException throwables) {
@@ -73,8 +78,8 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
 
     @Override
     public Mark findById(Integer id) {
-        logger.info("find by id method " + MarkDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Mark mark = null;
         try {
             mark = findMarkById(id, connection);
@@ -87,8 +92,8 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
 
     }
 
-    private Mark saveMark(Mark mark, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SQL_SAVE_MARK, new String[]{"id"});
+    public Mark saveMark(Mark mark, Connection connection) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(SQL_SAVE_MARK, new String[] {"id"});
         statement.setString(1, mark.getDescription());
         statement.executeUpdate();
         ResultSet resultSet = statement.getGeneratedKeys();

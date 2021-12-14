@@ -9,6 +9,7 @@ public enum Role {
     ADMIN(2);
 
     private final Integer id;
+    public static final List<Role> ALL_AVAILABLE_ROLES = Arrays.asList(values());
 
     Role(Integer id) { this.id = id; }
 
@@ -21,5 +22,9 @@ public enum Role {
                 .filter(role -> role.getRoleId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public static List<Role> valuesAsList(){
+        return ALL_AVAILABLE_ROLES;
     }
 }

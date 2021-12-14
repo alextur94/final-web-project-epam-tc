@@ -1,11 +1,15 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.model.account.Account;
 import com.epam.jwd.dao.model.user.User;
+import com.epam.jwd.dao.sql.InsetSql;
 import com.epam.jwd.service.cript.Encoder;
 import com.epam.jwd.service.dto.AbstractDto;
 import com.epam.jwd.service.dto.UserDto;
@@ -38,7 +42,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     @Override
     public User save(User user) throws SQLException {
         logger.info("save method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return saveUser(user, connection);
         } catch (SQLException throwables) {
@@ -52,7 +56,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     @Override
     public Boolean update(User user) {
         logger.info("update method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             String oldPass = findById(user.getId()).getPassword();
             if (oldPass != user.getPassword()){
@@ -70,7 +74,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     @Override
     public Boolean delete(User user) {
         logger.info("delete method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return deleteUserById(user.getId(), connection);
         } catch (SQLException throwables) {
@@ -84,7 +88,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     @Override
     public User findById(Integer id) {
         logger.info("find by id method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         User user = null;
         try {
             user = findUserById(id, connection);
@@ -100,7 +104,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     public List<User> findAll() {
         logger.info("find all method " + UserDaoImpl.class);
         List<User> users = new ArrayList<>();
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             users = findAllUsers(connection);
         } catch (SQLException throwables) {
@@ -113,7 +117,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
 
     public Boolean savePerson(User user, Account account) {
         logger.info("save method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             connection.setAutoCommit(false);
             new AccountDaoImpl().saveAccount(account, connection);
@@ -131,7 +135,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
 
     public Boolean updatePerson(User user, Account account) {
         logger.info("update method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             connection.setAutoCommit(false);
             String oldPass = findById(user.getId()).getPassword();
@@ -163,7 +167,8 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
 
     public User findByLogin(String login) {
         logger.info("find by login method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         User user = null;
         try {
             user = findUserByLogin(login, connection);
@@ -261,10 +266,10 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
     }
 
     public Integer getRole(UserDto userDto){
-        return dao.findById(userDto.getAccountId()).getRoleId();
+        return dao.findById(userDto.getAccountId()).getRole().getRoleId();
     }
 
-    private String criptPassword(String password){
+    private synchronized String criptPassword(String password){
         try {
             return Encoder.hashPass(password);
         } catch (IllegalBlockSizeException e) {

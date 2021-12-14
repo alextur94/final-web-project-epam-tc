@@ -1,8 +1,11 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.model.price.Price;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,7 +29,7 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
     @Override
     public Price save(Price entity) {
         logger.info("save method " + PriceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             Price price;
             connection.setAutoCommit(false);
@@ -45,7 +48,8 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
     @Override
     public Boolean update(Price price) {
         logger.info("update method " + PriceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return updatePriceById(price, connection);
         } catch (SQLException throwables) {
@@ -59,7 +63,8 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
     @Override
     public Boolean delete(Price price) {
         logger.info("delete method " + PriceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return deletePriceById(price.getId(), connection);
         } catch (SQLException throwables) {
@@ -74,7 +79,7 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
     public List<Price> findAll() {
         logger.info("find all method " + PriceDaoImpl.class);
         List<Price> price = new ArrayList<>();
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             price = findAllPrices(connection);
         } catch (SQLException throwables) {
@@ -88,7 +93,7 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
     @Override
     public Price findById(Integer id) {
         logger.info("find by id method " + PriceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Price price = null;
         try {
             price = findPriceById(id, connection);

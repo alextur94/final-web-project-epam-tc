@@ -3,6 +3,7 @@ package com.epam.jwd.controller;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
+import com.epam.jwd.controller.command.Constant;
 import com.epam.jwd.service.exception.ServiceException;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +15,6 @@ import java.util.Optional;
 
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
-    public static final String COMMAND_PARAM = "command";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,8 +26,8 @@ public class Controller extends HttpServlet {
         processRequest(req, resp);
     }
 
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        final String commandName = req.getParameter(COMMAND_PARAM);
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String commandName = req.getParameter(Constant.COMMAND_PARAM);
         final Command command = Command.of(commandName);
         CommandResponse response = null;
         try {

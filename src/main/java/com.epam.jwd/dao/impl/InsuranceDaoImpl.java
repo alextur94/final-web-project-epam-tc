@@ -1,8 +1,11 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.model.insurance.Insurance;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,7 +29,7 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
     @Override
     public Insurance save(Insurance insurance) {
         logger.info("save method " + InsuranceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return saveInsurance(insurance, connection);
         } catch (SQLException throwables) {
@@ -40,7 +43,8 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
     @Override
     public Boolean update(Insurance insurance) {
         logger.info("update method " + InsuranceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return updateInsuranceById(insurance, connection);
         } catch (SQLException throwables) {
@@ -54,7 +58,8 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
     @Override
     public Boolean delete(Insurance insurance) {
         logger.info("delete method " + InsuranceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             return deleteInsurancetById(insurance.getId(), connection);
         } catch (SQLException throwables) {
@@ -73,7 +78,8 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
     @Override
     public Insurance findById(Integer id) {
         logger.info("find by id method " + InsuranceDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+//        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Insurance insurance = null;
         try {
             insurance = findInsuranceById(id, connection);
@@ -85,7 +91,7 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
         return insurance;
     }
 
-    private Insurance saveInsurance(Insurance insurance, Connection connection) throws SQLException {
+    public Insurance saveInsurance(Insurance insurance, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SQL_SAVE_INSURANCE, new String[] {"id"});
         statement.setByte(1, insurance.getType());
         statement.setString(2, insurance.getNumber());

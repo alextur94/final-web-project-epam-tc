@@ -4,7 +4,7 @@ import com.epam.jwd.dao.model.Entity;
 import java.util.Objects;
 
 public class Account extends Entity<Integer> {
-    private Integer roleId;
+    private Role role;
     private String name;
     private String surname;
     private String email;
@@ -23,8 +23,8 @@ public class Account extends Entity<Integer> {
         return id;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
 
     public String getName() {
@@ -68,19 +68,19 @@ public class Account extends Entity<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return roleId.equals(account.roleId) && name.equals(account.name) && surname.equals(account.surname) && email.equals(account.email) && phone.equals(account.phone) && documentId.equals(account.documentId) && address.equals(account.address) && driveLicenseNumber.equals(account.driveLicenseNumber) && balance.equals(account.balance) && status.equals(account.status);
+        return role.equals(account.role) && name.equals(account.name) && surname.equals(account.surname) && email.equals(account.email) && phone.equals(account.phone) && documentId.equals(account.documentId) && address.equals(account.address) && driveLicenseNumber.equals(account.driveLicenseNumber) && balance.equals(account.balance) && status.equals(account.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roleId, name, surname, email, phone, documentId, address, driveLicenseNumber, balance, status);
+        return Objects.hash(role, name, surname, email, phone, documentId, address, driveLicenseNumber, balance, status);
     }
 
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", roleId=" + roleId +
+                ", roleId=" + role +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
@@ -95,7 +95,7 @@ public class Account extends Entity<Integer> {
 
     public static class Builder {
         private Integer id;
-        private Integer roleId;
+        private Role role;
         private String name;
         private String surname;
         private String email;
@@ -114,8 +114,8 @@ public class Account extends Entity<Integer> {
             return this;
         }
 
-        public Builder withRoleId(Integer roleId) {
-            this.roleId = roleId;
+        public Builder withRole(Role role) {
+            this.role = role;
             return this;
         }
 
@@ -167,7 +167,7 @@ public class Account extends Entity<Integer> {
         public Account build() {
             Account account = new Account();
             account.id = this.id;
-            account.roleId = this.roleId;
+            account.role = this.role;
             account.name = this.name;
             account.surname = this.surname;
             account.email = this.email;

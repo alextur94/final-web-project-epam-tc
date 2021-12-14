@@ -9,10 +9,10 @@ public class CarDto extends AbstractDto<Integer>{
     private Byte level;
     private Byte body;
     private Integer engineVolume;
-    private Boolean transmission;
+    private Byte transmission;
     private Byte doors;
     private String color;
-    private Boolean available;
+    private Byte available;
     private Integer priceId;
 
     private CarDto() {
@@ -42,7 +42,7 @@ public class CarDto extends AbstractDto<Integer>{
         return engineVolume;
     }
 
-    public Boolean getTransmission() {
+    public Byte getTransmission() {
         return transmission;
     }
 
@@ -54,7 +54,7 @@ public class CarDto extends AbstractDto<Integer>{
         return color;
     }
 
-    public Boolean getAvailable() {
+    public Byte getAvailable() {
         return available;
     }
 
@@ -101,10 +101,10 @@ public class CarDto extends AbstractDto<Integer>{
         private Byte level;
         private Byte body;
         private Integer engineVolume;
-        private Boolean transmission;
+        private Byte transmission;
         private Byte doors;
         private String color;
-        private Boolean available;
+        private Byte available;
         private Integer priceId;
 
         public Builder() {
@@ -144,7 +144,7 @@ public class CarDto extends AbstractDto<Integer>{
             return this;
         }
 
-        public Builder withTransmission(Boolean transmission){
+        public Builder withTransmission(Byte transmission){
             this.transmission = transmission;
             return this;
         }
@@ -159,7 +159,7 @@ public class CarDto extends AbstractDto<Integer>{
             return this;
         }
 
-        public Builder withAvailable(Boolean available){
+        public Builder withAvailable(Byte available){
             this.available = available;
             return this;
         }

@@ -1,9 +1,13 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+
+//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+
 import com.epam.jwd.dao.model.account.Account;
+import com.epam.jwd.dao.model.account.Role;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.sql.*;
@@ -20,6 +24,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
     private static final String SQL_FIND_ALL_ACCOUNTS = "SELECT id, role_id, name, surname, email, phone, document_id, address, drive_license_number, balance, status FROM account";
     private static final String SQL_FIND_ACCOUNT_BY_ID = "SELECT id, role_id, name, surname, email, phone, document_id, address, drive_license_number, balance, status FROM account WHERE id = ?";
     private static final String SQL_FIND_ACCOUNT_BY_EMAIL = "SELECT id, role_id, name, surname, email, phone, document_id, address, drive_license_number, balance, status FROM account WHERE email = ?";
+    private static final String SQL_FIND_ACCOUNT_BY_PHONE = "SELECT id, role_id, name, surname, email, phone, document_id, address, drive_license_number, balance, status FROM account WHERE phone = ?";
 
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
 
@@ -27,46 +32,23 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
     public Account save(Account account) {
         return null;
     }
-//    public Account save(Account account) {
-//        logger.info("save method " + AccountDaoImpl.class);
-//        Connection connection = connectionPool.takeConnection();
-//        try {
-//            return saveAccount(account, connection);
-//        } catch (SQLException throwables) {
-//            logger.error(throwables);
-//            return null;
-//        } finally {
-//            connectionPool.returnConnection(connection);
-//        }
-//    }
 
     @Override
     public Boolean update(Account account) {
-//        logger.info("update method " + AccountDaoImpl.class);
-//        Connection connection = connectionPool.takeConnection();
-//        try {
-//            return updateAccountById(account, connection);
-//        } catch (SQLException throwables) {
-//            logger.error(throwables);
-//            return false;
-//        } finally {
-//            connectionPool.returnConnection(connection);
-//        }
-        return null;
+        logger.info("update method " + AccountDaoImpl.class);
+        Connection connection = connectionPool.requestConnection();
+        try {
+            return updateAccountById(account, connection);
+        } catch (SQLException throwables) {
+            logger.error(throwables);
+            return false;
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
     }
 
     @Override
     public Boolean delete(Account account) {
-//        logger.info("delete method " + AccountDaoImpl.class);
-//        Connection connection = connectionPool.takeConnection();
-//        try {
-//            return deleteAccountById(account.getId(), connection);
-//        } catch (SQLException throwables) {
-//            logger.error(throwables);
-//            return false;
-//        } finally {
-//            connectionPool.returnConnection(connection);
-//        }
         return null;
     }
 
@@ -74,7 +56,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
     public List<Account> findAll() {
         logger.info("find all method " + AccountDaoImpl.class);
         List<Account> accounts = new ArrayList<>();
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         try {
             accounts = findAllAccounts(connection);
         } catch (SQLException throwables) {
@@ -88,7 +70,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
     @Override
     public Account findById(Integer id) {
         logger.info("find by id method " + AccountDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Account account = null;
         try {
             account = findAccountById(id, connection);
@@ -102,7 +84,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
 
     public Account findByEmail(String email) {
         logger.info("find by email method " + AccountDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
+        Connection connection = connectionPool.requestConnection();
         Account account = null;
         try {
             account = findAccountByEmail(email, connection);
@@ -114,10 +96,23 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         return account;
     }
 
+    public Account findByPhone(String phone) {
+        logger.info("find by phone method " + AccountDaoImpl.class);
+        Connection connection = connectionPool.requestConnection();
+        Account account = null;
+        try {
+            account = findAccountByPhone(phone, connection);
+        } catch (SQLException throwables) {
+            logger.error(throwables);
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
+        return account;
+    }
+
     public Account saveAccount(Account account, Connection connection) throws SQLException {
-        logger.info("save method " + AccountDaoImpl.class);
         PreparedStatement statement = connection.prepareStatement(SQL_SAVE_ACCOUNT, new String[] {"id"});
-        statement.setInt(1, account.getRoleId());
+        statement.setInt(1, account.getRole().getRoleId());
         statement.setString(2, account.getName());
         statement.setString(3, account.getSurname());
         statement.setString(4, account.getEmail());
@@ -139,7 +134,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
 
     public Boolean updateAccountById(Account account, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_ACCOUNT_BY_ID);
-        statement.setInt(1, account.getRoleId());
+        statement.setInt(1, account.getRole().getRoleId());
         statement.setString(2, account.getName());
         statement.setString(3, account.getSurname());
         statement.setString(4, account.getEmail());
@@ -170,7 +165,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         while (resultSet.next()) {
             Account account = new Account.Builder()
                     .withId(resultSet.getInt(1))
-                    .withRoleId(resultSet.getInt(2))
+                    .withRole(Role.getById(resultSet.getInt(2)))
                     .withName(resultSet.getString(3))
                     .withSurname(resultSet.getString(4))
                     .withEmail(resultSet.getString(5))
@@ -196,7 +191,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         if (resultSet.next()) {
             account = new Account.Builder()
                     .withId(resultSet.getInt(1))
-                    .withRoleId(resultSet.getInt(2))
+                    .withRole(Role.getById(resultSet.getInt(2)))
                     .withName(resultSet.getString(3))
                     .withSurname(resultSet.getString(4))
                     .withEmail(resultSet.getString(5))
@@ -223,7 +218,34 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         if (resultSet.next()) {
             account = new Account.Builder()
                     .withId(resultSet.getInt(1))
-                    .withRoleId(resultSet.getInt(2))
+                    .withRole(Role.getById(resultSet.getInt(2)))
+                    .withName(resultSet.getString(3))
+                    .withSurname(resultSet.getString(4))
+                    .withEmail(resultSet.getString(5))
+                    .withPhone(resultSet.getString(6))
+                    .withDocumentId(resultSet.getString(7))
+                    .withAddress(resultSet.getString(8))
+                    .withDriveLicenseNumber(resultSet.getString(9))
+                    .withBalance(resultSet.getDouble(10))
+                    .withStatus(resultSet.getInt(11))
+                    .build();
+        } else {
+            account = null;
+        }
+        statement.close();
+        resultSet.close();
+        return account;
+    }
+
+    private Account findAccountByPhone(String phone, Connection connection) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(SQL_FIND_ACCOUNT_BY_PHONE);
+        statement.setString(1, phone);
+        ResultSet resultSet = statement.executeQuery();
+        Account account;
+        if (resultSet.next()) {
+            account = new Account.Builder()
+                    .withId(resultSet.getInt(1))
+                    .withRole(Role.getById(resultSet.getInt(2)))
                     .withName(resultSet.getString(3))
                     .withSurname(resultSet.getString(4))
                     .withEmail(resultSet.getString(5))

@@ -13,9 +13,9 @@ import java.util.Objects;
 public class UserValidator implements Validator<UserDto, Integer> {
     private static final Logger logger = LogManager.getLogger(UserValidator.class);
 
-    private static final Integer LOGIN_MIN_LENGTH = 2;
+    private static final Integer LOGIN_MIN_LENGTH = 3;
     private static final Integer LOGIN_MAX_LENGTH = 20;
-    private static final Integer PASSWORD_MIN_LENGTH = 4;
+    private static final Integer PASSWORD_MIN_LENGTH = 5;
 
     @Override
     public void validate(UserDto userDto) throws ServiceException {

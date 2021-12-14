@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Order extends Entity<Integer> {
     private Byte status;
     private Integer rentalTime;
-    private Boolean paymentStatus;
+    private Byte paymentStatus;
     private Long rentStartDtm;
     private Long rentEndDtm;
     private Integer startLevel;
@@ -16,7 +16,7 @@ public class Order extends Entity<Integer> {
     private Double pledge;
     private Double currentSum;
     private Double realSum;
-    private Boolean statusMark;
+    private Byte statusMark;
     private Integer userId;
     private Integer carId;
     private Integer markId;
@@ -33,7 +33,7 @@ public class Order extends Entity<Integer> {
         return rentalTime;
     }
 
-    public Boolean getPaymentStatus() {
+    public Byte getPaymentStatus() {
         return paymentStatus;
     }
 
@@ -69,7 +69,7 @@ public class Order extends Entity<Integer> {
         return realSum;
     }
 
-    public Boolean getStatusMark() {
+    public Byte getStatusMark() {
         return statusMark;
     }
 
@@ -87,6 +87,14 @@ public class Order extends Entity<Integer> {
 
     public Integer getInsuranceId() {
         return insuranceId;
+    }
+
+    public void setMarkId(Integer markId) {
+        this.markId = markId;
+    }
+
+    public void setInsuranceId(Integer insuranceId) {
+        this.insuranceId = insuranceId;
     }
 
     @Override
@@ -129,7 +137,7 @@ public class Order extends Entity<Integer> {
         private Integer id;
         private Byte status;
         private Integer rentalTime;
-        private Boolean paymentStatus;
+        private Byte paymentStatus;
         private Long rentStartDtm;
         private Long rentEndDtm;
         private Integer startLevel;
@@ -138,7 +146,7 @@ public class Order extends Entity<Integer> {
         private Double pledge;
         private Double currentSum;
         private Double realSum;
-        private Boolean statusMark;
+        private Byte statusMark;
         private Integer userId;
         private Integer carId;
         private Integer markId;
@@ -162,7 +170,7 @@ public class Order extends Entity<Integer> {
             return this;
         }
 
-        public Builder withPaymentStatus(Boolean paymentStatus){
+        public Builder withPaymentStatus(Byte paymentStatus){
             this.paymentStatus = paymentStatus;
             return this;
         }
@@ -207,7 +215,7 @@ public class Order extends Entity<Integer> {
             return this;
         }
 
-        public Builder withStatusMark(Boolean statusMark){
+        public Builder withStatusMark(Byte statusMark){
             this.statusMark = statusMark;
             return this;
         }

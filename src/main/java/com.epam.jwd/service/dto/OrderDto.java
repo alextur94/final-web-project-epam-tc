@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public class OrderDto extends AbstractDto<Integer>{
     private Byte status;
-    private Integer rentalTime;
-    private Boolean paymentStatus;
-    private Long rentStartDtm;
-    private Long rentEndDtm;
+    private String rentalTime;
+    private Byte paymentStatus;
+    private String rentStartDtm;
+    private String rentEndDtm;
     private Integer startLevel;
     private Integer endLevel;
     private String refusal;
     private Double pledge;
     private Double currentSum;
     private Double realSum;
-    private Boolean statusMark;
+    private Byte statusMark;
     private Integer userId;
     private Integer carId;
     private Integer markId;
@@ -27,19 +27,19 @@ public class OrderDto extends AbstractDto<Integer>{
         return status;
     }
 
-    public Integer getRentalTime() {
+    public String getRentalTime() {
         return rentalTime;
     }
 
-    public Boolean getPaymentStatus() {
+    public Byte getPaymentStatus() {
         return paymentStatus;
     }
 
-    public Long getRentStartDtm() {
+    public String getRentStartDtm() {
         return rentStartDtm;
     }
 
-    public Long getRentEndDtm() {
+    public String getRentEndDtm() {
         return rentEndDtm;
     }
 
@@ -67,7 +67,7 @@ public class OrderDto extends AbstractDto<Integer>{
         return realSum;
     }
 
-    public Boolean getStatusMark() {
+    public Byte getStatusMark() {
         return statusMark;
     }
 
@@ -125,18 +125,18 @@ public class OrderDto extends AbstractDto<Integer>{
 
     public static class Builder{
         private Integer id;
-        private Byte status;
-        private Integer rentalTime;
-        private Boolean paymentStatus;
-        private Long rentStartDtm;
-        private Long rentEndDtm;
+        private Byte status = 1;
+        private String rentalTime;
+        private Byte paymentStatus = 0;
+        private String rentStartDtm;
+        private String rentEndDtm;
         private Integer startLevel;
         private Integer endLevel;
         private String refusal;
         private Double pledge;
         private Double currentSum;
         private Double realSum;
-        private Boolean statusMark;
+        private Byte statusMark = 0;
         private Integer userId;
         private Integer carId;
         private Integer markId;
@@ -155,22 +155,22 @@ public class OrderDto extends AbstractDto<Integer>{
             return this;
         }
 
-        public Builder withRentalTime(Integer rentalTime){
+        public Builder withRentalTime(String rentalTime){
             this.rentalTime = rentalTime;
             return this;
         }
 
-        public Builder withPaymentStatus(Boolean paymentStatus){
+        public Builder withPaymentStatus(Byte paymentStatus){
             this.paymentStatus = paymentStatus;
             return this;
         }
 
-        public Builder withRentStartDtm(Long rentStartDtm){
+        public Builder withRentStartDtm(String rentStartDtm){
             this.rentStartDtm = rentStartDtm;
             return this;
         }
 
-        public Builder withRentEndDtm(Long rentEndDtm){
+        public Builder withRentEndDtm(String rentEndDtm){
             this.rentEndDtm = rentEndDtm;
             return this;
         }
@@ -205,7 +205,7 @@ public class OrderDto extends AbstractDto<Integer>{
             return this;
         }
 
-        public Builder withStatusMark(Boolean statusMark){
+        public Builder withStatusMark(Byte statusMark){
             this.statusMark = statusMark;
             return this;
         }

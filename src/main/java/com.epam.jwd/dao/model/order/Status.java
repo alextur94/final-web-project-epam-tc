@@ -1,10 +1,12 @@
-package com.epam.jwd.rental_cars.dao.model.order;
+package com.epam.jwd.dao.model.order;
 import java.util.Arrays;
 
 public enum Status {
-    NEW((byte) 1),
-    ACTIVE((byte) 2),
-    CLOSE((byte) 3);
+    WAITING_PAYMENT((byte)1),
+    NEW((byte) 2),
+    ACTIVE((byte) 3),
+    BLOCK((byte) 4),
+    CLOSE((byte) 5);
 
     private final Byte id;
 

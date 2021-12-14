@@ -9,7 +9,7 @@ public class AccountConverter implements Converter<Account, AccountDto, Integer>
     public Account convert(AccountDto accountDto) {
         return new Account.Builder()
                 .withId(accountDto.getId())
-                .withRoleId(accountDto.getRoleId())
+                .withRole(accountDto.getRole())
                 .withName(accountDto.getName())
                 .withSurname(accountDto.getSurname())
                 .withEmail(accountDto.getEmail())
@@ -26,7 +26,7 @@ public class AccountConverter implements Converter<Account, AccountDto, Integer>
     public AccountDto convert(Account account) {
         return new AccountDto.Builder()
                 .withId(account.getId())
-                .withRoleId(account.getRoleId())
+                .withRole(account.getRole())
                 .withName(account.getName())
                 .withSurname(account.getSurname())
                 .withEmail(account.getEmail())
