@@ -67,7 +67,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/controller?command=admin_orders_page" class="nav-link">${butAccount}</a>
+                                        <a href="${pageContext.request.contextPath}/controller?command=admin_panel_page" class="nav-link">${butAccount}</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
@@ -98,7 +98,7 @@
                             <div class="table-img">
                                 <div class="back-price-car">
                                     <div class="price-car"><c:out
-                                            value="${price[car.priceId].pricePerDay}"/>0 ${valPrice}</div>
+                                            value="${priceMap.get(car.priceId).pricePerDay}"/>0 ${valPrice}</div>
                                 </div>
                                 <c:if test="${car.available eq 0}">
                                     <div class="back-available-car">

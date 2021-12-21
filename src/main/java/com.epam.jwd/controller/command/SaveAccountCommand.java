@@ -51,13 +51,27 @@ public enum SaveAccountCommand implements Command {
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         try {
             Integer accountId = userService.getById(userId).getAccountId();
+            String name = request.getParameter(Constant.NAME_PARAM);
+            String surname = request.getParameter(Constant.SURNAME_PARAM);
+            String phone = request.getParameter(Constant.PHONE_PARAM);
+            String docId = request.getParameter(Constant.DOCUMENT_ID_PARAM);
+            String license = request.getParameter(Constant.DRIVE_LICENSE_NUMBER_PARAM);
+            String address = request.getParameter(Constant.ADDRESS_PARAM);
+            String[] params = {name, surname, phone, docId, license, address};
+            for (String param : params) {
+                if (accountService.checkNotNull(param)){
+                    logger.error(Constant.FIELDS_NOT_BE_NULL_MSS);
+                    session.setAttribute(Constant.ERROR_PARAM, Constant.FIELDS_NOT_BE_NULL_MSS);
+                    return ERROR_RESPONSE;
+                }
+            }
             AccountDto accountDto = accountService.getById(accountId);
-            accountDto.setName(request.getParameter(Constant.NAME_PARAM));
-            accountDto.setSurname(request.getParameter(Constant.SURNAME_PARAM));
-            accountDto.setPhone(request.getParameter(Constant.PHONE_PARAM));
-            accountDto.setDocumentId(request.getParameter(Constant.DOCUMENT_ID_PARAM));
-            accountDto.setDriveLicenseNumber(request.getParameter(Constant.DRIVE_LICENSE_NUMBER_PARAM));
-            accountDto.setAddress(request.getParameter(Constant.ADDRESS_PARAM));
+            accountDto.setName(name);
+            accountDto.setSurname(surname);
+            accountDto.setPhone(phone);
+            accountDto.setDocumentId(docId);
+            accountDto.setDriveLicenseNumber(license);
+            accountDto.setAddress(address);
             accountDto.setStatus(1);
             accountService.update(accountDto);
             session.setAttribute(Constant.ACCOUNT_PARAM, accountDto);

@@ -66,7 +66,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/controller?command=admin_orders_page" class="nav-link">${butAccount}</a>
+                                        <a href="${pageContext.request.contextPath}/controller?command=admin_panel_page" class="nav-link">${butAccount}</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
@@ -87,6 +87,12 @@
         <div class="container">
             <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
                 <div class="col-lg-8 ftco-animate">
+                    <c:if test="${not empty sessionScope.error}">
+                        <div class="alert alert-danger alert-dismissible" style="margin-top: 10px">
+                                ${sessionScope.error}
+                            <c:remove var="error" scope="session"/>
+                        </div>
+                    </c:if>
                     <div class="text w-100 text-center mb-md-5 pb-md-5">
                         <h1 class="mb-4">${slogan}</h1>
                         <p style="font-size: 18px;">${sloganText}</p>

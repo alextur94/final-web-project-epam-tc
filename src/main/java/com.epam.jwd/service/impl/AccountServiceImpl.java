@@ -100,4 +100,8 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
             return accountDao.cancelOrder(account, admin, car, order);
         }
     }
+
+    public Boolean checkNotNull(String param){
+        return param.isEmpty();
+    }
 }

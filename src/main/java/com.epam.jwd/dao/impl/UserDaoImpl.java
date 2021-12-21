@@ -27,6 +27,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
 
     private static final Logger logger = LogManager.getLogger(UserDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
+    private final AccountDaoImpl accountDao = new AccountDaoImpl();
 
     @Override
     public User save(User user) throws DaoException {
@@ -137,7 +138,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
                 user.setPassword(criptPassword(user.getPassword()));
             }
             updateUserById(user, connection);
-//            accountDao.updateAccountById(account, connection);
+            accountDao.updateAccountById(account, connection);
             connection.commit();
             connection.setAutoCommit(true);
             return true;

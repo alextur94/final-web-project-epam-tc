@@ -6,6 +6,7 @@ public class Constant {
     public static final String PATH_PAGE_CARS = "/WEB-INF/jsp/cars.jsp";
     public static final String PATH_PAGE_LOGIN = "/WEB-INF/jsp/login.jsp";
     public static final String PATH_PAGE_REGISTRATION = "/WEB-INF/jsp/registration.jsp";
+    public static final String PATH_PAGE_ADMIN_PANEL = "/WEB-INF/jsp/admin_panel.jsp";
     public static final String PATH_PAGE_ADMIN_ORDERS = "/WEB-INF/jsp/admin_orders.jsp";
     public static final String PATH_PAGE_ADMIN_ACTIVE_ORDERS = "/WEB-INF/jsp/admin_active_orders.jsp";
     public static final String PATH_PAGE_ADMIN_READY_ORDERS = "/WEB-INF/jsp/admin_ready_orders.jsp";
@@ -21,6 +22,7 @@ public class Constant {
     public static final String COMM_REGISTRATION_PAGE = "/controller?command=registration_page";
     public static final String COMM_USER_ORDERS_PAGE = "/controller?command=user_orders_page";
     public static final String COMM_ADMIN_ORDERS_PAGE = "/controller?command=admin_orders_page";
+    public static final String COMM_ADMIN_PANEL_PAGE = "/controller?command=admin_panel_page";
     public static final String COMM_ADMIN_READY_ORDERS_PAGE = "/controller?command=admin_ready_orders_page";
     public static final String COMM_ADMIN_ACTIVE_ORDERS_PAGE = "/controller?command=admin_active_orders_page";
     public static final String COMM_ADMIN_CLOSE_ORDERS_PAGE = "/controller?command=admin_close_orders_page";
@@ -48,8 +50,9 @@ public class Constant {
     public static final String REFUSAL_PARAM = "refusal";
     public static final String DRIVE_LICENSE_NUMBER_PARAM = "driveLicenseNumber";
     public static final String ADDRESS_PARAM = "address";
+    public static final String BALANCE_PARAM = "balance";
     public static final String USER_LOGIN_ATTRIB_NAME = "userLogin";
-    public static final String USER_ROLE_ATTRIB_NAME = "userRole";
+    public static final String ROLE_ATTRIB_NAME = "role";
     public static final String BRAND_PARAM = "brand";
     public static final String MODEL_PARAM = "model";
     public static final String YEAR_PARAM = "year";
@@ -72,6 +75,7 @@ public class Constant {
     public static final String SUCCESS_CAR_CREATE_MSS = "New car add";
     public static final String ERROR_NUMBER_DAYS_MSS = "Invalid number of days. ";
     public static final String ERROR_FIELDS_IS_NULL_MSS = "Fill in all the fields. ";
+    public static final String ERROR_LESS_ROOTS_MSS = "You do not have sufficient rights to execute this command. ";
     public static final String SUCCESS_UPDATE_PASS_MSS = "Password updated successfully. ";
     public static final String SUCCESS_UPDATE_BALANCE_MSS = "Balance changed successfully. ";
     public static final String SUCCESS_CAR_BOOKING_MSS = "Car was booked successfully. ";

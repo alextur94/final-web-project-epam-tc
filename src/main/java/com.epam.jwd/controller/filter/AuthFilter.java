@@ -32,6 +32,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        Filter.super.init(filterConfig);
         for (Commands command : Commands.values()) {
             for (Role allowedRole : command.getAllowedRoles()) {
                 Set<Commands> commands = commandsByRoles.computeIfAbsent(allowedRole, k -> EnumSet.noneOf(Commands.class));
@@ -55,8 +56,8 @@ public class AuthFilter implements Filter {
     }
 
     private Role extractRoleFromSession(HttpSession session) {
-        return session != null && session.getAttribute(Constant.USER_ROLE_ATTRIB_NAME) != null
-                ? (Role) session.getAttribute(Constant.USER_ROLE_ATTRIB_NAME)
+        return session != null && session.getAttribute(Constant.ROLE_ATTRIB_NAME) != null
+                ? (Role) session.getAttribute(Constant.ROLE_ATTRIB_NAME)
                 : Role.UNKNOWN;
     }
 }

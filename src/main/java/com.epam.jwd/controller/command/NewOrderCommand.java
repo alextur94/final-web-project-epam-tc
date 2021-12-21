@@ -24,22 +24,22 @@ public enum NewOrderCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
-        final Integer carId = Integer.parseInt(request.getParameter(Constant.CAR_ID_PARAM));
-        final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
-        final Integer day = Integer.parseInt(request.getParameter(Constant.DAY_PARAM));
         try {
-            orderService.onlyOne(userId);
-        } catch (DaoException exception) {
-            logger.error(exception);
-            session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
-            return ERROR_RESPONSE;
-        }
-        if (0 >= day || day > 30) {
-            session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_NUMBER_DAYS_MSS);
-            return ERROR_RESPONSE;
-        }
-        final Byte insuranceType = Byte.parseByte(request.getParameter(Constant.INSURANCE_TYPE_PARAM));
-        try {
+            final Integer carId = Integer.parseInt(request.getParameter(Constant.CAR_ID_PARAM));
+            final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
+            final Integer day = Integer.parseInt(request.getParameter(Constant.DAY_PARAM));
+            try {
+                orderService.onlyOne(userId);
+            } catch (DaoException exception) {
+                logger.error(exception);
+                session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
+                return ERROR_RESPONSE;
+            }
+            if (0 >= day || day > 30) {
+                session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_NUMBER_DAYS_MSS);
+                return ERROR_RESPONSE;
+            }
+            final Byte insuranceType = Byte.parseByte(request.getParameter(Constant.INSURANCE_TYPE_PARAM));
             CarDto carDto = carService.getById(carId);
             orderService.createOrder(carDto, userId, day, insuranceType);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CAR_BOOKING_MSS);
@@ -47,6 +47,10 @@ public enum NewOrderCommand implements Command {
         } catch (DaoException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
+            return ERROR_RESPONSE;
+        } catch (NumberFormatException exception) {
+            logger.error(exception);
+            session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FIELDS_IS_NULL_MSS);
             return ERROR_RESPONSE;
         }
     }

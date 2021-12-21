@@ -50,21 +50,24 @@ public enum PayCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
-        final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
-        final Integer orderId = Integer.parseInt(request.getParameter(Constant.ORDER_ID_PARAM));
-        Boolean result;
         try {
+            final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
+            final Integer orderId = Integer.parseInt(request.getParameter(Constant.ORDER_ID_PARAM));
             Integer accountId = userService.getById(userId).getAccountId();
             AccountDto accountDto = accountService.getById(accountId);
             Order order = orderDao.findById(orderId);
-            result = accountService.transferAmountAccountAdmin(accountDto, order);
+            if (order.getUserId() != userId || order.getPaymentStatus() != 0){
+                session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_LESS_ROOTS_MSS);
+                return ERROR_RESPONSE;
+            }
+            Boolean result = accountService.transferAmountAccountAdmin(accountDto, order);
             if (!result) {
                 session.setAttribute(Constant.ERROR_PARAM, Constant.SUCCESS_FAIL_PAY_MSS);
                 return ERROR_RESPONSE;
             }
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_PAY_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (DaoException | NumberFormatException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

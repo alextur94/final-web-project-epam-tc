@@ -95,16 +95,16 @@
                     <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=main_page" class="nav-link">${butHome}</a></li>
                     <li class="nav-item active"><a href="${pageContext.request.contextPath}/controller?command=cars_page" class="nav-link">${butCars}</a></li>
                     <c:choose>
-                        <c:when test="${empty sessionScope.userLogin}">
+                        <c:when test="${empty sessionScope.role}">
                             <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=login_page" class="nav-link">${butLogin}</a></li>
                         </c:when>
                         <c:otherwise>
                             <c:choose>
-                                <c:when test="${sessionScope.account.role eq Role.USER}">
+                                <c:when test="${sessionScope.role eq Role.USER}">
                                     <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=user_panel_page" class="nav-link">${butAccount}</a></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=admin_orders_page" class="nav-link">${butAccount}</a></li>
+                                    <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=admin_panel_page" class="nav-link">${butAccount}</a></li>
                                 </c:otherwise>
                             </c:choose>
                             <li class="nav-item"><a href="${pageContext.request.contextPath}/controller?command=logout" class="nav-link">${butLogout}</a></li>
@@ -176,14 +176,16 @@
                             <div>${tPriceHour}: ${price.pricePerHour}0 ${valPrice}</div>
                         </div>
                         <c:choose>
-                            <c:when test="${car.available eq 1 && sessionScope.userRole ne Role.UNKNOWN}">
+                            <c:when test="${car.available eq 1 && sessionScope.role eq Role.USER}">
                                 <a href="${pageContext.request.contextPath}/controller?command=order_panel_page&carId=${car.id}&price_per_day=${price.pricePerDay}"
                                    class="btn btn-outline-success">${butRent}</a>
                             </c:when>
-                            <c:when test="${car.available eq 1 && sessionScope.userRole eq Role.UNKNOWN}">
+                            <c:when test="${car.available eq 1 && empty sessionScope.role}">
                                 <p style="color: #71dd8a">${inputToRent}</p>
                                 <a href="${pageContext.request.contextPath}/controller?command=login_page"
                                    class="btn btn-outline-success">${butLogin}</a>
+                            </c:when>
+                            <c:when test="${car.available eq 1 && sessionScope.role eq Role.ADMIN }">
                             </c:when>
                             <c:otherwise>
                                 <a href="#" onclick="return false">${notAvailable}</a>

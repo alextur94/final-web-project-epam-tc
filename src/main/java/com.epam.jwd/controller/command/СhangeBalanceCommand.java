@@ -45,18 +45,18 @@ public enum СhangeBalanceCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
-        Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
-        Double balance = Double.parseDouble(request.getParameter(Constant.BALANCE_CHANGE_PARAM));
-        Integer accountId;
-        AccountDto accountDto;
         try {
+            Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
+            Double balance = Double.parseDouble(request.getParameter(Constant.BALANCE_CHANGE_PARAM));
+            Integer accountId;
+            AccountDto accountDto;
             accountId = userService.getById(userId).getAccountId();
             accountDto = accountService.getById(accountId);
             accountDto.setBalance(accountDto.getBalance() + balance);
             accountService.update(accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_UPDATE_BALANCE_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (DaoException | NumberFormatException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

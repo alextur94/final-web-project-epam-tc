@@ -14,7 +14,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public enum ShowCarsPage implements Command {
     INSTANCE;
@@ -52,9 +54,13 @@ public enum ShowCarsPage implements Command {
     public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
         try {
-            List<PriceDto> price = priceService.getAll();
+            Map<Integer, PriceDto> priceMap = new HashMap<>();
+            List<PriceDto> prices = priceService.getAll();
+            for (PriceDto price : prices) {
+                priceMap.put(price.getId(), price);
+            }
             List<CarDto> cars = carService.getAll();
-            session.setAttribute("price", price);
+            session.setAttribute("priceMap", priceMap);
             session.setAttribute("carsList", cars);
             return SUCCESS_RESPONSE;
         } catch (DaoException e) {

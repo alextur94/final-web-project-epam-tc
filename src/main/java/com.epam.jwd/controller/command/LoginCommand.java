@@ -69,6 +69,7 @@ public enum LoginCommand implements Command {
         session.setAttribute(Constant.USER_ID_NAME, userDto.getId());
         session.setAttribute(Constant.USER_LOGIN_ATTRIB_NAME, userDto.getLogin());
         session.setAttribute(Constant.ACCOUNT_PARAM, accountDto);
+        session.setAttribute(Constant.ROLE_ATTRIB_NAME, accountDto.getRole());
         session.setAttribute(Constant.LANG_PARAM, lang);
         return SUCCESS_RESPONSE;
     }

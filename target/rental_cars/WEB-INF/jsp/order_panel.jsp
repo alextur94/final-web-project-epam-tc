@@ -121,14 +121,14 @@
                             <c:when test="${sessionScope.account.role eq Role.USER}">
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                       href="${pageContext.request.contextPath}/controller?command=user_panel_page&userId=${sessionScope.userId}">
+                                       href="${pageContext.request.contextPath}/controller?command=user_panel_page">
                                         <span data-feather="home"></span>
                                             ${lUserPanel}
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                       href="${pageContext.request.contextPath}/controller?command=user_orders_page&userId=${sessionScope.userId}">
+                                       href="${pageContext.request.contextPath}/controller?command=user_orders_page">
                                         <span data-feather="file"></span>
                                             ${lOrders}
                                     </a>

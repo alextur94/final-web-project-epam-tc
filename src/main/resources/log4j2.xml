@@ -1,38 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
-    <Properties>
-        <property name="pattern_console">%d{HH:mm:ss.SSS} %-5level %-10logger{1} %msg%n</property>
-        <property name="pattern_file">%d{HH:mm:ss.SSS}  %-5level %-10logger{1} %msg%n</property>
-        <property name="pattern_file_appinfo">%d{HH:mm:ss} %msg%n</property>
-    </Properties>
+<Configuration status="off" strict="true"
+               name="XMLConfigTest" packages="org.apache.logging.log4j.test">
+    <Filter type="ThresholdFilter" level="INFO" />
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${pattern_console}"/>
+        <Console name="STDOUT">
+            <Layout type="PatternLayout" pattern="%m %n" />
         </Console>
-        <RollingFile name="DebugRollingFile" filename="logs/log.log"
-                     filePattern="logs/log-%d{yyyy-MM-dd-hh-mm-ss}.log">
-            <PatternLayout pattern="${pattern_file}"/>
+        <RollingFile name="rollingFileSize"
+                     fileName="logs/log4j2.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
             <Policies>
-                <OnStartupTriggeringPolicy/>
-            </Policies>
-        </RollingFile>
-        <RollingFile name="AppInfoFileRollingFile" filename="logs/info.log"
-                     filePattern="logs/info-%d{yyyy-MM-dd-hh-mm-ss}.log">
-            <PatternLayout pattern="${pattern_file_appinfo}"/>
-            <Policies>
-                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy interval = "1"/>
+                <SizeBasedTriggeringPolicy size="5 KB"/>
             </Policies>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Logger name="com.epam.jwd" level="info" additivity="false">
-            <AppenderRef ref="DebugRollingFile"/>
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Root level="info">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="AppInfoFileRollingFile"/>
+        <Root level="ERROR">
+            <AppenderRef ref="STDOUT" />
+            <AppenderRef ref="rollingFileSize" />
         </Root>
     </Loggers>
+
 </Configuration>

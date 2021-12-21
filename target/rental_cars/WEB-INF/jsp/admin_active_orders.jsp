@@ -40,7 +40,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="https://faviconka.ru/ico/1/faviconka.ru_1_103832.ico">
-    <title>${titleUserPage}</title>
+    <title>${lAdminPanel}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -79,7 +79,7 @@
                                href="${pageContext.request.contextPath}/controller?command=admin_orders_page">
                                 <span data-feather="file"></span>
                                 ${lOrdersNew}
-                                (${countRow[0]})
+                                (${countRow})
                             </a>
                         </li>
                         <li class="nav-item">
@@ -87,7 +87,6 @@
                                href="${pageContext.request.contextPath}/controller?command=admin_ready_orders_page">
                                 <span data-feather="file"></span>
                                 ${lOrdersReady}
-                                (${countRow[1]})
                             </a>
                         </li>
                         <li class="nav-item">
@@ -95,7 +94,6 @@
                                href="${pageContext.request.contextPath}/controller?command=admin_active_orders_page">
                                 <span data-feather="file"></span>
                                 ${lOrdersActive}
-                                (${orderList.size()})
                             </a>
                         </li>
                         <li class="nav-item">
@@ -103,7 +101,6 @@
                                href="${pageContext.request.contextPath}/controller?command=admin_close_orders_page">
                                 <span data-feather="file"></span>
                                 ${lOrdersClose}
-                                (${countRow[2]})
                             </a>
                         </li>
                         <li class="nav-item">

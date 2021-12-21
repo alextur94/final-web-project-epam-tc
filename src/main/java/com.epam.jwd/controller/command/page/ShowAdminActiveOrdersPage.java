@@ -55,17 +55,14 @@ public enum ShowAdminActiveOrdersPage implements Command {
     public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
         try {
-            Integer countRowListNew = orderService.getCountRowByStatus((int) Status.NEW.getId());
-            Integer countRowListReady = orderService.getCountRowByStatus((int) Status.READY.getId());
-            Integer countRowListClose = orderService.getCountRowByStatus((int) Status.CLOSE.getId());
-            Integer[] countRowInLists = {countRowListNew, countRowListReady, countRowListClose};
+            Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             List<CarDto> listCar = carService.getAll();
             List<OrderDto> listOrderActive = orderService.getByStatus((int)Status.ACTIVE.getId());
             Map<Integer, AccountDto> personMap = orderService.testList((int) Status.ACTIVE.getId());
             session.setAttribute("orderList", listOrderActive);
             session.setAttribute("carList", listCar);
             session.setAttribute("personMap", personMap);
-            session.setAttribute("countRow", countRowInLists);
+
             return SUCCESS_RESPONSE;
         } catch (DaoException e) {
             logger.error(e);
