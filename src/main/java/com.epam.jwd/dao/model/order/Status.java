@@ -4,9 +4,10 @@ import java.util.Arrays;
 public enum Status {
     WAITING_PAYMENT((byte)1),
     NEW((byte) 2),
-    ACTIVE((byte) 3),
-    BLOCK((byte) 4),
-    CLOSE((byte) 5);
+    READY((byte) 3),
+    ACTIVE((byte) 4),
+    BLOCK((byte) 5),
+    CLOSE((byte) 6);
 
     private final Byte id;
 

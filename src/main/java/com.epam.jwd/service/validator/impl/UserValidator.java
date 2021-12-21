@@ -16,6 +16,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
     private static final Integer LOGIN_MIN_LENGTH = 3;
     private static final Integer LOGIN_MAX_LENGTH = 20;
     private static final Integer PASSWORD_MIN_LENGTH = 5;
+    private static final Integer PASSWORD_MAX_LENGTH = 25;
 
     @Override
     public void validate(UserDto userDto) throws ServiceException {
@@ -29,7 +30,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
 
     public void validateLogin(String login) throws ServiceException {
         if (Objects.isNull(login)
-                || login.length() < LOGIN_MIN_LENGTH
+                || login.length() <= LOGIN_MIN_LENGTH
                 || login.length() > LOGIN_MAX_LENGTH) {
             logger.info(ValidateException.LOGIN + UserValidator.class);
             throw new ServiceException(ValidateException.LOGIN);
@@ -38,7 +39,8 @@ public class UserValidator implements Validator<UserDto, Integer> {
 
     public void validatePassword(String password) throws ServiceException {
         if (Objects.isNull(password)
-                || password.length() < PASSWORD_MIN_LENGTH) {
+                || password.length() < PASSWORD_MIN_LENGTH
+                || password.length() > PASSWORD_MAX_LENGTH) {
             throw new ServiceException(ValidateException.PASSWORD);
         }
     }

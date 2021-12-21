@@ -1,0 +1,28 @@
+package com.epam.jwd.controller.command.page;
+
+import com.epam.jwd.controller.api.Command;
+import com.epam.jwd.controller.api.CommandRequest;
+import com.epam.jwd.controller.api.CommandResponse;
+import com.epam.jwd.controller.command.Constant;
+import com.epam.jwd.service.exception.ServiceException;
+
+public enum ShowRegistrationPage implements Command {
+    INSTANCE;
+
+    private static final CommandResponse DEFAULT_PAGE_CONTEXT = new CommandResponse() {
+        @Override
+        public String getPath() {
+            return Constant.PATH_PAGE_REGISTRATION;
+        }
+
+        @Override
+        public boolean isRedirect() {
+            return false;
+        }
+    };
+
+    @Override
+    public CommandResponse execute(CommandRequest request) throws ServiceException {
+        return DEFAULT_PAGE_CONTEXT;
+    }
+}

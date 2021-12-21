@@ -3,6 +3,7 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.account.Account;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.AccountDto;
+import com.epam.jwd.service.exception.ServiceException;
 
 public class AccountConverter implements Converter<Account, AccountDto, Integer> {
     @Override
@@ -23,7 +24,7 @@ public class AccountConverter implements Converter<Account, AccountDto, Integer>
     }
 
     @Override
-    public AccountDto convert(Account account) {
+    public AccountDto convert(Account account) throws ServiceException {
         return new AccountDto.Builder()
                 .withId(account.getId())
                 .withRole(account.getRole())

@@ -15,7 +15,6 @@ public class Order extends Entity<Integer> {
     private String refusal;
     private Double pledge;
     private Double currentSum;
-    private Double realSum;
     private Byte statusMark;
     private Integer userId;
     private Integer carId;
@@ -29,68 +28,116 @@ public class Order extends Entity<Integer> {
         return status;
     }
 
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
     public Integer getRentalTime() {
         return rentalTime;
+    }
+
+    public void setRentalTime(Integer rentalTime) {
+        this.rentalTime = rentalTime;
     }
 
     public Byte getPaymentStatus() {
         return paymentStatus;
     }
 
+    public void setPaymentStatus(Byte paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
     public Long getRentStartDtm() {
         return rentStartDtm;
+    }
+
+    public void setRentStartDtm(Long rentStartDtm) {
+        this.rentStartDtm = rentStartDtm;
     }
 
     public Long getRentEndDtm() {
         return rentEndDtm;
     }
 
+    public void setRentEndDtm(Long rentEndDtm) {
+        this.rentEndDtm = rentEndDtm;
+    }
+
     public Integer getStartLevel() {
         return startLevel;
+    }
+
+    public void setStartLevel(Integer startLevel) {
+        this.startLevel = startLevel;
     }
 
     public Integer getEndLevel() {
         return endLevel;
     }
 
+    public void setEndLevel(Integer endLevel) {
+        this.endLevel = endLevel;
+    }
+
     public String getRefusal() {
         return refusal;
+    }
+
+    public void setRefusal(String refusal) {
+        this.refusal = refusal;
     }
 
     public Double getPledge() {
         return pledge;
     }
 
+    public void setPledge(Double pledge) {
+        this.pledge = pledge;
+    }
+
     public Double getCurrentSum() {
         return currentSum;
     }
 
-    public Double getRealSum() {
-        return realSum;
+    public void setCurrentSum(Double currentSum) {
+        this.currentSum = currentSum;
     }
 
     public Byte getStatusMark() {
         return statusMark;
     }
 
+    public void setStatusMark(Byte statusMark) {
+        this.statusMark = statusMark;
+    }
+
     public Integer getUserId() {
         return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getCarId() {
         return carId;
     }
 
+    public void setCarId(Integer carId) {
+        this.carId = carId;
+    }
+
     public Integer getMarkId() {
         return markId;
     }
 
-    public Integer getInsuranceId() {
-        return insuranceId;
-    }
-
     public void setMarkId(Integer markId) {
         this.markId = markId;
+    }
+
+    public Integer getInsuranceId() {
+        return insuranceId;
     }
 
     public void setInsuranceId(Integer insuranceId) {
@@ -102,12 +149,12 @@ public class Order extends Entity<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return status.equals(order.status) && rentalTime.equals(order.rentalTime) && paymentStatus.equals(order.paymentStatus) && rentStartDtm.equals(order.rentStartDtm) && rentEndDtm.equals(order.rentEndDtm) && startLevel.equals(order.startLevel) && endLevel.equals(order.endLevel) && refusal.equals(order.refusal) && pledge.equals(order.pledge) && currentSum.equals(order.currentSum) && realSum.equals(order.realSum) && statusMark.equals(order.statusMark) && userId.equals(order.userId) && carId.equals(order.carId) && markId.equals(order.markId) && insuranceId.equals(order.insuranceId);
+        return status.equals(order.status) && rentalTime.equals(order.rentalTime) && paymentStatus.equals(order.paymentStatus) && rentStartDtm.equals(order.rentStartDtm) && rentEndDtm.equals(order.rentEndDtm) && startLevel.equals(order.startLevel) && endLevel.equals(order.endLevel) && refusal.equals(order.refusal) && pledge.equals(order.pledge) && currentSum.equals(order.currentSum) && statusMark.equals(order.statusMark) && userId.equals(order.userId) && carId.equals(order.carId) && markId.equals(order.markId) && insuranceId.equals(order.insuranceId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, rentalTime, paymentStatus, rentStartDtm, rentEndDtm, startLevel, endLevel, refusal, pledge, currentSum, realSum, statusMark, userId, carId, markId, insuranceId);
+        return Objects.hash(status, rentalTime, paymentStatus, rentStartDtm, rentEndDtm, startLevel, endLevel, refusal, pledge, currentSum, statusMark, userId, carId, markId, insuranceId);
     }
 
     @Override
@@ -124,7 +171,6 @@ public class Order extends Entity<Integer> {
                 ", refusal='" + refusal + '\'' +
                 ", pledge=" + pledge +
                 ", currentSum=" + currentSum +
-                ", realSum=" + realSum +
                 ", statusMark=" + statusMark +
                 ", accountId=" + userId +
                 ", carId=" + carId +
@@ -145,7 +191,6 @@ public class Order extends Entity<Integer> {
         private String refusal;
         private Double pledge;
         private Double currentSum;
-        private Double realSum;
         private Byte statusMark;
         private Integer userId;
         private Integer carId;
@@ -210,11 +255,6 @@ public class Order extends Entity<Integer> {
             return this;
         }
 
-        public Builder withRealSum(Double realSum){
-            this.realSum = realSum;
-            return this;
-        }
-
         public Builder withStatusMark(Byte statusMark){
             this.statusMark = statusMark;
             return this;
@@ -253,7 +293,6 @@ public class Order extends Entity<Integer> {
             order.refusal = this.refusal;
             order.pledge = this.pledge;
             order.currentSum = this.currentSum;
-            order.realSum = this.realSum;
             order.statusMark = this.statusMark;
             order.userId = this.userId;
             order.carId = this.carId;

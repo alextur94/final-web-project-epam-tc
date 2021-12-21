@@ -1,0 +1,44 @@
+.back-fon-imgs {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 2;
+}
+
+.table-cars {
+    display: table;
+    width: 100%;
+}
+
+.card {
+    width: 31%;
+    float: left;
+    margin: 10px
+}
+
+.table-img {
+    display: table;
+    border: none;
+}
+
+.back-price-car {
+    padding: 5px 10px 5px 10px;
+    background-color: #efe24b;
+    float: left;
+}
+
+.price-car {
+    color: #0b0b0b;
+}
+
+.back-available-car {
+    padding: 5px 10px 5px 10px;
+    background-color: #efa2a9;
+    float: left;
+}
+
+.available-car {
+    color: #0b0b0b;
+}

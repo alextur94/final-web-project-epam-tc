@@ -3,6 +3,7 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.price.Price;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.PriceDto;
+import com.epam.jwd.service.exception.ServiceException;
 
 public class PriceConverter implements Converter<Price, PriceDto, Integer> {
     @Override
@@ -15,7 +16,7 @@ public class PriceConverter implements Converter<Price, PriceDto, Integer> {
     }
 
     @Override
-    public PriceDto convert(Price price) {
+    public PriceDto convert(Price price) throws ServiceException {
         return new PriceDto(
                 price.getId(),
                 price.getPricePerDay(),

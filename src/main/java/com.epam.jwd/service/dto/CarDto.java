@@ -22,44 +22,88 @@ public class CarDto extends AbstractDto<Integer>{
         return brand;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public String getModel() {
         return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public Integer getYear() {
         return year;
     }
 
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
     public Byte getLevel() {
         return level;
+    }
+
+    public void setLevel(Byte level) {
+        this.level = level;
     }
 
     public Byte getBody() {
         return body;
     }
 
+    public void setBody(Byte body) {
+        this.body = body;
+    }
+
     public Integer getEngineVolume() {
         return engineVolume;
+    }
+
+    public void setEngineVolume(Integer engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
     public Byte getTransmission() {
         return transmission;
     }
 
+    public void setTransmission(Byte transmission) {
+        this.transmission = transmission;
+    }
+
     public Byte getDoors() {
         return doors;
+    }
+
+    public void setDoors(Byte doors) {
+        this.doors = doors;
     }
 
     public String getColor() {
         return color;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public Byte getAvailable() {
         return available;
     }
 
+    public void setAvailable(Byte available) {
+        this.available = available;
+    }
+
     public Integer getPriceId() {
         return priceId;
+    }
+
+    public void setPriceId(Integer priceId) {
+        this.priceId = priceId;
     }
 
     @Override

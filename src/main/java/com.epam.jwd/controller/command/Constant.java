@@ -1,26 +1,43 @@
 package com.epam.jwd.controller.command;
 
 public class Constant {
-    public static final String TEST = "/WEB-INF/jsp/test.jsp";
-
     public static final String PATH_PAGE_INDEX = "/index.jsp";
     public static final String PATH_PAGE_MAIN = "/WEB-INF/jsp/main.jsp";
     public static final String PATH_PAGE_CARS = "/WEB-INF/jsp/cars.jsp";
-    public static final String PATH_PAGE_AUTO_CARD = "/WEB-INF/jsp/auto-card.jsp";
     public static final String PATH_PAGE_LOGIN = "/WEB-INF/jsp/login.jsp";
     public static final String PATH_PAGE_REGISTRATION = "/WEB-INF/jsp/registration.jsp";
-    public static final String PATH_PAGE_ADMIN_PANEL = "/WEB-INF/jsp/admin-panel.jsp";
-    public static final String PATH_PAGE_USER_PANEL = "/WEB-INF/jsp/user-panel.jsp";
-    public static final String PATH_PAGE_USER_ORDERS = "/WEB-INF/jsp/user-orders.jsp";
-    public static final String PATH_PAGE_ORDER_PANEL = "/WEB-INF/jsp/order-panel.jsp";
+    public static final String PATH_PAGE_ADMIN_ORDERS = "/WEB-INF/jsp/admin_orders.jsp";
+    public static final String PATH_PAGE_ADMIN_ACTIVE_ORDERS = "/WEB-INF/jsp/admin_active_orders.jsp";
+    public static final String PATH_PAGE_ADMIN_READY_ORDERS = "/WEB-INF/jsp/admin_ready_orders.jsp";
+    public static final String PATH_PAGE_ADMIN_CLOSE_ORDERS = "/WEB-INF/jsp/admin_close_orders.jsp";
+    public static final String PATH_PAGE_ADMIN_NEW_CAR = "/WEB-INF/jsp/admin_new_car.jsp";
+    public static final String PATH_PAGE_USER_PANEL = "/WEB-INF/jsp/user_panel.jsp";
+    public static final String PATH_PAGE_USER_ORDERS = "/WEB-INF/jsp/user_orders.jsp";
+    public static final String PATH_PAGE_ORDER_PANEL = "/WEB-INF/jsp/order_panel.jsp";
+    public static final String PATH_PAGE_AUTO_CARD = "/WEB-INF/jsp/auto_card.jsp";
+    public static final String COMM_USER_PANEL = "/controller?command=user_panel_page";
+    public static final String COMM_LOGIN_PAGE = "/controller?command=login_page";
+    public static final String COMM_MAIN_PAGE = "/controller?command=main_page";
+    public static final String COMM_REGISTRATION_PAGE = "/controller?command=registration_page";
+    public static final String COMM_USER_ORDERS_PAGE = "/controller?command=user_orders_page";
+    public static final String COMM_ADMIN_ORDERS_PAGE = "/controller?command=admin_orders_page";
+    public static final String COMM_ADMIN_READY_ORDERS_PAGE = "/controller?command=admin_ready_orders_page";
+    public static final String COMM_ADMIN_ACTIVE_ORDERS_PAGE = "/controller?command=admin_active_orders_page";
+    public static final String COMM_ADMIN_CLOSE_ORDERS_PAGE = "/controller?command=admin_close_orders_page";
+    public static final String COMM_NEW_CAR_PAGE = "/controller?command=admin_new_car_page";
 
-    public static final String ERROR_ATTRIB_NAME = "error";
-    public static final String SUCCESS_ATTRIB_NAME = "success";
+    public static final String ERROR_PARAM = "error";
+    public static final String SUCCESS_PARAM = "success";
     public static final String COMMAND_PARAM = "command";
-    public static final String USER_ID_PARAM = "userId";
-    public static final String ACCOUNT_ID_PARAM = "accountId";
-    public static final String ADD_BALANCE_PARAM = "add_balance";
+    public static final String LANG_PARAM = "lang";
+
+    public static final String ACCOUNT_PARAM = "account";
+    public static final String ORDER_PARAM = "order";
+    public static final String USER_ID_NAME = "userId";
     public static final String CAR_ID_PARAM = "carId";
+    public static final String ORDER_ID_PARAM = "orderId";
+    public static final String DOCUMENT_ID_PARAM = "documentId";
+    public static final String BALANCE_CHANGE_PARAM = "change_balance";
     public static final String DAY_PARAM = "day";
     public static final String LOGIN_PARAM = "login";
     public static final String PASSWORD_PARAM = "password";
@@ -28,10 +45,9 @@ public class Constant {
     public static final String NAME_PARAM = "name";
     public static final String SURNAME_PARAM = "surname";
     public static final String PHONE_PARAM = "phone";
-    public static final String DOCUMENT_ID_PARAM = "documentId";
+    public static final String REFUSAL_PARAM = "refusal";
     public static final String DRIVE_LICENSE_NUMBER_PARAM = "driveLicenseNumber";
     public static final String ADDRESS_PARAM = "address";
-    public static final String USER_NAME_ATTRIB_NAME = "userName";
     public static final String USER_LOGIN_ATTRIB_NAME = "userLogin";
     public static final String USER_ROLE_ATTRIB_NAME = "userRole";
     public static final String BRAND_PARAM = "brand";
@@ -46,12 +62,23 @@ public class Constant {
     public static final String AVAILABLE_PARAM = "available";
     public static final String PRICE_PARAM = "price_per_day";
     public static final String INSURANCE_TYPE_PARAM = "type";
-    public static final String ORDER_ID_PARAM = "orderId";
+    public static final String ORDER_STATUS_PARAM = "status";
+    public static final String DAMAGE_PARAM = "damage";
+    public static final String DESCRIPTION_PARAM = "description";
+    public static final String PAGE_PARAM = "page";
 
-    public static final String INVALID_MSS = "Wrong login or password";
-    public static final String ERR_ORDER_CREATE_MSS = "Failed to create new order";
-    public static final String ERR_ORDER_ACTIVE = "You have an active order. Wait until the end of the rental or manually cancel the car reservation.";
-    public static final String SUC_ORDER_CREATE_MSS = "New order created";
-    public static final String ERR_CAR_CREATE_MSS = "Failed to add new car";
-    public static final String SUC_CAR_CREATE_MSS = "New car add";
+    public static final String NEW_ACCOUNT_WAS_CREATE = "New account has been successfully created";
+    public static final String FIELDS_NOT_BE_NULL_MSS = "Fields cannot be empty";
+    public static final String SUCCESS_CAR_CREATE_MSS = "New car add";
+    public static final String ERROR_NUMBER_DAYS_MSS = "Invalid number of days. ";
+    public static final String ERROR_FIELDS_IS_NULL_MSS = "Fill in all the fields. ";
+    public static final String SUCCESS_UPDATE_PASS_MSS = "Password updated successfully. ";
+    public static final String SUCCESS_UPDATE_BALANCE_MSS = "Balance changed successfully. ";
+    public static final String SUCCESS_CAR_BOOKING_MSS = "Car was booked successfully. ";
+    public static final String SUCCESS_PAY_MSS = "Payment was successful. ";
+    public static final String SUCCESS_FAIL_PAY_MSS = "Insufficient funds on the balance sheet. ";
+    public static final String SUCCESS_SAVE_INFO_ACCOUNT_MSS = "Account activated. ";
+    public static final String SUCCESS_APPLICATION_CANCELED_MSS = "Application canceled. ";
+    public static final String SUCCESS_END_RENT_MSS = "Lease completed successfully. ";
+    public static final String SUCCESS_CANCEL_ORDER_ADMIN_MSS = "Order canceled successfully. ";
 }

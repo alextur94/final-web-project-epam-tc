@@ -1,5 +1,6 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.AccountDaoImpl;
 import com.epam.jwd.dao.impl.UserDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
@@ -11,20 +12,17 @@ import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.exception.ValidateException;
-import com.epam.jwd.service.validator.api.Validator;
 import com.epam.jwd.service.validator.impl.AccountValidator;
 import com.epam.jwd.service.validator.impl.UserValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class UserServiceImpl implements Service<UserDto, Integer> {
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
-
     private final UserDaoImpl daoUser = new UserDaoImpl();
     private final AccountDaoImpl daoAccount = new AccountDaoImpl();
     private final UserConverter converterUser = new UserConverter();
@@ -33,7 +31,7 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
     private final AccountValidator validatorAccount = new AccountValidator();
 
     @Override
-    public UserDto create(UserDto userDto) throws ServiceException, SQLException {
+    public UserDto create(UserDto userDto) throws ServiceException, DaoException {
         logger.info("save method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
         User check = daoUser.findByLogin(userDto.getLogin());
@@ -43,15 +41,10 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
     }
 
     @Override
-    public Boolean update(UserDto userDto) throws ServiceException {
+    public Boolean update(UserDto userDto) throws ServiceException, DaoException {
         logger.info("update method " + UserServiceImpl.class);
-        try {
-            User user = converterUser.convert(userDto);
-            return daoUser.update(user);
-        }catch (Exception e){
-            logger.info("update method " + UserServiceImpl.class);
-            throw new ServiceException(ValidateException.UNKNOWN_EXCEPTION);
-        }
+        User user = converterUser.convert(userDto);
+        return daoUser.update(user);
     }
 
     @Override
@@ -60,14 +53,14 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
     }
 
     @Override
-    public UserDto getById(Integer id) throws ServiceException {
+    public UserDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id method " + UserServiceImpl.class);
         User user = daoUser.findById(id);
         return converterUser.convert(user);
     }
 
     @Override
-    public List<UserDto> getAll() {
+    public List<UserDto> getAll() throws DaoException, ServiceException {
         logger.info("get all method " + UserServiceImpl.class);
         List<UserDto> userDtos = new ArrayList<>();
         for (User user : daoUser.findAll()) {
@@ -76,17 +69,17 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return userDtos;
     }
 
-    public UserDto getByLogin(String login) throws ServiceException {
+    public UserDto getByLogin(String login) throws ServiceException, DaoException {
         logger.info("get login method " + UserServiceImpl.class);
         validatorUser.validateLogin(login);
         User user = daoUser.findByLogin(login);
-        if (Objects.isNull(user)){
+        if (Objects.isNull(user)) {
             throw new ServiceException(ValidateException.USER_NOT_FOUND);
         }
         return converterUser.convert(user);
     }
 
-    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException {
+    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException {
         logger.info("create method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
         User checkUser = daoUser.findByLogin(userDto.getLogin());
@@ -99,7 +92,7 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         daoUser.savePerson(user, account);
     }
 
-    public Boolean updatePerson(UserDto userDto, AccountDto accountDto){
+    public Boolean updatePerson(UserDto userDto, AccountDto accountDto) throws DaoException {
         logger.info("update method " + UserServiceImpl.class);
         User user = converterUser.convert(userDto);
         Account account = converterAccount.convert(accountDto);
@@ -107,8 +100,14 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return true;
     }
 
-    public UserDto checkLoginPassword(String login ,String password) throws ServiceException {
+    public UserDto checkLoginPassword(String login, String password) throws DaoException, ServiceException {
         User user = daoUser.checkLoginPassword(login, password);
         return converterUser.convert(user);
+    }
+
+    public void changePassword(Integer userId, String password) throws DaoException {
+        User user = daoUser.findById(userId);
+        user.setPassword(daoUser.criptPassword(password));
+        daoUser.update(user);
     }
 }

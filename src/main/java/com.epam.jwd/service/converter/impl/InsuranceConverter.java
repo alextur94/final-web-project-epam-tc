@@ -3,6 +3,7 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.insurance.Insurance;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.InsuranceDto;
+import com.epam.jwd.service.exception.ServiceException;
 
 public class InsuranceConverter implements Converter<Insurance, InsuranceDto, Integer> {
     @Override
@@ -17,7 +18,7 @@ public class InsuranceConverter implements Converter<Insurance, InsuranceDto, In
     }
 
     @Override
-    public InsuranceDto convert(Insurance insurance) {
+    public InsuranceDto convert(Insurance insurance) throws ServiceException {
         return new InsuranceDto(
                 insurance.getId(),
                 insurance.getType(),

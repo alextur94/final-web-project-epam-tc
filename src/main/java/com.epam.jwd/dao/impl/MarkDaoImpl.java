@@ -1,12 +1,12 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
-
-//import com.epam.jwd.dao.connectionpool.api.ConnectionPool;
+import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
-
+import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.model.mark.Mark;
+import com.epam.jwd.dao.sql.SqlQueries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,53 +19,45 @@ import java.util.Objects;
 
 public class MarkDaoImpl implements Dao<Mark, Integer> {
     private static final Logger logger = LogManager.getLogger(InsuranceDaoImpl.class);
-
-    private static final String SQL_SAVE_MARK = "INSERT INTO mark (description) VALUES (?)";
-    private static final String SQL_UPDATE_MARK_BY_ID = "UPDATE mark SET description = ? WHERE id = ?";
-    private static final String SQL_DELETE_MARK_BY_ID = "DELETE FROM mark WHERE id = ?";
-    private static final String SQL_FIND_MARK_BY_ID = "SELECT id, description  FROM mark WHERE id = ?";
-
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
 
     @Override
-    public Mark save(Mark mark) {
+    public Mark save(Mark mark) throws DaoException {
         logger.info("save method " + MarkDaoImpl.class);
-        Connection connection = connectionPool.requestConnection();
+        Connection connection = connectionPool.takeConnection();
         try {
             return saveMark(mark, connection);
         } catch (SQLException throwables) {
-            logger.error(throwables);
-            return null;
+            logger.error(Message.SAVE_MARK_ERROR, throwables);
+            throw new DaoException(Message.SAVE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
         }
     }
 
     @Override
-    public Boolean update(Mark mark) {
+    public Boolean update(Mark mark) throws DaoException {
         logger.info("update method " + MarkDaoImpl.class);
-//        Connection connection = connectionPool.takeConnection();
-        Connection connection = connectionPool.requestConnection();
+        Connection connection = connectionPool.takeConnection();
         try {
             return updateMarkById(mark, connection);
         } catch (SQLException throwables) {
-            logger.error(throwables);
-            return false;
+            logger.error(Message.UPDATE_MARK_ERROR, throwables);
+            throw new DaoException(Message.UPDATE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
         }
     }
 
     @Override
-    public Boolean delete(Mark mark) {
+    public Boolean delete(Mark mark) throws DaoException {
         logger.info("delete method " + MarkDaoImpl.class);
-//        Connection connection = connectionPool.takeConnection();
-        Connection connection = connectionPool.requestConnection();
+        Connection connection = connectionPool.takeConnection();
         try {
             return deleteMarkById(mark.getId(), connection);
         } catch (SQLException throwables) {
-            logger.error(throwables);
-            return false;
+            logger.error(Message.DELETE_MARK_ERROR, throwables);
+            throw new DaoException(Message.DELETE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
         }
@@ -77,65 +69,72 @@ public class MarkDaoImpl implements Dao<Mark, Integer> {
     }
 
     @Override
-    public Mark findById(Integer id) {
-//        Connection connection = connectionPool.takeConnection();
-        Connection connection = connectionPool.requestConnection();
-        Mark mark = null;
+    public Mark findById(Integer id) throws DaoException {
+        Connection connection = connectionPool.takeConnection();
+        Mark mark;
         try {
             mark = findMarkById(id, connection);
+            if (mark != null) {
+                return mark;
+            }
+            logger.error(Message.FIND_ALL_MARKS_ERROR);
+            throw new DaoException(Message.FIND_ALL_MARKS_ERROR);
         } catch (SQLException throwables) {
-            logger.error(throwables);
+            logger.error(Message.FIND_ALL_MARKS_ERROR, throwables);
+            throw new DaoException(Message.FIND_ALL_MARKS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
         }
-        return mark;
-
     }
 
     public Mark saveMark(Mark mark, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SQL_SAVE_MARK, new String[] {"id"});
-        statement.setString(1, mark.getDescription());
-        statement.executeUpdate();
-        ResultSet resultSet = statement.getGeneratedKeys();
-        resultSet.next();
-        Integer id = resultSet.getInt(1);
-        mark.setId(id);
-        statement.close();
+        ResultSet resultSet;
+        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_MARK, new String[]{"id"})) {
+            statement.setString(1, mark.getDescription());
+            statement.executeUpdate();
+            resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            Integer id = resultSet.getInt(1);
+            mark.setId(id);
+        }
         resultSet.close();
         return mark;
     }
 
-    private Boolean updateMarkById(Mark mark, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_MARK_BY_ID);
-        statement.setString(1, mark.getDescription());
-        statement.setInt(2, mark.getId());
-        Boolean result = Objects.equals(statement.executeUpdate(), 1);
-        statement.close();
+    public Boolean updateMarkById(Mark mark, Connection connection) throws SQLException {
+        Boolean result;
+        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_UPDATE_MARK_BY_ID)) {
+            statement.setString(1, mark.getDescription());
+            statement.setInt(2, mark.getId());
+            result = Objects.equals(statement.executeUpdate(), 1);
+        }
         return result;
     }
 
     private Boolean deleteMarkById(Integer id, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SQL_DELETE_MARK_BY_ID);
-        statement.setInt(1, id);
-        Boolean result = Objects.equals(statement.executeUpdate(), 1);
-        statement.close();
+        Boolean result;
+        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_DELETE_MARK_BY_ID)) {
+            statement.setInt(1, id);
+            result = Objects.equals(statement.executeUpdate(), 1);
+        }
         return result;
     }
 
     private Mark findMarkById(Integer id, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SQL_FIND_MARK_BY_ID);
-        statement.setInt(1, id);
-        ResultSet resultSet = statement.executeQuery();
+        ResultSet resultSet;
         Mark mark;
-        if (resultSet.next()) {
-            mark = new Mark(
-                    resultSet.getInt(1),
-                    resultSet.getString(2)
-            );
-        } else {
-            mark = null;
+        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_MARK_BY_ID)) {
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                mark = new Mark(
+                        resultSet.getInt(1),
+                        resultSet.getString(2)
+                );
+            } else {
+                mark = null;
+            }
         }
-        statement.close();
         resultSet.close();
         return mark;
     }

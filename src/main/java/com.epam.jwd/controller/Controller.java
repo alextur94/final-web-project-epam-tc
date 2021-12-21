@@ -66,7 +66,7 @@ public class Controller extends HttpServlet {
         if (response.isRedirect()) {
             resp.sendRedirect(response.getPath());
         } else {
-            RequestDispatcher dispatcher = req.getRequestDispatcher(response.getPath());
+            final RequestDispatcher dispatcher = req.getRequestDispatcher(response.getPath());
             dispatcher.forward(req, resp);
         }
     }

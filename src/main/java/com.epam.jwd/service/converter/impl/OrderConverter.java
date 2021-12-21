@@ -3,6 +3,7 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.order.Order;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.OrderDto;
+import com.epam.jwd.service.exception.ServiceException;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,7 +23,6 @@ public class OrderConverter implements Converter<Order, OrderDto, Integer> {
                 .withRefusal(orderDto.getRefusal())
                 .withPledge(orderDto.getPledge())
                 .withCurrentSum(orderDto.getCurrentSum())
-                .withRealSum(orderDto.getRealSum())
                 .withStatusMark(orderDto.getStatusMark())
                 .withUserId(orderDto.getUserId())
                 .withCarId(orderDto.getCarId())
@@ -32,7 +32,7 @@ public class OrderConverter implements Converter<Order, OrderDto, Integer> {
     }
 
     @Override
-    public OrderDto convert(Order order) {
+    public OrderDto convert(Order order) throws ServiceException {
         return new OrderDto.Builder()
                 .withId(order.getId())
                 .withStatus(order.getStatus())
@@ -45,7 +45,6 @@ public class OrderConverter implements Converter<Order, OrderDto, Integer> {
                 .withRefusal(order.getRefusal())
                 .withPledge(order.getPledge())
                 .withCurrentSum(order.getCurrentSum())
-                .withRealSum(order.getRealSum())
                 .withStatusMark(order.getStatusMark())
                 .withUserId(order.getUserId())
                 .withCarId(order.getCarId())

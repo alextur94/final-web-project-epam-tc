@@ -3,6 +3,7 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.car.Car;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.CarDto;
+import com.epam.jwd.service.exception.ServiceException;
 
 public class CarConverter implements Converter<Car, CarDto, Integer> {
     @Override
@@ -24,7 +25,7 @@ public class CarConverter implements Converter<Car, CarDto, Integer> {
     }
 
     @Override
-    public CarDto convert(Car car) {
+    public CarDto convert(Car car) throws ServiceException {
         return new CarDto.Builder()
                 .withId(car.getId())
                 .withBrand(car.getBrand())
