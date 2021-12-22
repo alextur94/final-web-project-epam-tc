@@ -18,6 +18,11 @@ public class UserValidator implements Validator<UserDto, Integer> {
     private static final Integer PASSWORD_MIN_LENGTH = 5;
     private static final Integer PASSWORD_MAX_LENGTH = 25;
 
+    /**
+     * Checking that the user is there
+     *
+     * @param userDto
+     */
     @Override
     public void validate(UserDto userDto) throws ServiceException {
         if (Objects.isNull(userDto)) {
@@ -28,6 +33,11 @@ public class UserValidator implements Validator<UserDto, Integer> {
         validatePassword(userDto.getPassword());
     }
 
+    /**
+     * Checking the login that it is not less than the minimum length and not more than the maximum
+     *
+     * @param login
+     */
     public void validateLogin(String login) throws ServiceException {
         if (Objects.isNull(login)
                 || login.length() <= LOGIN_MIN_LENGTH
@@ -37,6 +47,11 @@ public class UserValidator implements Validator<UserDto, Integer> {
         }
     }
 
+    /**
+     * Password checking that it is not less than the minimum length and not more than the maximum
+     *
+     * @param password
+     */
     public void validatePassword(String password) throws ServiceException {
         if (Objects.isNull(password)
                 || password.length() < PASSWORD_MIN_LENGTH
@@ -45,6 +60,11 @@ public class UserValidator implements Validator<UserDto, Integer> {
         }
     }
 
+    /**
+     * Login check for uniqueness
+     *
+     * @param user
+     */
     public void validateLoginUnique(User user) throws ServiceException {
         if (!Objects.isNull(user)) {
             throw new ServiceException(ValidateException.USER_IS_NOT_UNIQUE);

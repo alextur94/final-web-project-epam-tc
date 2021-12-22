@@ -49,7 +49,7 @@ public enum CancelOrderAdminCommand implements Command {
         String refusal = request.getParameter(Constant.REFUSAL_PARAM);
         Integer orderId = Integer.parseInt(request.getParameter(Constant.ORDER_ID_PARAM));
         try {
-            orderService.cancelOrderAdmin(userId, orderId, refusal);
+            orderService.cancelOrderAdmin(orderId, refusal);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CANCEL_ORDER_ADMIN_MSS);
             return SUCCESS_RESPONSE;
         } catch (DaoException e) {

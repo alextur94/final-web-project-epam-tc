@@ -6,12 +6,14 @@ import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.OrderDaoImpl;
 import com.epam.jwd.dao.model.order.Order;
+import com.epam.jwd.service.converter.impl.OrderConverter;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.AccountServiceImpl;
 import com.epam.jwd.service.impl.CarServiceImpl;
 import com.epam.jwd.service.impl.UserServiceImpl;
+import com.epam.jwd.service.validator.impl.OrderValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,6 +52,8 @@ public enum CancelOrderCommand implements Command {
     private final OrderDaoImpl orderDao = new OrderDaoImpl();
     private final AccountServiceImpl accountService = new AccountServiceImpl();
     private final UserServiceImpl userService = new UserServiceImpl();
+    private final OrderValidator orderValidator = new OrderValidator();
+    private final OrderConverter orderConverter = new OrderConverter();
 
     @Override
     public CommandResponse execute(CommandRequest request) {
@@ -60,6 +64,7 @@ public enum CancelOrderCommand implements Command {
             Integer accountId = userService.getById(userId).getAccountId();
             AccountDto accountDto = accountService.getById(accountId);
             Order order = orderDao.findById(orderId);
+            orderValidator.validate(orderConverter.convert(order));
             CarDto carDto = carService.getById(order.getCarId());
             accountService.cancelOrder(accountDto, carDto, order);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_APPLICATION_CANCELED_MSS);

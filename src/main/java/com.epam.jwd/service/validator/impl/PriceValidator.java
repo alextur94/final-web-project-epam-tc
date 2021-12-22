@@ -13,6 +13,11 @@ public class PriceValidator implements Validator<PriceDto, Integer> {
     private static final Logger logger = LogManager.getLogger(PriceValidator.class);
     private static final Double PRICE_MIN = 0.00;
 
+    /**
+     * Checking that the price list is not empty
+     *
+     * @param priceDto
+     */
     @Override
     public void validate(PriceDto priceDto) throws ServiceException {
         if (Objects.isNull(priceDto)) {
@@ -22,10 +27,20 @@ public class PriceValidator implements Validator<PriceDto, Integer> {
         validatePriceDay(priceDto.getPricePerDay());
     }
 
+    /**
+     * Checking that the price cannot be negative
+     *
+     * @param pricePerDay
+     */
     private void validatePriceDay(Double pricePerDay) throws ServiceException {
         priceNotBeNegative(pricePerDay);
     }
 
+    /**
+     * Checking that the price cannot be negative
+     *
+     * @param price
+     */
     private void priceNotBeNegative(Double price) throws ServiceException {
         if (price < PRICE_MIN) {
             logger.info(ValidateException.PRICE);

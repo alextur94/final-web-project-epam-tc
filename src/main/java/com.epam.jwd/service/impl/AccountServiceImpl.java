@@ -31,6 +31,12 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         return null;
     }
 
+    /**
+     * Update entity Account
+     *
+     * @param accountDto
+     * @return
+     */
     @Override
     public Boolean update(AccountDto accountDto) throws DaoException {
         logger.info("update method " + AccountServiceImpl.class);
@@ -43,6 +49,12 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         return null;
     }
 
+    /**
+     * Get by id AccountDao
+     *
+     * @param id
+     * @return AccountDao
+     */
     @Override
     public AccountDto getById(Integer id) throws DaoException, ServiceException {
         logger.info("get by id method " + AccountServiceImpl.class);
@@ -50,6 +62,11 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         return accountConverter.convert(account);
     }
 
+    /**
+     * Get all records
+     *
+     * @return List<AccountDao></>
+     */
     @Override
     public List<AccountDto> getAll() throws ServiceException, DaoException {
         logger.info("get all method " + AccountServiceImpl.class);
@@ -60,6 +77,12 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         return accountDtos;
     }
 
+    /**
+     * Transfer money from user account to admin account
+     *
+     * @param user and order entity
+     * @return the boolean
+     */
     public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException {
         logger.info("transfer from user to admin method " + AccountServiceImpl.class);
         Double accountBalance = user.getBalance();
@@ -77,6 +100,12 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         return false;
     }
 
+    /**
+     * User cancellation of an order
+     *
+     * @param accountDto, carDto and order
+     * @return the boolean
+     */
     public Boolean cancelOrder(AccountDto accountDto, CarDto carDto, Order order) throws ServiceException, DaoException {
         logger.info("cancel order method " + AccountServiceImpl.class);
         Byte orderStatus = order.getStatus();
@@ -101,7 +130,13 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
         }
     }
 
-    public Boolean checkNotNull(String param){
+    /**
+     * Checks a parameter for null
+     *
+     * @param param string
+     * @return the boolean
+     */
+    public Boolean checkNotNull(String param) {
         return param.isEmpty();
     }
 }

@@ -58,7 +58,7 @@ public enum ShowAdminCloseOrdersPage implements Command {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             List<CarDto> listCar = carService.getAll();
             List<OrderDto> listOrderClose = orderService.getByStatus((int)Status.CLOSE.getId());
-            Map<Integer, AccountDto> personMap = orderService.testList((int) Status.CLOSE.getId());
+            Map<Integer, AccountDto> personMap = orderService.unionUserAndAccount((int) Status.CLOSE.getId());
             session.setAttribute("orderList", listOrderClose);
             session.setAttribute("carList", listCar);
             session.setAttribute("personMap", personMap);

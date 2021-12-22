@@ -33,6 +33,12 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
         return null;
     }
 
+    /**
+     * Convert and get entity by id
+     *
+     * @param id
+     * @return entity insuranceDto
+     */
     @Override
     public InsuranceDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id " + InsuranceServiceImpl.class);
@@ -44,6 +50,12 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
         return null;
     }
 
+    /**
+     * Receiving the insurance payment amount
+     *
+     * @param type insurance
+     * @return amount
+     */
     protected Double getAmountInsurance(Byte type) {
         logger.info("get amount insurance method " + InsuranceServiceImpl.class);
         Double amount = 0.00;
@@ -64,6 +76,11 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
         return amount;
     }
 
+    /**
+     * Creation of insurance number
+     *
+     * @return insurance number
+     */
     protected String getGenerateNumber() {
         logger.info("generate number method " + InsuranceServiceImpl.class);
         Random random = new Random();
@@ -75,11 +92,22 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
         return stringBuffer.toString().toUpperCase();
     }
 
+    /**
+     * Company name
+     *
+     * @return company name
+     */
     protected String getCompany() {
         logger.info("get company method " + InsuranceServiceImpl.class);
         return "comGovInsurance";
     }
 
+    /**
+     * Receiving the amount for payment based on the type of insurance
+     *
+     * @param type insurance
+     * @return amount
+     */
     protected Double getCostInsurance(Byte type) {
         logger.info("get cost method " + InsuranceServiceImpl.class);
         Double cost = 0.00;

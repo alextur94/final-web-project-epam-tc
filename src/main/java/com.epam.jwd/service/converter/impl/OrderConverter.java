@@ -53,6 +53,13 @@ public class OrderConverter implements Converter<Order, OrderDto, Integer> {
                 .build();
     }
 
+
+    /**
+     * Conversion of order data. Converting from milliseconds to year, month, day, hour and minute format
+     *
+     * @param milliSeconds
+     * @return the string
+     */
     public String convertMsToFormattedDate(long milliSeconds) {
         if (milliSeconds != 0) {
             String dateFormat = "dd-MM-yyyy HH:mm";
@@ -64,6 +71,12 @@ public class OrderConverter implements Converter<Order, OrderDto, Integer> {
         return "";
     }
 
+    /**
+     * Conversion of order data. Conversion from minutes to string format, days, hours, minutes
+     *
+     * @param time
+     * @return the string
+     */
     public String convertMinToTime(int time) {
         int day = (int) Math.ceil(time / 1440);
         int hour = (int) Math.ceil((time - (day * 1440)) / 60);

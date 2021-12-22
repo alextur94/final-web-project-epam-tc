@@ -12,6 +12,12 @@ import java.util.Objects;
 public class OrderValidator implements Validator<OrderDto, Integer> {
     private static final Logger logger = LogManager.getLogger(OrderValidator.class);
     private static final Double MIN_NUMBER = 0.00;
+
+    /**
+     * Checking that there is an order
+     *
+     * @param orderDto
+     */
     @Override
     public void validate(OrderDto orderDto) throws ServiceException {
         if (Objects.isNull(orderDto)) {
@@ -22,6 +28,13 @@ public class OrderValidator implements Validator<OrderDto, Integer> {
         checkNegative(orderDto.getPledge());
     }
 
+
+    /**
+     * Checking that the deposit is not negative
+     *
+     * @param pledge
+     * @return the boolean
+     */
     private Boolean checkNegative(Double pledge) throws ServiceException {
         if (pledge < MIN_NUMBER) {
             throw new ServiceException(ValidateException.ORDER + OrderValidator.class);
@@ -29,6 +42,12 @@ public class OrderValidator implements Validator<OrderDto, Integer> {
         return true;
     }
 
+    /**
+     * Checking that the deposit is not negative
+     *
+     * @param endLevel
+     * @return the boolean
+     */
     private Boolean checkNullOrNegative(Integer endLevel) throws ServiceException {
         if (endLevel == null || endLevel < 0) {
             throw new ServiceException(ValidateException.ORDER + OrderValidator.class);

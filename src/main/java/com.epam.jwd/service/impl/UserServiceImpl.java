@@ -30,6 +30,13 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
     private final UserValidator validatorUser = new UserValidator();
     private final AccountValidator validatorAccount = new AccountValidator();
 
+
+    /**
+     * Checking for the validity of the login, converting it and sending it for saving
+     *
+     * @param userDto entity
+     * @return userdto
+     */
     @Override
     public UserDto create(UserDto userDto) throws ServiceException, DaoException {
         logger.info("save method " + UserServiceImpl.class);
@@ -40,6 +47,12 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return converterUser.convert(daoUser.save(user));
     }
 
+    /**
+     * Converting and sending for renewal
+     *
+     * @param userDto
+     * @return the boolean
+     */
     @Override
     public Boolean update(UserDto userDto) throws ServiceException, DaoException {
         logger.info("update method " + UserServiceImpl.class);
@@ -52,6 +65,12 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return false;
     }
 
+    /**
+     * Converting and getting an entity by id
+     *
+     * @param id
+     * @return userDto
+     */
     @Override
     public UserDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id method " + UserServiceImpl.class);
@@ -59,6 +78,11 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return converterUser.convert(user);
     }
 
+    /**
+     * Converting and getting all entities
+     *
+     * @return list userDto
+     */
     @Override
     public List<UserDto> getAll() throws DaoException, ServiceException {
         logger.info("get all method " + UserServiceImpl.class);
@@ -69,6 +93,12 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return userDtos;
     }
 
+    /**
+     * Converting and getting a user by login
+     *
+     * @param login
+     * @return userDto
+     */
     public UserDto getByLogin(String login) throws ServiceException, DaoException {
         logger.info("get login method " + UserServiceImpl.class);
         validatorUser.validateLogin(login);
@@ -79,6 +109,12 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         return converterUser.convert(user);
     }
 
+    /**
+     * Saving the user. Check for uniqueness of login,
+     * check for uniqueness of mail, convert and send data for saving
+     *
+     * @param userDto, accountDto
+     */
     public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException {
         logger.info("create method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
@@ -92,19 +128,22 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         daoUser.savePerson(user, account);
     }
 
-    public Boolean updatePerson(UserDto userDto, AccountDto accountDto) throws DaoException {
-        logger.info("update method " + UserServiceImpl.class);
-        User user = converterUser.convert(userDto);
-        Account account = converterAccount.convert(accountDto);
-        daoUser.updatePerson(user, account);
-        return true;
-    }
-
+    /**
+     * Checking for the correctness of the login and password
+     *
+     * @param login, password
+     * @return userDto
+     */
     public UserDto checkLoginPassword(String login, String password) throws DaoException, ServiceException {
         User user = daoUser.checkLoginPassword(login, password);
         return converterUser.convert(user);
     }
 
+    /**
+     * Password encryption and attempt to change it
+     *
+     * @param userId, password
+     */
     public void changePassword(Integer userId, String password) throws DaoException {
         User user = daoUser.findById(userId);
         user.setPassword(daoUser.criptPassword(password));

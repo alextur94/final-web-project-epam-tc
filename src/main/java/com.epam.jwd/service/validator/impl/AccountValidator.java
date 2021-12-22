@@ -13,15 +13,25 @@ import java.util.Objects;
 public class AccountValidator implements Validator<AccountDto, Integer> {
     private static final Logger logger = LogManager.getLogger(AccountValidator.class);
 
+    /**
+     * Checking that the user is not empty
+     *
+     * @param accountDto
+     */
     @Override
     public void validate(AccountDto accountDto) throws ServiceException {
-        if (Objects.isNull(accountDto)){
+        if (Objects.isNull(accountDto)) {
             logger.info(ValidateException.ACCOUNT_IS_EMPTY + AccountValidator.class);
             throw new ServiceException(ValidateException.ACCOUNT_IS_EMPTY);
         }
         validateEmail(accountDto.getEmail());
     }
 
+    /**
+     * Checking that mail is not missing
+     *
+     * @param email
+     */
     private void validateEmail(String email) throws ServiceException {
         if (Objects.isNull(email)) {
             logger.info(ValidateException.EMAIL + AccountValidator.class);
@@ -29,6 +39,11 @@ public class AccountValidator implements Validator<AccountDto, Integer> {
         }
     }
 
+    /**
+     * Check for uniqueness of email
+     *
+     * @param account
+     */
     public void validateEmailUnique(Account account) throws ServiceException {
         if (!Objects.isNull(account)) {
             throw new ServiceException(ValidateException.EMAIL_IS_NOT_UNIQUE);

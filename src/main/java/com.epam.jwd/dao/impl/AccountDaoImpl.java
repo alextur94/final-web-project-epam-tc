@@ -103,25 +103,6 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
-    public Account findByPhone(String phone) throws DaoException {
-        logger.info("find by phone method " + AccountDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
-        Account account;
-        try {
-            account = findAccountByPhone(phone, connection);
-            if (account != null) {
-                return account;
-            }
-            logger.error(Message.FIND_BY_PHONE_ERROR);
-            throw new DaoException(Message.FIND_BY_PHONE_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_PHONE_ERROR, throwables);
-            throw new DaoException(Message.FIND_BY_PHONE_ERROR);
-        } finally {
-            connectionPool.returnConnection(connection);
-        }
-    }
-
     public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException {
         logger.info("save transaction account to admin method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -196,14 +177,6 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         statement.setDouble(9, account.getBalance());
         statement.setInt(10, account.getStatus());
         statement.setInt(11, account.getId());
-        Boolean result = Objects.equals(statement.executeUpdate(), 1);
-        statement.close();
-        return result;
-    }
-
-    public Boolean deleteAccountById(Integer id, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_DELETE_ACCOUNT_BY_ID);
-        statement.setInt(1, id);
         Boolean result = Objects.equals(statement.executeUpdate(), 1);
         statement.close();
         return result;

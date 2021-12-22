@@ -22,6 +22,12 @@ public class MarkServiceImpl implements Service<MarkDto, Integer> {
         return null;
     }
 
+    /**
+     * Convert and submitting an entity to save
+     *
+     * @param markDto
+     * @return the boolean
+     */
     @Override
     public Boolean update(MarkDto markDto) throws ServiceException, DaoException {
         logger.info("update method " + MarkServiceImpl.class);
@@ -35,6 +41,12 @@ public class MarkServiceImpl implements Service<MarkDto, Integer> {
         return null;
     }
 
+    /**
+     * Convert and return entity
+     *
+     * @param id
+     * @return MarkDao entity
+     */
     @Override
     public MarkDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id method " + MarkServiceImpl.class);

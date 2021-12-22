@@ -58,7 +58,7 @@ public enum ShowAdminReadyOrdersPage implements Command {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             List<CarDto> listCar = carService.getAll();
             List<OrderDto> listOrderReady = orderService.getByStatus((int) Status.READY.getId());
-            Map<Integer, AccountDto> personMap = orderService.testList((int) Status.READY.getId());
+            Map<Integer, AccountDto> personMap = orderService.unionUserAndAccount((int) Status.READY.getId());
             session.setAttribute("orderList", listOrderReady);
             session.setAttribute("personMap", personMap);
             session.setAttribute("carList", listCar);

@@ -21,6 +21,12 @@ public class PriceServiceImpl implements Service<PriceDto, Integer> {
     private final PriceConverter converter = new PriceConverter();
     private final PriceValidator validator = new PriceValidator();
 
+    /**
+     * Validate, convert and create new entity
+     *
+     * @param value
+     * @return CarDto
+     */
     @Override
     public PriceDto create(PriceDto value) throws ServiceException, DaoException {
         logger.info("create method " + PriceServiceImpl.class);
@@ -30,6 +36,12 @@ public class PriceServiceImpl implements Service<PriceDto, Integer> {
         return converter.convert(priceDao.save(price));
     }
 
+    /**
+     * Convert and submitting an entity to save
+     *
+     * @param priceDto
+     * @return the boolean
+     */
     @Override
     public Boolean update(PriceDto priceDto) throws ServiceException, DaoException {
         logger.info("update method " + PriceServiceImpl.class);
@@ -41,17 +53,26 @@ public class PriceServiceImpl implements Service<PriceDto, Integer> {
 
     @Override
     public Boolean delete(PriceDto priceDto) throws ServiceException, DaoException {
-        logger.info("delete method " + PriceServiceImpl.class);
-        priceDao.delete(converter.convert(priceDto));
-        return true;
+        return null;
     }
 
+    /**
+     * Get by id PriceDto
+     *
+     * @param id
+     * @return PriceDto
+     */
     @Override
     public PriceDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id method " + PriceServiceImpl.class);
         return converter.convert(priceDao.findById(id));
     }
 
+    /**
+     * Get all records
+     *
+     * @return List<PriceDto></>
+     */
     @Override
     public List<PriceDto> getAll() throws DaoException, ServiceException {
         logger.info("get all method " + PriceServiceImpl.class);

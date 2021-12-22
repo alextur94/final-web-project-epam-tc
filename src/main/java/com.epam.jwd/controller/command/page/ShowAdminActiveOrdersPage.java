@@ -58,11 +58,11 @@ public enum ShowAdminActiveOrdersPage implements Command {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             List<CarDto> listCar = carService.getAll();
             List<OrderDto> listOrderActive = orderService.getByStatus((int)Status.ACTIVE.getId());
-            Map<Integer, AccountDto> personMap = orderService.testList((int) Status.ACTIVE.getId());
+            Map<Integer, AccountDto> personMap = orderService.unionUserAndAccount((int) Status.ACTIVE.getId());
             session.setAttribute("orderList", listOrderActive);
             session.setAttribute("carList", listCar);
             session.setAttribute("personMap", personMap);
-
+            session.setAttribute("countRow", countRow);
             return SUCCESS_RESPONSE;
         } catch (DaoException e) {
             logger.error(e);

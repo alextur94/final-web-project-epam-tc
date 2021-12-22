@@ -15,7 +15,6 @@ import com.epam.jwd.service.exception.ServiceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class OrderServiceImpl implements Service<OrderDto, Integer> {
@@ -53,12 +52,23 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return null;
     }
 
+    /**
+     * Convert and return entity
+     *
+     * @param id
+     * @return OrderDto entity
+     */
     @Override
     public OrderDto getById(Integer id) throws ServiceException, DaoException {
         logger.info("get by id method " + OrderServiceImpl.class);
         return orderConverter.convert(orderDao.findById(id));
     }
 
+    /**
+     * Retrieving all records
+     *
+     * @return List OrderDto
+     */
     @Override
     public List<OrderDto> getAll() throws ServiceException, DaoException {
         logger.info("get all method " + OrderServiceImpl.class);
@@ -69,7 +79,15 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return orderDtoList;
     }
 
-    public Boolean cancelOrderAdmin(Integer userId, Integer orderId, String refusal) throws ServiceException, DaoException {
+    /**
+     * Cancellation of the reservation by the administrator of the order.
+     * Writing new data to the order. Returning money to the user.
+     * Sending data for saving
+     *
+     * @param orderId, refusal
+     * @return the boolean
+     */
+    public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException, DaoException {
         Order order = orderDao.findById(orderId);
         UserDto userDto = userService.getById(order.getUserId());
         AccountDto accountDto = accountService.getById(userDto.getAccountId());
@@ -90,6 +108,13 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return true;
     }
 
+    /**
+     * Creation of a new order. Creation of new insurance. Creation of a new damage mark.
+     * Calculating the rental price. Sending data to save
+     *
+     * @param carDto, userId, count days rent, type insurance
+     * @return the boolean
+     */
     public Boolean createOrder(CarDto carDto, Integer userId, Integer day, Byte type) throws ServiceException, DaoException {
         logger.info("create method " + OrderServiceImpl.class);
         Mark mark = new Mark();
@@ -113,6 +138,12 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return orderDao.saveOrderMarkInsurance(mark, insurance, order, car);
     }
 
+    /**
+     * A mark about the start of the car rental. Receiving new data for the order.
+     *
+     * @param orderId
+     * @return the boolean
+     */
     public Boolean beginRent(Integer orderId) throws ServiceException, DaoException {
         logger.info("begin rent method " + OrderServiceImpl.class);
         Order order = orderDao.findById(orderId);
@@ -124,6 +155,15 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return true;
     }
 
+    /**
+     * Trip emulator. Getting the final data for the order. Calculation of the trip amount.
+     * Calculation of the actual duration of the trip.
+     * Transferring money between the administrator and the user.
+     * Updating data in entities and closing a trip.
+     *
+     * @param orderId, amount damage, mark about damage
+     * @return the boolean
+     */
     public Boolean endRent(Integer orderId, Double amountDamage, String markDesc) throws DaoException, ServiceException {
         logger.info("end rent method " + OrderServiceImpl.class);
         Order order = orderDao.findById(orderId);
@@ -162,15 +202,12 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return true;
     }
 
-    public List<OrderDto> getByUserId(Integer userId) throws DaoException, ServiceException {
-        logger.info("get by user id method " + OrderServiceImpl.class);
-        List<OrderDto> orderDtoList = new ArrayList<>();
-        for (Order order : orderDao.findByUserId(userId)) {
-            orderDtoList.add(orderConverter.convert(order));
-        }
-        return orderDtoList;
-    }
-
+    /**
+     * get list by status
+     *
+     * @param status order
+     * @return list orderDto
+     */
     public List<OrderDto> getByStatus(Integer status) throws DaoException, ServiceException {
         logger.info("get list by status method " + OrderServiceImpl.class);
         List<OrderDto> orderDtoList = new ArrayList<>();
@@ -180,6 +217,12 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return orderDtoList;
     }
 
+    /**
+     * Receiving orders for a user from the database for a certain amount
+     *
+     * @param userId
+     * @return list orderDto
+     */
     public List<OrderDto> findCountOrders(Integer start, Integer count, Integer userId) throws ServiceException, DaoException {
         logger.info("Find count orders by status method " + OrderServiceImpl.class);
         List<Order> listOrder = orderDao.findCountOrdersInBase(start, count, userId);
@@ -190,23 +233,45 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return listOrderDto;
     }
 
+    /**
+     * Getting the number of orders for a specific order status
+     *
+     * @param status
+     * @return the integer
+     */
     public Integer getCountRowByStatus(Integer status) throws DaoException {
         logger.info("get count row by status method " + OrderServiceImpl.class);
         return orderDao.findByStatus(status).size();
     }
 
-    public Boolean approveOrder(Integer orderId) throws DaoException {
+    /**
+     * Approval of the application for the possibility of renting
+     *
+     * @param orderId
+     */
+    public void approveOrder(Integer orderId) throws DaoException {
         logger.info("approve order method " + OrderServiceImpl.class);
         Order order = orderDao.findById(orderId);
         order.setStatus(Status.READY.getId());
-        return orderDao.update(order);
+        orderDao.update(order);
     }
 
-    public Boolean onlyOne(Integer userId) throws DaoException {
+    /**
+     * Checking that only one order is active for the user
+     *
+     * @param userId
+     */
+    public void onlyOne(Integer userId) throws DaoException {
         logger.info("only one method " + OrderServiceImpl.class);
-        return orderDao.OnlyOne(userId);
+        orderDao.OnlyOne(userId);
     }
 
+    /**
+     * Choosing the cost of a deposit for a car, taking into account its class
+     *
+     * @param level
+     * @return the double
+     */
     private Double getPledge(Byte level) {
         logger.info("get pledge method " + OrderServiceImpl.class);
         Double pledge = 0.00;
@@ -231,23 +296,13 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return pledge;
     }
 
-//    public String getTimeString(long msStart, long msEnd) {
-//        logger.info("start rent method " + OrderServiceImpl.class);
-//        long ms = msEnd - msStart;
-//        int msInMin = (int) ms / 60000;
-//        int days = (int) Math.ceil(msInMin / 1440);
-//        int hour = (int) Math.ceil((msInMin - days * 1440) / 60);
-//        int min = (int) Math.ceil(msInMin - ((days * 1440) + (hour * 60)));
-//        return (days + " : " + hour + " : " + min);
-//    }
-//
-//    public String getStartRentDataTime(long msStart) {
-//        logger.info("start rent method " + OrderServiceImpl.class);
-//        SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        return formater.format(msStart);
-//    }
-
-    public Map<Integer, AccountDto> testList(Integer status) throws DaoException, ServiceException {
+    /**
+     * We receive all orders for a certain status and put two entities in the map
+     *
+     * @param status
+     * @return mapPerson
+     */
+    public Map<Integer, AccountDto> unionUserAndAccount(Integer status) throws DaoException, ServiceException {
         List<Order> orders = orderDao.findByStatus(status);
         List<UserDto> listUser = new ArrayList<>();
         for (Order order : orders) {
@@ -260,11 +315,23 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return mapPerson;
     }
 
+    /**
+     * Obtaining a preliminary amount from the accounting of available data
+     *
+     * @param pledge, insurance amount
+     * @return the double
+     */
     private Double getCurrentSum(Double pledge, Double insurance, Integer day, Double sumDay) {
         logger.info("get sum method " + OrderServiceImpl.class);
         return pledge + insurance + day * sumDay;
     }
 
+    /**
+     * Converting from milliseconds to minutes
+     *
+     * @param timeMs
+     * @return the integer
+     */
     private Integer convertMsMin(Long timeMs) {
         return (int) (timeMs / COUNT_MS_IN_MIN);
     }
@@ -273,6 +340,12 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return (int) (Math.random() * startLevel + (startLevel * 0.5));
     }
 
+    /**
+     * Getting the difference in the amount of gasoline
+     *
+     * @param startFuel and endFuel
+     * @return the double
+     */
     private Double fuelDifference(int startFuel, int endFuel) {
         return (endFuel - startFuel) * LiterCostFuel;
     }
@@ -282,6 +355,12 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return (long) ((Math.random() * ms) + (ms * 0.5));
     }
 
+    /**
+     * Receiving the difference in money if there is damage to the car, taking into account insurance
+     *
+     * @param damage, insurance
+     * @return the double
+     */
     private Double amountMoreInsurance(Double damage, Double insurance) {
         if (damage > insurance) {
             return insurance - damage;
@@ -289,18 +368,32 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         return 0.00;
     }
 
+    /**
+     * Calculating the real trip amount
+     *
+     * @param realTime, priceDto
+     * @return the double
+     */
     private Double realSum(Integer realTime, PriceDto priceDto) {
         int days = (int) Math.ceil(realTime / 1440);
         int hour = (int) Math.ceil((realTime - days * 1440) / 60);
         if (hour > 6) {
             return (days + 1) * priceDto.getPricePerDay();
         } else {
-            Double amountHours = hour * priceDto.getPricePerHour();
             Double amountDays = days * priceDto.getPricePerDay();
-            return amountDays + amountDays;
+            Double amountHours = hour * priceDto.getPricePerHour();
+            return amountDays + amountHours;
         }
     }
 
+    /**
+     * Full calculation of the cost of the trip,
+     * taking into account all parameters (the amount for the trip,
+     * the difference in the amount for fuel, the amount after payment of insurance)
+     *
+     * @param timeSum, fuelSum, insuranceSum, currentSum
+     * @return the double
+     */
     private Double finishAmount(Double timeSum, Double fuelSum, Double insuranceSum, Double currentSum) {
         return (currentSum + fuelSum) - (timeSum + insuranceSum);
     }
