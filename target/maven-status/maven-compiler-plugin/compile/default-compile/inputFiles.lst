@@ -1,100 +1,100 @@
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\price\Price.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAutoCardPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\InsuranceConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\sql\SqlQueries.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\exception\DaoException.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Level.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\ChangePasswordCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\EndRentCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowLoginPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\OrderDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\InsuranceDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\filter\AuthFilter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\CarServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\AbstractDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\UserServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\api\Validator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\LocaleCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\NewCarCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminCarsPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminActiveOrdersPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\MarkDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\CarDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\api\Converter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Body.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\SaveAccountCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\MarkConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\account\Role.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowUserOrdersPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowOrderPanelPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\PriceDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\sql\InsetSql.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\RegistrationCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\InsuranceServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\OrderServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowUserPanelPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\Commands.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\DataSourceFactory.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\AccountDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\mark\Mark.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\PayCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\PriceServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowRegistrationPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\PriceConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\CarValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\exception\ServiceException.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\PriceDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\InsuranceValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\UserDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\PriceValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\insurance\Type.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\ProxyConnection.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\order\Order.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\user\User.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\MarkValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\OrderValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\InsuranceDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\ApproveCarCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\ConnectionPool.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\Entity.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminOrdersPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\exception\ValidateException.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\api\CommandResponse.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\api\Command.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\LoginCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\dto\OrderDto.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\account\Account.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\api\Service.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\CancelOrderCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\AccountConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\AccountDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminReadyOrdersPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowMainPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\DataSourceFactory.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\CarConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\account\AccountStatus.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\СhangeBalanceCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\BrginRentCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\UserDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\AccountServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\NewOrderCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\api\Dao.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\LogoutCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\Controller.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\insurance\Insurance.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\impl\ConnectionPoolImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\cript\Encoder.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Car.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\api\Message.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\Constant.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\CancelOrderAdminCommand.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\UserConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\CarDaoImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\OrderConverter.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\model\order\Status.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\UserValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\impl\MarkServiceImpl.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowCarsPage.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\AccountValidator.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\controller\api\CommandRequest.java
-D:\Java\projects\rental_cars\src\main\java\com.epam.jwd\dao\impl\MarkDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\СhangeBalanceCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\AccountValidator.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\DataSourceFactory.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminActiveOrdersPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\CancelOrderAdminCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\OrderServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\MarkDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\api\Message.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\api\Service.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\Controller.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\AccountServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\InsuranceServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminReadyOrdersPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\RegistrationCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\AccountDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\ProxyConnection.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\UserDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\DataSourceFactory.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\api\Converter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\PriceServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\user\User.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\api\CommandRequest.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\Constant.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\PayCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\NewCarCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminPanelPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\NewOrderCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\AbstractDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\cript\Encoder.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\UserConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\filter\AuthFilter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\EndRentCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\mark\Mark.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowCarsPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\OrderValidator.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\LogoutCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\sql\SqlQueries.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\ConnectionPool.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Car.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\account\AccountStatus.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\InsuranceDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowLoginPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\UserDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\LocaleCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\account\Account.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\Commands.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\price\Price.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\exception\ServiceException.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\OrderConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\MarkDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Body.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\UserValidator.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\PriceDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\OrderDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\OrderDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowUserOrdersPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\exception\DaoException.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\AccountConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\CarConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\MarkServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\api\CommandResponse.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowOrderPanelPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\account\Role.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\ErrorCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\ChangePasswordCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\SaveAccountCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\MarkConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminCloseOrdersPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\AccountDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\CarDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\validator\api\Validator.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\connectionpool\impl\ConnectionPoolImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\dto\PriceDto.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\CancelOrderCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\car\Level.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\ApproveCarCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\api\Command.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\CarServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAutoCardPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminOrdersPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\sql\InsetSql.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\order\Status.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\impl\UserServiceImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowMainPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowAdminNewCarPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\InsuranceConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\exception\ValidateException.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\InsuranceDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\validator\impl\PriceValidator.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\order\Order.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\impl\CarDaoImpl.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowRegistrationPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\LoginCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\insurance\Insurance.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\Entity.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\model\insurance\Type.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\BrginRentCommand.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\controller\command\page\ShowUserPanelPage.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\service\converter\impl\PriceConverter.java
+D:\rental cars\rental_cars\src\main\java\com.epam.jwd\dao\api\Dao.java

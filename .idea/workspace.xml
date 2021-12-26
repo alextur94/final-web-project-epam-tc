@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="rental_cars:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5ad96a49-8979-4021-bf9d-3c1872a059d9" name="Default Changelist" comment="final project">
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mvc_javax_mvc_api_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_27.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/rental_cars.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0f80fdf-4649-4d8f-9ab0-b04d79cdff87.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0f80fdf-4649-4d8f-9ab0-b04d79cdff87/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_appengine_appengine_api_1_0_sdk_Release.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_endpoints_endpoints_framework_Release.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_objectify_objectify_5_1_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/DataSourceFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_active_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_active_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_close_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_close_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_new_car.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_new_car.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_ready_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_ready_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/auto_card.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/auto_card.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cars.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cars.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/CommandRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/CommandRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/CommandResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/CommandResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ApproveCarCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/BrginRentCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/CancelOrderCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ChangePasswordCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/EndRentCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ErrorCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ErrorCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ErrorCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/ErrorCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LocaleCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LocaleCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LocaleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LocaleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LoginCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LogoutCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LogoutCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LogoutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/LogoutCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewCarCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/NewOrderCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/PayCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/RegistrationCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/SaveAccountCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowCarsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowLoginPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowLoginPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowLoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowLoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowMainPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowMainPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowMainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowMainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/command/СhangeBalanceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/filter/AuthFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/DataSourceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/DataSourceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/api/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/api/Dao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/api/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/api/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/DataSourceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/DataSourceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/ProxyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/ProxyConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/impl/ConnectionPoolImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/connectionpool/impl/ConnectionPoolImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/exception/DaoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/exception/DaoException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/AccountDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/AccountDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/CarDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/CarDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/InsuranceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/InsuranceDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/MarkDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/MarkDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/OrderDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/OrderDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/AccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/AccountStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Body.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/car/Level.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/insurance/Insurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/insurance/Insurance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/insurance/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/insurance/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/mark/Mark.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/mark/Mark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/order/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/price/Price.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/price/Price.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/sql/InsetSql.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/sql/InsetSql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/sql/SqlQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/sql/SqlQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/api/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/api/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/api/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/api/Converter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/AccountConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/AccountConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/CarConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/CarConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/InsuranceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/InsuranceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/MarkConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/MarkConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/OrderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/OrderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/UserConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/cript/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/cript/Encoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AbstractDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AbstractDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/CarDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/InsuranceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/InsuranceDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/MarkDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/MarkDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/OrderDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/PriceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/PriceDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/exception/ServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/exception/ServiceException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/exception/ValidateException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/exception/ValidateException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/CarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/CarServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/InsuranceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/InsuranceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/MarkServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/MarkServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/PriceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/PriceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/api/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/api/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/AccountValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/AccountValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/CommandRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/CommandRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/CommandResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/CommandResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ApproveCarCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/BrginRentCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderAdminCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/CancelOrderCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ChangePasswordCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/EndRentCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ErrorCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ErrorCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ErrorCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/ErrorCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LocaleCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LocaleCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LocaleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LocaleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LoginCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LogoutCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LogoutCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LogoutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/LogoutCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewCarCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/NewOrderCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/PayCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/RegistrationCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/SaveAccountCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminActiveOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminCloseOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminNewCarPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminReadyOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserOrdersPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUserPanelPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/command/СhangeBalanceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/filter/AuthFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/DataSourceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/DataSourceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/api/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/api/Dao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/api/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/api/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/DataSourceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/DataSourceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ProxyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ProxyConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/impl/ConnectionPoolImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/connectionpool/impl/ConnectionPoolImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/exception/DaoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/exception/DaoException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/AccountDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/AccountDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/CarDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/CarDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/InsuranceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/InsuranceDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/MarkDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/MarkDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/OrderDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/OrderDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/AccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/AccountStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Body.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/car/Level.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Insurance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Insurance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/mark/Mark.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/mark/Mark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/order/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/price/Price.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/price/Price.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/sql/InsetSql.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/sql/InsetSql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/sql/SqlQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/sql/SqlQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/api/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/api/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/api/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/api/Converter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/AccountConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/AccountConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/CarConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/CarConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/InsuranceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/InsuranceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/MarkConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/MarkConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/OrderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/OrderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/UserConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/cript/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/cript/Encoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AbstractDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AbstractDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/CarDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/InsuranceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/InsuranceDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/MarkDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/MarkDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/PriceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/PriceDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/exception/ServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/exception/ServiceException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/exception/ValidateException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/exception/ValidateException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/CarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/CarServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/InsuranceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/InsuranceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/MarkServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/MarkServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/PriceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/PriceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/api/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/api/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/AccountValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/AccountValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_active_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_active_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_close_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_close_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_new_car.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_new_car.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_ready_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_ready_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/auto_card.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/auto_card.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/cars.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/cars.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/order_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/order_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/user_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/user_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-api-2.14.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-core-2.14.1.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="22alSm12PJFMVpgp0bozrOa0DFK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../project1" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.epam.jwd.controller.command" />
+      <recent name="com.epam.jwd.controller.command.page" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.55" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.55" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="rental_cars:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="339231db-7f88-4413-992b-9a6abfd5034a" />
+        <option name="HTTP_PORT" value="8081" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62925" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="rental_cars:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ad96a49-8979-4021-bf9d-3c1872a059d9" name="Default Changelist" comment="" />
+      <created>1640083580925</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640083580925</updated>
+      <workItem from="1640083582113" duration="703000" />
+      <workItem from="1640084536493" duration="29547000" />
+      <workItem from="1640146047332" duration="7928000" />
+      <workItem from="1640154165805" duration="153000" />
+      <workItem from="1640154337796" duration="2203000" />
+      <workItem from="1640156627105" duration="84000" />
+      <workItem from="1640157311186" duration="43000" />
+      <workItem from="1640455709902" duration="1389000" />
+      <workItem from="1640522832746" duration="911000" />
+    </task>
+    <task id="LOCAL-00001" summary="four">
+      <created>1640114522744</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640114522744</updated>
+    </task>
+    <task id="LOCAL-00002" summary="final project">
+      <created>1640152914114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640152914114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="four" />
+    <MESSAGE value="final project" />
+    <option name="LAST_COMMIT_MESSAGE" value="final project" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

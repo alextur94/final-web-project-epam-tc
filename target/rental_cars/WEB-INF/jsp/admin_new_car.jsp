@@ -136,7 +136,6 @@
                 <div>
                     <c:if test="${not empty sessionScope.error}">
                         <div class="alert alert-danger alert-dismissible" style="margin-top: 10px">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 ${sessionScope.error}
                             <c:remove var="error" scope="session"/>
                         </div>
