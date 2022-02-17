@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum NewOrderCommand implements Command {
     INSTANCE;
@@ -48,7 +49,7 @@ public enum NewOrderCommand implements Command {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;
-        } catch (NumberFormatException exception) {
+        } catch (NumberFormatException | SQLException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FIELDS_IS_NULL_MSS);
             return ERROR_RESPONSE;

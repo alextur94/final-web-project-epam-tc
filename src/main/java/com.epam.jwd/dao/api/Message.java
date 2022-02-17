@@ -5,7 +5,8 @@ public interface Message {
     String FIND_ALL_ACCOUNTS_ERROR = "Find all accounts ";
     String FIND_BY_ID_ACCOUNT_ERROR = "Account wasn't found by id. ";
     String FIND_BY_EMAIL_ERROR = "Account wasn't found by email. ";
-    String FIND_BY_PHONE_ERROR = "Account wasn't found by phone. ";
+    String FIND_BY_LOGIN_FOR_UPDATE_ERROR = "This login is already taken. ";
+    String FIND_BY_EMAIL_FOR_UPDATE_ERROR = "This email is already taken. ";
     String TRANSACTION_ACCOUNT_ADMIN_ERROR = "Money transfer error. Account - Admin ";
     String CANCEL_ORDER_ERROR = "Unable to cancel order ";
 
@@ -14,6 +15,7 @@ public interface Message {
     String DELETE_CAR_ERROR = "Car wasn't deleted in db. ";
     String FIND_ALL_CARS_ERROR = "Find all accounts ";
     String FIND_BY_ID_CAR_ERROR = "Car wasn't found by id. ";
+    String FIND_BY_RANGE_ERROR = "Car wasn't found by range. ";
     String SAVE_CAR_AND_PRICE_ERROR = "Failed to add new machine. ";
 
     String SAVE_INSURANCE_ERROR = "New insurance wasn't saved in db. ";
@@ -52,6 +54,7 @@ public interface Message {
     String FIND_ALL_USERS_ERROR = "Find all users ";
     String FIND_BY_ID_USER_ERROR = "User wasn't found by id. ";
     String FIND_BY_LOGIN_ERROR = "User wasn't found by login. ";
+    String FIND_BY_ACCOUNT_ID_ERROR = "User wasn't found by account id. ";
     String INCORRECT_LOGIN_ERROR = "Incorrect login or password. ";
     String ENCRYPT_PASSWORD_ERROR = "Password encryption error. ";
 }

@@ -1,5 +1,6 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.AccountDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
@@ -12,9 +13,11 @@ import com.epam.jwd.service.converter.impl.CarConverter;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.exception.ServiceException;
+import com.epam.jwd.service.validator.impl.AccountValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
     private static final Double AMOUNT_IS_ZERO = 0.00;
     private final AccountDaoImpl accountDao = new AccountDaoImpl();
     private final AccountConverter accountConverter = new AccountConverter();
+    private final AccountValidator accountValidator = new AccountValidator();
     private final CarConverter carConverter = new CarConverter();
 
     @Override
@@ -78,12 +82,41 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
     }
 
     /**
+     * Found by email
+     *
+     * @param email
+     * @return the String
+     */
+    public AccountDto getByEmail(String email) throws DaoException, ServiceException {
+        logger.info("get by email method " + AccountServiceImpl.class);
+        Account account = accountDao.findByEmail(email);
+        return accountConverter.convert(account);
+    }
+
+    /**
+     * Found by email for ypdate
+     *
+     * @param email
+     * @return the String
+     */
+    public AccountDto getByEmailForUpdate(String email) throws DaoException, ServiceException {
+        logger.info("get by email for update method " + AccountServiceImpl.class);
+        accountValidator.validateEmail(email);
+        Account account = accountDao.findByEmail(email);
+        if (account == null) {
+            return null;
+        } else {
+            throw new ServiceException(Message.FIND_BY_EMAIL_FOR_UPDATE_ERROR);
+        }
+    }
+
+    /**
      * Transfer money from user account to admin account
      *
      * @param user and order entity
      * @return the boolean
      */
-    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException {
+    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException, SQLException {
         logger.info("transfer from user to admin method " + AccountServiceImpl.class);
         Double accountBalance = user.getBalance();
         Double amount = order.getCurrentSum();
@@ -106,7 +139,7 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param accountDto, carDto and order
      * @return the boolean
      */
-    public Boolean cancelOrder(AccountDto accountDto, CarDto carDto, Order order) throws ServiceException, DaoException {
+    public Boolean cancelOrder(AccountDto accountDto, CarDto carDto, Order order) throws ServiceException, DaoException, SQLException {
         logger.info("cancel order method " + AccountServiceImpl.class);
         Byte orderStatus = order.getStatus();
         AccountDto adminDto = accountConverter.convert(accountDao.findById(1));

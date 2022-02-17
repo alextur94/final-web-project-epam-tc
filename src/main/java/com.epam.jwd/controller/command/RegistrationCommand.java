@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum RegistrationCommand implements Command {
     INSTANCE;
@@ -53,7 +54,7 @@ public enum RegistrationCommand implements Command {
             userService.savePerson(userDto, accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.NEW_ACCOUNT_WAS_CREATE);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | ServiceException exception) {
+        } catch (DaoException | ServiceException | SQLException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

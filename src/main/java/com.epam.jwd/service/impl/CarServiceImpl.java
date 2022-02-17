@@ -1,5 +1,7 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.connectionpool.ConnectionPool;
+import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.CarDaoImpl;
 import com.epam.jwd.dao.model.car.Car;
@@ -14,11 +16,14 @@ import com.epam.jwd.service.validator.impl.PriceValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarServiceImpl implements Service<CarDto, Integer> {
     private static final Logger logger = LogManager.getLogger(CarServiceImpl.class);
+    private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
     private final CarDaoImpl carDao = new CarDaoImpl();
     private final CarConverter converterCar = new CarConverter();
     private final PriceConverter converterPrice = new PriceConverter();
@@ -75,12 +80,41 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
     }
 
     /**
+     * Retrieving all records by range
+     *
+     * @return List CarDTO
+     */
+    public List<CarDto> getByRange(Integer skip, Integer size) throws ServiceException, DaoException {
+        logger.info("get all by range method " + CarServiceImpl.class);
+        List<CarDto> carDto = new ArrayList<>();
+        for (Car car : carDao.findByRange(skip, size)) {
+            carDto.add(converterCar.convert(car));
+        }
+        return carDto;
+    }
+
+    /**
+     * Count row from table cars
+     *
+     * @return the integer
+     */
+    public Integer getCountRowFromCars() throws ServiceException, DaoException {
+        logger.info("get all by range method " + CarServiceImpl.class);
+        try {
+            return carDao.countRowFromCars();
+        } catch (SQLException throwables) {
+            logger.error(throwables);
+            throw new ServiceException(throwables);
+        }
+    }
+
+    /**
      * Validate entity. Get fields priceInDay in table Price
      *
      * @param carDto and priceDto
      * @return the boolean
      */
-    public Boolean saveCar(CarDto carDto, PriceDto priceDto) throws ServiceException, DaoException {
+    public Boolean saveCar(CarDto carDto, PriceDto priceDto) throws ServiceException, DaoException, SQLException {
         logger.info("save car method " + CarServiceImpl.class);
         validatorPrice.validate(priceDto);
         Car car = converterCar.convert(carDto);

@@ -109,7 +109,39 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
         }
     }
 
-    public Boolean savePerson(User user, Account account) throws DaoException {
+    public User findByLogin(String login) throws DaoException {
+        logger.info("find by login method " + UserDaoImpl.class);
+        Connection connection = connectionPool.takeConnection();
+        User user;
+        try {
+            user = findUserByLogin(login, connection);
+             if (user != null) {
+                return user;
+            }
+            logger.error(Message.FIND_BY_LOGIN_ERROR);
+            throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
+        } catch (SQLException throwables) {
+            logger.error(Message.FIND_BY_LOGIN_ERROR, throwables);
+            throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
+    }
+
+    public User findByLoginForUpdate(String login) throws DaoException {
+        logger.info("find by login for update method " + UserDaoImpl.class);
+        Connection connection = connectionPool.takeConnection();
+        try {
+            return findUserByLogin(login, connection);
+        } catch (SQLException throwables) {
+            logger.error(Message.FIND_BY_LOGIN_ERROR, throwables);
+            throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
+    }
+
+    public Boolean savePerson(User user, Account account) throws DaoException, SQLException {
         logger.info("save method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -121,6 +153,7 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.SAVE_PERSON_ERROR, throwables);
             throw new DaoException(Message.SAVE_PERSON_ERROR);
         } finally {
@@ -128,36 +161,20 @@ public class UserDaoImpl extends AbstractDto<Integer> implements Dao<User, Integ
         }
     }
 
-    public Boolean updatePerson(User user, Account account) throws DaoException {
-        logger.info("update method " + UserDaoImpl.class);
+    public Boolean updateUserAccount(User user, Account account) throws DaoException, SQLException {
+        logger.info("update user and account method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
             connection.setAutoCommit(false);
-            String oldPass = findById(user.getId()).getPassword();
-            if (equalsPasswords(oldPass, user.getPassword())) {
-                user.setPassword(criptPassword(user.getPassword()));
-            }
             updateUserById(user, connection);
             accountDao.updateAccountById(account, connection);
             connection.commit();
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.UPDATE_PERSON_ERROR, throwables);
             throw new DaoException(Message.UPDATE_PERSON_ERROR);
-        } finally {
-            connectionPool.returnConnection(connection);
-        }
-    }
-
-    public User findByLogin(String login) throws DaoException {
-        logger.info("find by login method " + UserDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
-        try {
-            return findUserByLogin(login, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_LOGIN_ERROR, throwables);
-            throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
         }

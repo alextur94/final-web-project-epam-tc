@@ -2,57 +2,464 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="rental_cars:war" />
+      <artifact name="rental_cars:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ad96a49-8979-4021-bf9d-3c1872a059d9" name="Default Changelist" comment="final project">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mvc_javax_mvc_api_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rental_cars.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="5ad96a49-8979-4021-bf9d-3c1872a059d9" name="Default Changelist" comment="final project (fix bug 3)">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/rental_cars_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/rental_cars_war_exploded.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0f80fdf-4649-4d8f-9ab0-b04d79cdff87.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0f80fdf-4649-4d8f-9ab0-b04d79cdff87/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_appengine_appengine_api_1_0_sdk_Release.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_endpoints_endpoints_framework_Release.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_objectify_objectify_5_1_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/DataSourceFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.annotation.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.ejb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.jms.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.persistence.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.resource.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.servlet.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.transaction.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/appengine-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/Controller$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/api/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/api/CommandRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/api/CommandResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/Commands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/Constant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LocaleCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LocaleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LoginCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LoginCommand$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LoginCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LogoutCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/LogoutCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewCarCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewCarCommand$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewCarCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewOrderCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewOrderCommand$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/NewOrderCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/RegistrationCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/RegistrationCommand$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/RegistrationCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAdminPanelPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPageCommand$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowAutoCardPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowCarsPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowLoginPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowMainPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowOrderPanelPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowRegistrationPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUsersPageCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/ShowUsersPageCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/Test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/Test$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/command/page/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/controller/filter/AuthFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/api/Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ConnectionPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/connectionpool/DataSourceFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/connectionpool/ProxyConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/connectionpool/impl/ConnectionPoolImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/exception/DaoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/AccountDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/CarDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/EntityDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/InsuranceDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/MarkDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/OrderDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/account/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/account/AccountStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/account/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/car/Body.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/car/Car$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/car/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/car/Level.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Insurance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/insurance/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/mark/Mark.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/order/Order$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/order/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/price/Price.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/model/user/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/dao/sql/InsetSql.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/rental_cars/dao/model/order/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/api/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/api/Converter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/AccountConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/CarConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/InsuranceConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/MarkConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/OrderConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/converter/impl/UserConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/cript/Encoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/AbstractDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/CarDto$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/CarDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/InsuranceDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/MarkDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/OrderDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/PriceDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/dto/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/exception/ServiceException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/exception/ValidateException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/AccountServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/CarServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/InsuranceServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/OrderServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/PriceServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/api/Validator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/AccountValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/CarValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/InsuranceValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/MarkValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/service/validator/impl/UserValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/test/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/test/Filter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/com/epam/jwd/test/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/locale.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/locale_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/classes/locale_ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/admin-panel-cars.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/admin-panel.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/auto-card.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/cars.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/error/error500.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/main.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/order-panel.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/registration.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/user-orders.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/jsp/users.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/javax.mvc-api-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/log4j-api-2.14.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/log4j-core-2.14.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/mysql-connector-java-8.0.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/org.apache.taglibs.taglibs-standard-impl-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/org.apache.taglibs.taglibs-standard-spec-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/protobuf-java-3.11.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/lib/spring-security-crypto-5.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/aos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/bootstrap-datepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/css/mixins/_text-hide.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/icomoon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/jquery.timepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/magnific-popup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/carNewForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/loginForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/page-cars.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/my/regForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/open-iconic-bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/owl.theme.default.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/singin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/backup.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/Flaticon.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/_flaticon.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/font/flaticon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/flaticon/license/license.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/icomoon/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/icomoon/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/icomoon/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/icomoon/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/css/_ionicons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/ionicons/fonts/ionicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/open-iconic/open-iconic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/open-iconic/open-iconic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/open-iconic/open-iconic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/open-iconic/open-iconic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/fonts/open-iconic/open-iconic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/about.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/bg_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/bg_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/bg_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/bg_3_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/car-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/1/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/1/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/1/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/10/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/10/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/10/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/11/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/11/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/11/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/12/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/12/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/12/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/13/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/13/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/13/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/14/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/14/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/14/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/15/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/15/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/15/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/16/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/16/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/16/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/2/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/2/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/2/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/3/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/3/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/3/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/4/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/4/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/4/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/5/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/5/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/5/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/6/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/6/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/6/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/7/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/7/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/7/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/8/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/8/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/8/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/9/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/9/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/cars/9/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/image_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/loc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/person_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/person_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/person_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/images/person_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/aos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/bootstrap-datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/google-map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery-migrate-3.0.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.animateNumber.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.easing.1.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.stellar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.timepicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/my/regForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/js/scrollax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_breadcrumb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_close.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_code.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_custom-forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_input-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_jumbotron.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_media.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_popover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_print.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_progress.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_root.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_spinners.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_toasts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_transitions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_type.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/bootstrap-grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_background-variant.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_caret.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_deprecate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_gradients.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_image.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_lists.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_nav-divider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_resize.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_size.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_table-row.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_text-hide.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/mixins/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_background.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_borders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_display.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_embed.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_overflow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_position.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_screenreaders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_shadows.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_spacing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_stretched-link.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/utilities/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/bootstrap/vendor/_rfs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/assets/scss/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/rental_cars_war_exploded2/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/api/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/api/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/CancelOrderAdminCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/CancelOrderAdminCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/CancelOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/CancelOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/ChangePasswordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/ChangePasswordCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/LogoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/NewCarCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/NewCarCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/NewOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/NewOrderCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/PayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/PayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/RegistrationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/page/ShowAdminCloseOrdersPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/page/ShowCarsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/page/ShowCarsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/page/ShowUserOrdersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/controller/command/page/ShowUserOrdersPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/api/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/api/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/connectionpool/DataSourceFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/AccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/AccountDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/CarDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/CarDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/sql/InsetSql.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/sql/SqlQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/dao/sql/SqlQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/cript/Encoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/cript/Encoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/exception/ValidateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/exception/ValidateException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/CarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/validator/impl/AccountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/validator/impl/AccountValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/validator/impl/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.epam.jwd/service/validator/impl/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ru.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_active_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_active_orders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_close_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_close_orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_close_orders.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_new_car.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_new_car.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_panel.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_ready_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_ready_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/auto_card.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/auto_card.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cars.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/cars.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/controller/api/Command.class" afterDir="false" />
@@ -161,7 +568,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/AccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/dao/model/account/AccountStatus.class" afterDir="false" />
@@ -192,7 +599,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/converter/impl/UserConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/cript/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/cript/Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AbstractDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AbstractDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/dto/AccountDto.class" afterDir="false" />
@@ -220,11 +626,14 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/jwd/service/validator/impl/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/locale.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/locale_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/locale_ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/controller/api/Command.class" afterDir="false" />
@@ -333,8 +742,7 @@
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/PriceDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/impl/UserDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account$Builder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/AccountStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/AccountStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/dao/model/account/Role.class" afterDir="false" />
@@ -364,7 +772,6 @@
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/PriceConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/converter/impl/UserConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/cript/Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/cript/Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AbstractDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AbstractDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/dto/AccountDto.class" afterDir="false" />
@@ -392,6 +799,10 @@
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/OrderValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/PriceValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/com/epam/jwd/service/validator/impl/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/locale.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/locale_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/locale_ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/classes/log4j2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_active_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_active_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_close_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_close_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_new_car.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_new_car.jsp" afterDir="false" />
@@ -400,10 +811,262 @@
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_ready_orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/admin_ready_orders.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/auto_card.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/auto_card.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/cars.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/cars.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/error/error404.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/error/error500.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/main.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/order_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/order_panel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/registration.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/user_orders.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/user_panel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/rental_cars/WEB-INF/jsp/user_panel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-api-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-core-2.14.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/javax.mvc-api-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-api-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/log4j-core-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/mysql-connector-java-8.0.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/lib/protobuf-java-3.11.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/aos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/bootstrap-datepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/css/mixins/_text-hide.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/icomoon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/jquery.timepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/magnific-popup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/404.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/carNewForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/local-but.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/loginForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/page-cars.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/my/regForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/open-iconic-bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/owl.theme.default.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/singin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/backup.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/Flaticon.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/_flaticon.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/font/flaticon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/flaticon/license/license.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/icomoon/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/icomoon/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/icomoon/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/icomoon/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/css/_ionicons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/ionicons/fonts/ionicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/open-iconic/open-iconic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/open-iconic/open-iconic.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/open-iconic/open-iconic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/open-iconic/open-iconic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/fonts/open-iconic/open-iconic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/about.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/bg_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/bg_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/bg_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/bg_3_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/car-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/1/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/1/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/1/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/10/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/10/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/10/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/11/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/11/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/11/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/12/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/12/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/12/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/13/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/13/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/13/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/14/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/14/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/14/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/15/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/15/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/15/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/16/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/16/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/16/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/2/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/2/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/2/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/3/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/3/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/3/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/4/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/4/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/4/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/5/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/5/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/5/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/6/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/6/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/6/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/7/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/7/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/7/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/8/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/8/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/8/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/9/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/9/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/cars/9/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/image_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/loc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/person_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/person_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/person_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/images/person_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/aos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/bootstrap-datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/google-map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery-migrate-3.0.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.animateNumber.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.easing.1.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.stellar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.timepicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/my/regForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/js/scrollax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_breadcrumb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_close.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_code.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_custom-forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_input-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_jumbotron.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_media.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_popover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_print.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_progress.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_root.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_spinners.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_toasts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_transitions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_type.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/bootstrap-grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_background-variant.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_caret.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_deprecate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_gradients.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_image.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_lists.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_nav-divider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_resize.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_size.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_table-row.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_text-hide.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/mixins/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_background.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_borders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_display.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_embed.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_overflow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_position.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_screenreaders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_shadows.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_spacing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_stretched-link.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/utilities/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/bootstrap/vendor/_rfs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/assets/scss/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rental_cars/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,11 +1077,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -450,27 +1116,55 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../project1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../projects" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.29310346" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\projects\epam_final_project\rental_cars\src\main\webapp\WEB-INF\jsp" />
+      <recent name="D:\Java\projects\epam_final_project\rental_cars\src\main\webapp\assets\css\my" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.epam.jwd.controller.command" />
       <recent name="com.epam.jwd.controller.command.page" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.55">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
+      <module name="rental_cars" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.55" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.55" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
-        <artifact name="rental_cars:war">
+        <artifact name="rental_cars:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
@@ -480,11 +1174,11 @@
         <option name="BASE_DIRECTORY_NAME" value="339231db-7f88-4413-992b-9a6abfd5034a" />
         <option name="HTTP_PORT" value="8081" />
       </server-settings>
+      <log_file alias="Tomcat Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/manager.*" />
+      <log_file alias="Tomcat Host Manager Log" path="%IDEA_RUN:CATALINA_BASE%/logs/host-manager.*" />
+      <log_file alias="Tomcat Localhost Access Log" path="%IDEA_RUN:CATALINA_BASE%/logs/localhost_access_log.*" />
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="62925" />
       </RunnerSettings>
@@ -551,10 +1245,19 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="rental_cars:war" />
+          <artifact name="rental_cars:war exploded" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.55" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -572,7 +1275,34 @@
       <workItem from="1640156627105" duration="84000" />
       <workItem from="1640157311186" duration="43000" />
       <workItem from="1640455709902" duration="1389000" />
-      <workItem from="1640522832746" duration="911000" />
+      <workItem from="1640522832746" duration="1263000" />
+      <workItem from="1640524368607" duration="316000" />
+      <workItem from="1640526251505" duration="54000" />
+      <workItem from="1640526852230" duration="939000" />
+      <workItem from="1640531828743" duration="51000" />
+      <workItem from="1640531957642" duration="641000" />
+      <workItem from="1640543220797" duration="114000" />
+      <workItem from="1640548933663" duration="2647000" />
+      <workItem from="1640696042892" duration="26747000" />
+      <workItem from="1640765360701" duration="113000" />
+      <workItem from="1640765506773" duration="11576000" />
+      <workItem from="1640871542591" duration="341000" />
+      <workItem from="1640872482574" duration="1856000" />
+      <workItem from="1641287161496" duration="1367000" />
+      <workItem from="1641289459850" duration="1635000" />
+      <workItem from="1641292426221" duration="4448000" />
+      <workItem from="1641836928090" duration="60000" />
+      <workItem from="1641837129560" duration="642000" />
+      <workItem from="1642329676834" duration="727000" />
+      <workItem from="1642352166208" duration="1072000" />
+      <workItem from="1642356484449" duration="245000" />
+      <workItem from="1643297875693" duration="1494000" />
+      <workItem from="1643468721213" duration="43145000" />
+      <workItem from="1643630347342" duration="12877000" />
+      <workItem from="1643653740816" duration="312000" />
+      <workItem from="1644093167666" duration="599000" />
+      <workItem from="1644232255652" duration="1768000" />
+      <workItem from="1645074104589" duration="6695000" />
     </task>
     <task id="LOCAL-00001" summary="four">
       <created>1640114522744</created>
@@ -588,7 +1318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640152914114</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final project (fix bug)">
+      <created>1640523892189</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1640523892189</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +1346,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="four" />
     <MESSAGE value="final project" />
-    <option name="LAST_COMMIT_MESSAGE" value="final project" />
+    <MESSAGE value="final project (fix bug)" />
+    <MESSAGE value="final project (fix bug 2)" />
+    <MESSAGE value="final project (fix bug 3)" />
+    <option name="LAST_COMMIT_MESSAGE" value="final project (fix bug 3)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

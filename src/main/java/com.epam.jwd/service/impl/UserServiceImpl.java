@@ -1,5 +1,6 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.AccountDaoImpl;
 import com.epam.jwd.dao.impl.UserDaoImpl;
@@ -11,15 +12,14 @@ import com.epam.jwd.service.converter.impl.UserConverter;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;
-import com.epam.jwd.service.exception.ValidateException;
 import com.epam.jwd.service.validator.impl.AccountValidator;
 import com.epam.jwd.service.validator.impl.UserValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class UserServiceImpl implements Service<UserDto, Integer> {
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
@@ -99,14 +99,28 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
      * @param login
      * @return userDto
      */
-    public UserDto getByLogin(String login) throws ServiceException, DaoException {
+    public User getByLogin(String login) throws ServiceException, DaoException {
         logger.info("get login method " + UserServiceImpl.class);
         validatorUser.validateLogin(login);
         User user = daoUser.findByLogin(login);
-        if (Objects.isNull(user)) {
-            throw new ServiceException(ValidateException.USER_NOT_FOUND);
+        return user;
+    }
+
+    /**
+     * Checking if the given login is already in the database
+     *
+     * @param login
+     * @return user
+     */
+    public User getByLoginForUpdate(String login) throws ServiceException, DaoException {
+        logger.info("get login method " + UserServiceImpl.class);
+        validatorUser.validateLogin(login);
+        User user = daoUser.findByLoginForUpdate(login);
+        if (user == null) {
+            return null;
+        } else {
+            throw new ServiceException(Message.FIND_BY_LOGIN_FOR_UPDATE_ERROR);
         }
-        return converterUser.convert(user);
     }
 
     /**
@@ -115,10 +129,10 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
      *
      * @param userDto, accountDto
      */
-    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException {
+    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException, SQLException {
         logger.info("create method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
-        User checkUser = daoUser.findByLogin(userDto.getLogin());
+        User checkUser = daoUser.findByLoginForUpdate(userDto.getLogin());
         validatorUser.validateLoginUnique(checkUser);
         validatorAccount.validate(accountDto);
         Account checkAccount = daoAccount.findByEmail(accountDto.getEmail());
@@ -126,6 +140,18 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
         User user = converterUser.convert(userDto);
         Account account = converterAccount.convert(accountDto);
         daoUser.savePerson(user, account);
+    }
+
+    /**
+     * Checking for the correctness of the password
+     *
+     * @param id, password
+     * @return userDto
+     */
+    public Boolean checkPasswordOnCorrect(Integer id, String password) throws DaoException {
+        User user = daoUser.findById(id);
+        String pass = daoUser.criptPassword(password);
+        return pass.equals(user.getPassword());
     }
 
     /**

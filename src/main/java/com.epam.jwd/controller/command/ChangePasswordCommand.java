@@ -4,6 +4,7 @@ import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.dao.exception.DaoException;
+import com.epam.jwd.dao.impl.UserDaoImpl;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.UserServiceImpl;
 import com.epam.jwd.service.validator.impl.UserValidator;
@@ -46,10 +47,19 @@ public enum ChangePasswordCommand implements Command {
     public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
+        final String passwordOld = request.getParameter(Constant.PASSWORD_OLD_PARAM);
         final String password = request.getParameter(Constant.PASSWORD_PARAM);
+        final String passwordRepeat = request.getParameter(Constant.PASSWORD_REPEAT_PARAM);
         try {
             try {
+                if (!userService.checkPasswordOnCorrect(userId, passwordOld)) {
+                    logger.error(Constant.ERROR_FAILED_PASS_MSS);
+                    session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FAILED_PASS_MSS);
+                    return ERROR_RESPONSE;
+                }
                 userValidator.validatePassword(password);
+                userValidator.validatePassword(passwordRepeat);
+                userValidator.validateRepeatPassword(password, passwordRepeat);
             } catch (ServiceException e) {
                 logger.error(e);
                 session.setAttribute(Constant.ERROR_PARAM, e.getMessage());

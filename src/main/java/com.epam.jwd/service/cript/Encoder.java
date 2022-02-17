@@ -34,6 +34,4 @@ public class Encoder {
         byte[] bytes = decriptCipher.doFinal(criptPass);
         return bytes;
     }
-
-
 }

@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum CancelOrderAdminCommand implements Command {
     INSTANCE;
@@ -43,11 +44,10 @@ public enum CancelOrderAdminCommand implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) throws ServiceException, SQLException {
         HttpSession session = request.getCurrentSession().get();
-        Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         String refusal = request.getParameter(Constant.REFUSAL_PARAM);
-        Integer orderId = Integer.parseInt(request.getParameter(Constant.ORDER_ID_PARAM));
+        Integer orderId = (Integer) session.getAttribute(Constant.ORDER_ID_PARAM);
         try {
             orderService.cancelOrderAdmin(orderId, refusal);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CANCEL_ORDER_ADMIN_MSS);

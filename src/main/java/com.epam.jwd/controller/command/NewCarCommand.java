@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum NewCarCommand implements Command {
     INSTANCE;
@@ -82,7 +83,7 @@ public enum NewCarCommand implements Command {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FIELDS_IS_NULL_MSS);
             return ERROR_RESPONSE;
-        } catch (DaoException | ServiceException exception) {
+        } catch (DaoException | ServiceException | SQLException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

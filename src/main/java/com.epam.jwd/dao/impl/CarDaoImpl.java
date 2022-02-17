@@ -100,7 +100,38 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         }
     }
 
-    public Boolean saveCarPrice(Car car, Price price) throws DaoException {
+    public List<Car> findByRange(Integer skip, Integer size) throws DaoException {
+        logger.info("find by range method " + CarDaoImpl.class);
+        Connection connection = connectionPool.takeConnection();
+        try {
+            List<Car> result = new ArrayList<>();
+            ResultSet resultSet;
+            try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_BY_RANGE)) {
+                statement.setInt(1, skip);
+                statement.setInt(2, size);
+                resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    Car car = new Car.Builder()
+                            .withId(resultSet.getInt(1))
+                            .withBrand(resultSet.getString(2))
+                            .withModel(resultSet.getString(3))
+                            .withAvailable(resultSet.getByte(4))
+                            .withPriceId(resultSet.getInt(5))
+                            .build();
+                    result.add(car);
+                }
+            }
+            resultSet.close();
+            return result;
+        } catch (SQLException throwables) {
+            logger.error(Message.FIND_BY_RANGE_ERROR, throwables);
+            throw new DaoException(Message.FIND_BY_RANGE_ERROR);
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
+    }
+
+    public Boolean saveCarPrice(Car car, Price price) throws DaoException, SQLException {
         logger.info("save car and price method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -112,6 +143,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.SAVE_CAR_AND_PRICE_ERROR, throwables);
             throw new DaoException(Message.SAVE_CAR_AND_PRICE_ERROR);
         } finally {
@@ -224,5 +256,24 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         }
         resultSet.close();
         return car;
+    }
+
+    public Integer countRowFromCars() throws SQLException, DaoException {
+        logger.info("save car and price method " + CarDaoImpl.class);
+        Connection connection = connectionPool.takeConnection();
+        Integer numRow = 0;
+        try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(id) FROM car")) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                numRow = resultSet.getInt(1);
+            }
+            resultSet.close();
+            return numRow;
+        } catch (SQLException exception) {
+            logger.error(exception);
+            throw new DaoException("error");
+        } finally {
+            connectionPool.returnConnection(connection);
+        }
     }
 }

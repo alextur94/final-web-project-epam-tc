@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum PayCommand implements Command {
     INSTANCE;
@@ -48,7 +49,7 @@ public enum PayCommand implements Command {
     private final UserServiceImpl userService = new UserServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) throws ServiceException, SQLException {
         HttpSession session = request.getCurrentSession().get();
         try {
             final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);

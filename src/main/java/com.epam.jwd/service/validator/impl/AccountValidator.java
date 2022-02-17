@@ -32,7 +32,7 @@ public class AccountValidator implements Validator<AccountDto, Integer> {
      *
      * @param email
      */
-    private void validateEmail(String email) throws ServiceException {
+    public void validateEmail(String email) throws ServiceException {
         if (Objects.isNull(email)) {
             logger.info(ValidateException.EMAIL + AccountValidator.class);
             throw new ServiceException(ValidateException.EMAIL);

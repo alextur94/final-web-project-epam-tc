@@ -31,7 +31,6 @@ com\epam\jwd\dao\model\car\Car$Builder.class
 com\epam\jwd\controller\command\SaveAccountCommand$2.class
 com\epam\jwd\dao\impl\CarDaoImpl.class
 com\epam\jwd\controller\command\EndRentCommand$1.class
-com\epam\jwd\dao\sql\InsetSql.class
 com\epam\jwd\controller\command\RegistrationCommand.class
 com\epam\jwd\controller\Controller.class
 com\epam\jwd\dao\model\mark\Mark.class
@@ -78,7 +77,6 @@ com\epam\jwd\controller\command\LocaleCommand$1.class
 com\epam\jwd\controller\command\page\ShowAdminActiveOrdersPage$2.class
 com\epam\jwd\service\impl\OrderServiceImpl.class
 com\epam\jwd\controller\command\RegistrationCommand$1.class
-com\epam\jwd\dao\DataSourceFactory.class
 com\epam\jwd\controller\command\ApproveCarCommand$1.class
 com\epam\jwd\service\dto\OrderDto$1.class
 com\epam\jwd\service\impl\AccountServiceImpl.class

@@ -18,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public enum CancelOrderCommand implements Command {
     INSTANCE;
@@ -69,7 +70,7 @@ public enum CancelOrderCommand implements Command {
             accountService.cancelOrder(accountDto, carDto, order);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_APPLICATION_CANCELED_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | ServiceException e) {
+        } catch (DaoException | ServiceException | SQLException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

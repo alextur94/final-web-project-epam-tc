@@ -30,6 +30,7 @@ public enum LogoutCommand implements Command {
         HttpSession session = request.getCurrentSession().get();
         Collections.list(session.getAttributeNames())
                 .forEach(session::removeAttribute);
+        session.invalidate();
         return SHOW_PAGE_CONTEXT;
     }
 }

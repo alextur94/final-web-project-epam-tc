@@ -1,0 +1,43 @@
+.form-reg {
+    background: rgba(0, 0, 0, 0.7);
+    width: 500px;
+    padding: 25px;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+
+form {
+    margin: 0 auto;
+    width: 350px;
+}
+input {
+    box-sizing: border-box;
+}
+input.form-control {
+    margin: 5px 0;
+}
+
+button {
+    width: 100%;
+}
+
+.titleForm{
+    text-align: center;
+    padding: 10px 0;
+}
+.titleFormText{
+    color: #fffFFF;
+}
+.log-ref {
+    padding-top: 25px;
+    text-align: center;
+    color: #ffffff;
+}
+a.log-ref-a:hover {
+    text-decoration: none;
+    color: #8FDBC3;
+}
+a.log-ref-a:active, a.log-ref-a {
+    text-decoration: none;
+    color: #ffffff;
+}

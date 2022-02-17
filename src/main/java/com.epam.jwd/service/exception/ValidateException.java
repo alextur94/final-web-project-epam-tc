@@ -6,6 +6,7 @@ public class ValidateException {
     public static final String UPDATE = "Failed update! ";
     public static final String LOGIN = "Login does not match! ";
     public static final String PASSWORD = "Password does not match! ";
+    public static final String REPEAT_PASSWORD = "Password mismatch! ";
     public static final String EMAIL = "Email cannot be is empty ";
     public static final String EMAIL_IS_NOT_UNIQUE = "Email is not unique! ";
     public static final String NAME = "Name does not match! ";

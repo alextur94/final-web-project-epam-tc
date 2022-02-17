@@ -103,7 +103,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
-    public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException {
+    public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException, SQLException {
         logger.info("save transaction account to admin method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -115,6 +115,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.TRANSACTION_ACCOUNT_ADMIN_ERROR, throwables);
             throw new DaoException(Message.TRANSACTION_ACCOUNT_ADMIN_ERROR);
         } finally {
@@ -122,7 +123,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
-    public Boolean cancelOrder(Account account, Account admin, Car car, Order order) throws DaoException {
+    public Boolean cancelOrder(Account account, Account admin, Car car, Order order) throws DaoException, SQLException {
         logger.info("cancel transaction method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -135,6 +136,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.CANCEL_ORDER_ERROR, throwables);
             throw new DaoException(Message.CANCEL_ORDER_ERROR);
         } finally {
@@ -237,33 +239,6 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
     public Account findAccountByEmail(String email, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_ACCOUNT_BY_EMAIL);
         statement.setString(1, email);
-        ResultSet resultSet = statement.executeQuery();
-        Account account;
-        if (resultSet.next()) {
-            account = new Account.Builder()
-                    .withId(resultSet.getInt(1))
-                    .withRole(Role.getById(resultSet.getInt(2)))
-                    .withName(resultSet.getString(3))
-                    .withSurname(resultSet.getString(4))
-                    .withEmail(resultSet.getString(5))
-                    .withPhone(resultSet.getString(6))
-                    .withDocumentId(resultSet.getString(7))
-                    .withAddress(resultSet.getString(8))
-                    .withDriveLicenseNumber(resultSet.getString(9))
-                    .withBalance(resultSet.getDouble(10))
-                    .withStatus(resultSet.getInt(11))
-                    .build();
-        } else {
-            account = null;
-        }
-        statement.close();
-        resultSet.close();
-        return account;
-    }
-
-    private Account findAccountByPhone(String phone, Connection connection) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_ACCOUNT_BY_PHONE);
-        statement.setString(1, phone);
         ResultSet resultSet = statement.executeQuery();
         Account account;
         if (resultSet.next()) {

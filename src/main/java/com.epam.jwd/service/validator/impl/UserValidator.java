@@ -48,6 +48,17 @@ public class UserValidator implements Validator<UserDto, Integer> {
     }
 
     /**
+     * Login check for uniqueness
+     *
+     * @param user
+     */
+    public void validateLoginUnique(User user) throws ServiceException {
+        if (!Objects.isNull(user)) {
+            throw new ServiceException(ValidateException.USER_IS_NOT_UNIQUE);
+        }
+    }
+
+    /**
      * Password checking that it is not less than the minimum length and not more than the maximum
      *
      * @param password
@@ -61,13 +72,13 @@ public class UserValidator implements Validator<UserDto, Integer> {
     }
 
     /**
-     * Login check for uniqueness
+     * Password checking that it is not less than the minimum length and not more than the maximum
      *
-     * @param user
+     * @param firstPass, secondPass
      */
-    public void validateLoginUnique(User user) throws ServiceException {
-        if (!Objects.isNull(user)) {
-            throw new ServiceException(ValidateException.USER_IS_NOT_UNIQUE);
+    public void validateRepeatPassword(String firstPass, String secondPass) throws ServiceException {
+        if (!firstPass.equals(secondPass)) {
+            throw new ServiceException(ValidateException.REPEAT_PASSWORD);
         }
     }
 }

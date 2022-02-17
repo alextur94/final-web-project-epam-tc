@@ -47,6 +47,18 @@ public enum ShowUserOrdersPage implements Command {
         }
     };
 
+    private static final CommandResponse ERROR_PAGE_RESPONSE = new CommandResponse() {
+        @Override
+        public String getPath() {
+            return Constant.COMM_USER_ORDERS_PAGE;
+        }
+
+        @Override
+        public boolean isRedirect() {
+            return true;
+        }
+    };
+
     private final CarServiceImpl carService = new CarServiceImpl();
     private final OrderServiceImpl orderService = new OrderServiceImpl();
     private final OrderDaoImpl orderDao = new OrderDaoImpl();
@@ -57,8 +69,9 @@ public enum ShowUserOrdersPage implements Command {
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         Integer size = 10;
         Integer page = 1;
-        if (request.getParameter(Constant.PAGE_PARAM) != null) {
-            page = Integer.parseInt(request.getParameter(Constant.PAGE_PARAM));
+        String pageTemp = request.getParameter(Constant.PAGE_PARAM);
+        if (pageTemp != null) {
+            page = Integer.parseInt(pageTemp);
         }
         try {
             List<CarDto> listCar = carService.getAll();
@@ -66,6 +79,10 @@ public enum ShowUserOrdersPage implements Command {
             Integer countOrders = orderDao.countOrdersByUser(userId);
             List<OrderDto> listOrder = orderService.findCountOrders(start, size, userId);
             int countPages = (int) Math.ceil(countOrders * 1.0 / size);
+            if (page > countPages || page < 1) {
+                logger.error(Constant.ERROR_PAGINATION_PAGE_MSS);
+                return ERROR_PAGE_RESPONSE;
+            }
             request.setAttribute("orderList", listOrder);
             request.setAttribute("carList", listCar);
             request.setAttribute("userId", userId);

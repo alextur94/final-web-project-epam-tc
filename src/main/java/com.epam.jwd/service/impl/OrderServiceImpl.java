@@ -15,6 +15,8 @@ import com.epam.jwd.service.exception.ServiceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.sql.SQLException;
+import java.util.Timer;
 import java.util.*;
 
 public class OrderServiceImpl implements Service<OrderDto, Integer> {
@@ -23,7 +25,9 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
     private final Double LiterCostFuel = 1.95;
     private final Integer COUNT_MS_IN_MIN = 60000;
     private final Double SET_CURRENT_AMOUNT = 0.00;
+    private final Long TIME_TO_PAY = (long) 10 * COUNT_MS_IN_MIN;
     private final String MAIN_ACCOUNT = "admin";
+    private final String TIMEOUT_TO_PAY_MSS = "Payment time expired";
     private final OrderDaoImpl orderDao = new OrderDaoImpl();
     private final InsuranceServiceImpl insuranceService = new InsuranceServiceImpl();
     private final PriceServiceImpl priceService = new PriceServiceImpl();
@@ -33,7 +37,6 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
     private final CarServiceImpl carService = new CarServiceImpl();
     private final AccountServiceImpl accountService = new AccountServiceImpl();
     private final AccountConverter accountConverter = new AccountConverter();
-    private final InsuranceConverter insuranceConverter = new InsuranceConverter();
     private final MarkConverter markConverter = new MarkConverter();
     private final MarkServiceImpl markService = new MarkServiceImpl();
 
@@ -87,7 +90,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param orderId, refusal
      * @return the boolean
      */
-    public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException, DaoException {
+    public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException, DaoException, SQLException {
         Order order = orderDao.findById(orderId);
         UserDto userDto = userService.getById(order.getUserId());
         AccountDto accountDto = accountService.getById(userDto.getAccountId());
@@ -99,8 +102,10 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         order.setStatus(Status.CLOSE.getId());
         carDto.setAvailable((byte) 1);
         AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());
-        mainAdmin.setBalance(mainAdmin.getBalance() - amount);
-        accountDto.setBalance(accountDto.getBalance() + amount);
+        if (order.getPaymentStatus() == 1) {
+            mainAdmin.setBalance(mainAdmin.getBalance() - amount);
+            accountDto.setBalance(accountDto.getBalance() + amount);
+        }
         Account person = accountConverter.convert(accountDto);
         Account admin = accountConverter.convert(mainAdmin);
         Car car = carConverter.convert(carDto);
@@ -115,7 +120,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param carDto, userId, count days rent, type insurance
      * @return the boolean
      */
-    public Boolean createOrder(CarDto carDto, Integer userId, Integer day, Byte type) throws ServiceException, DaoException {
+    public Boolean createOrder(CarDto carDto, Integer userId, Integer day, Byte type) throws ServiceException, DaoException, SQLException {
         logger.info("create method " + OrderServiceImpl.class);
         Mark mark = new Mark();
         String number = insuranceService.getGenerateNumber();
@@ -123,7 +128,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         Double amount = insuranceService.getAmountInsurance(type);
         Insurance insurance = new Insurance(type, number, company, amount);
         Double pledge = getPledge(carDto.getLevel());
-        Double costInsurance = insuranceService.getCostInsurance(carDto.getLevel());
+        Double costInsurance = insuranceService.getCostInsurance(type);
         Double sumDay = priceService.getById(carDto.getId()).getPricePerDay();
         Order order = new Order.Builder()
                 .withStatus(Status.WAITING_PAYMENT.getId())
@@ -135,7 +140,11 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
                 .withCarId(carDto.getId())
                 .build();
         Car car = carConverter.convert(carDto);
-        return orderDao.saveOrderMarkInsurance(mark, insurance, order, car);
+        Boolean resultCreateOrder = orderDao.saveOrderMarkInsurance(mark, insurance, order, car);
+        if (resultCreateOrder){
+            timerPay(order.getId());
+        }
+        return resultCreateOrder;
     }
 
     /**
@@ -396,5 +405,29 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      */
     private Double finishAmount(Double timeSum, Double fuelSum, Double insuranceSum, Double currentSum) {
         return (currentSum + fuelSum) - (timeSum + insuranceSum);
+    }
+
+    private void timerPay(Integer orderId) {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Order order = null;
+                try {
+                    order = orderDao.findById(orderId);
+                } catch (DaoException exception) {
+                    exception.printStackTrace();
+                }
+                if (order.getPaymentStatus() != 1) {
+                    try {
+                        cancelOrderAdmin(orderId, TIMEOUT_TO_PAY_MSS);
+                    } catch (ServiceException e) {
+                        e.printStackTrace();
+                    } catch (DaoException | SQLException exception) {
+                        exception.printStackTrace();
+                    }
+                }
+            }
+        }, TIME_TO_PAY);
     }
 }

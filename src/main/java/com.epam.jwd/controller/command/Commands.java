@@ -24,6 +24,7 @@ public enum Commands {
     CANCEL_ORDER_ADMIN(CancelOrderAdminCommand.INSTANCE, Role.ADMIN),
     BEGIN_RENT(BrginRentCommand.INSTANCE, Role.ADMIN),
     END_RENT(EndRentCommand.INSTANCE, Role.ADMIN),
+    UPDATE_PERSON(UpdatePersonCommand.INSTANCE, Role.ADMIN),
 
     LOGIN_PAGE(ShowLoginPage.INSTANCE, Role.UNKNOWN, Role.USER, Role.ADMIN),
     REGISTRATION_PAGE(ShowRegistrationPage.INSTANCE, Role.UNKNOWN, Role.USER, Role.ADMIN),
@@ -37,7 +38,8 @@ public enum Commands {
     ADMIN_ORDERS_PAGE(ShowAdminOrdersPage.INSTANCE, Role.ADMIN),
     ADMIN_ACTIVE_ORDERS_PAGE(ShowAdminActiveOrdersPage.INSTANCE, Role.ADMIN),
     ADMIN_READY_ORDERS_PAGE(ShowAdminReadyOrdersPage.INSTANCE, Role.ADMIN),
-    ADMIN_CLOSE_ORDERS_PAGE(ShowAdminCloseOrdersPage.INSTANCE, Role.ADMIN),
+    ADMIN_WAITING_ORDERS_PAGE(ShowAdminWaitingOrdersPage.INSTANCE, Role.ADMIN),
+    EDIT_USER_PAGE(ShowEditUserPage.INSTANCE, Role.ADMIN),
     ADMIN_NEW_CAR_PAGE(ShowAdminNewCarPage.INSTANCE, Role.ADMIN);
 
     private final Command command;

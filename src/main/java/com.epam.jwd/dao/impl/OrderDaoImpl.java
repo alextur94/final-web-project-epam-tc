@@ -161,12 +161,11 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
-    public Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException {
+    public Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException, SQLException {
         logger.info("save order mark insurance method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
             connection.setAutoCommit(false);
-
             Mark saveMark = new MarkDaoImpl().saveMark(mark, connection);
             Insurance saveInsurance = new InsuranceDaoImpl().saveInsurance(insurance, connection);
             order.setMarkId(saveMark.getId());
@@ -178,6 +177,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.SAVE_ORDER_MARK_INSURANCE_ERROR, throwables);
             throw new DaoException(Message.SAVE_ORDER_MARK_INSURANCE_ERROR);
         } finally {
@@ -185,7 +185,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
-    public Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException {
+    public Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException, SQLException {
         logger.info("cancel order admin method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -198,6 +198,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
+            connection.rollback();
             logger.error(Message.CANCEL_ORDER_ADMIN_ERROR, throwables);
             throw new DaoException(Message.CANCEL_ORDER_ADMIN_ERROR);
         } finally {

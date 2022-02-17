@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 
 @WebServlet("/controller")
@@ -62,6 +63,8 @@ public class Controller extends HttpServlet {
             });
         } catch (ServiceException e) {
             e.printStackTrace();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
         }
         if (response.isRedirect()) {
             resp.sendRedirect(response.getPath());
