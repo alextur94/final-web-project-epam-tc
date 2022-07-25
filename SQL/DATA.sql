@@ -2,13 +2,13 @@
 INSERT INTO account VALUES
 (1, 2, 'Maksim', 'Sokolov', 'admin@rent.com', '+375445556644', 'ID_123456','Belarus, Minsk, Mira 54 - 45', 'ND123234', 0, 1),
 (2, 1, 'Oleg', 'Smirnov', 'oleg@main.ru', '+375291596878', 'ID_1232344','Belarus, Minsk, Kolosa 8 - 98', 'ND4235523', 800, 1),
-(3, 1, 'Ivan', 'Petrov', 'ivan@gmail.com', '+375293698521', 'ID_3333333','Belarus, Minsk, Semashko 99 - 1', 'MI9995582', 200, 1)
+(3, 1, 'Ivan', 'Petrov', 'ivan@gmail.com', '+375293698521', 'ID_3333333','Belarus, Minsk, Semashko 99 - 1', 'MI9995582', 200, 1);
 
 --  data for user table
 INSERT INTO user VALUES
 (1, 'Admin', '38-654929-72110-115-57-71-18-43-12-4111126110', 1),
 (2, 'Oleg', '-43660-57-20-92-5347102-63-84-109-1007195-120', 2),
-(3, 'Ivan', '-115-3745-6026-110-70-94120124-3287-9122-103-96', 3)
+(3, 'Ivan', '-115-3745-6026-110-70-94120124-3287-9122-103-96', 3);
 
 -- Login and Password for ready accounts
 -- Admin -> Admin123
@@ -32,7 +32,7 @@ INSERT INTO price VALUES
     (13, 65, 15),
     (14, 90, 18),
     (15, 95, 19),
-    (16, 85, 16)
+    (16, 85, 16);
 
 -- data for machine table
 INSERT INTO car VALUES
@@ -51,4 +51,4 @@ INSERT INTO car VALUES
     (13, 'Renault', 'Logan', 2010, 1, 1, 26, 0, 5, 'gray', 1, 13),
     (14, 'Skoda', 'Octavia', 2012, 1, 1, 28, 0, 5, 'white', 1, 14),
     (15, 'Skoda', 'Superb', 2010, 2, 1, 49, 1, 5, 'white', 0, 15),
-    (16, 'Volkswagen', 'Passat B6', 2008, 2, 1, 51, 1, 5, 'black', 1, 16)
+    (16, 'Volkswagen', 'Passat B6', 2008, 2, 1, 51, 1, 5, 'black', 1, 16);
