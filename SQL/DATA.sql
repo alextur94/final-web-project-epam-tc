@@ -10,11 +10,6 @@ INSERT INTO user VALUES
 (2, 'Oleg', '-43660-57-20-92-5347102-63-84-109-1007195-120', 2),
 (3, 'Ivan', '-115-3745-6026-110-70-94120124-3287-9122-103-96', 3);
 
--- Login and Password for ready accounts
--- Admin -> Admin123
--- Oleg -> Oleg555
--- Ivan -> Ivan222
-
 --     data for the price table
 INSERT INTO price VALUES
     (1, 80, 15),
