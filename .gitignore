@@ -1,6 +1,7 @@
 # Project exclude paths
-#/target/
-#/.idea/
-#/logs/
-#/out/
-#/lib/
+/target/
+/.idea/
+/logs/
+/out/
+/lib/
+rental_cars.iml
