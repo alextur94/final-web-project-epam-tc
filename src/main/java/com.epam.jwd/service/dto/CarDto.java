@@ -111,7 +111,7 @@ public class CarDto extends AbstractDto<Integer>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarDto carDto = (CarDto) o;
-        return brand.equals(carDto.brand) && model.equals(carDto.model) && year.equals(carDto.year) && level.equals(carDto.level) && body.equals(carDto.body) && engineVolume.equals(carDto.engineVolume) && transmission.equals(carDto.transmission) && doors.equals(carDto.doors) && color.equals(carDto.color) && available.equals(carDto.available) && priceId.equals(carDto.priceId);
+        return id.equals(carDto.id) && brand.equals(carDto.brand) && model.equals(carDto.model) && year.equals(carDto.year) && level.equals(carDto.level) && body.equals(carDto.body) && engineVolume.equals(carDto.engineVolume) && transmission.equals(carDto.transmission) && doors.equals(carDto.doors) && color.equals(carDto.color) && available.equals(carDto.available) && priceId.equals(carDto.priceId);
     }
 
     @Override

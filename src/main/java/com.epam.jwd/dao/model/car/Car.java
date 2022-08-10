@@ -77,7 +77,7 @@ public class Car extends Entity<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return brand.equals(car.brand) && model.equals(car.model) && year.equals(car.year) && level.equals(car.level) && body.equals(car.body) && engineVolume.equals(car.engineVolume) && transmission.equals(car.transmission) && doors.equals(car.doors) && color.equals(car.color) && available.equals(car.available) && priceId.equals(car.priceId);
+        return id.equals(car.id) && brand.equals(car.brand) && model.equals(car.model) && year.equals(car.year) && level.equals(car.level) && body.equals(car.body) && engineVolume.equals(car.engineVolume) && transmission.equals(car.transmission) && doors.equals(car.doors) && color.equals(car.color) && available.equals(car.available) && priceId.equals(car.priceId);
     }
 
     @Override
