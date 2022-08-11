@@ -2,6 +2,7 @@ package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.Dao;
 import com.epam.jwd.dao.api.Message;
+import com.epam.jwd.dao.api.PriceDao;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
 import com.epam.jwd.dao.exception.DaoException;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class PriceDaoImpl implements Dao<Price, Integer> {
+public class PriceDaoImpl implements PriceDao {
     private static final Logger logger = LogManager.getLogger(PriceDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
 
@@ -98,6 +99,7 @@ public class PriceDaoImpl implements Dao<Price, Integer> {
         }
     }
 
+    @Override
     public Price savePrice(Price price, Connection connection) throws SQLException {
         ResultSet resultSet;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_PRICE, new String[]{"id"})) {

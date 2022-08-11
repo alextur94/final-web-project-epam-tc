@@ -1,7 +1,6 @@
 package com.epam.jwd.dao.impl;
 
-import com.epam.jwd.dao.api.Dao;
-import com.epam.jwd.dao.api.Message;
+import com.epam.jwd.dao.api.*;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
 import com.epam.jwd.dao.exception.DaoException;
@@ -19,12 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class OrderDaoImpl implements Dao<Order, Integer> {
+public class OrderDaoImpl implements OrderDao {
     private static final Logger logger = LogManager.getLogger(CarDaoImpl.class);
-    private final AccountDaoImpl accountDao = new AccountDaoImpl();
-    private final CarDaoImpl carDao = new CarDaoImpl();
-    private final MarkDaoImpl markDao = new MarkDaoImpl();
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
+    private AccountDao accountDao = new AccountDaoImpl();
+    private CarDao carDao = new CarDaoImpl();
+    private MarkDao markDao = new MarkDaoImpl();
 
     @Override
     public Order save(Order order) throws DaoException {
@@ -102,19 +101,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
-    public List<Order> findByUserId(Integer userId) throws DaoException {
-        logger.info("find by user id method " + OrderDaoImpl.class);
-        Connection connection = connectionPool.takeConnection();
-        try {
-            return findAllOrdersByUserId(1,2,userId, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_USER_BY_ID_ERROR, throwables);
-            throw new DaoException(Message.FIND_USER_BY_ID_ERROR);
-        } finally {
-            connectionPool.returnConnection(connection);
-        }
-    }
-
+    @Override
     public List<Order> findByStatus(Integer status) throws DaoException {
         logger.info("find by status new method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -128,6 +115,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public List<Order> findCountOrdersInBase(Integer offset, Integer count, Integer userId) throws DaoException {
         logger.info("find count orders method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -141,6 +129,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public Integer countOrdersByUser(Integer userId) throws DaoException {
         logger.info("find count orders method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -161,6 +150,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException, SQLException {
         logger.info("save order mark insurance method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -185,6 +175,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException, SQLException {
         logger.info("cancel order admin method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -206,6 +197,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public Boolean finishSaveOrder(Order order, Account account, Car car, Mark mark, Account admin) throws DaoException {
         logger.info("finish save order method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -227,6 +219,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         }
     }
 
+    @Override
     public Boolean OnlyOne(Integer userId) throws DaoException {
         logger.info("only one method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -273,6 +266,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         return order;
     }
 
+    @Override
     public Boolean updateOrderById(Order order, Connection connection) throws SQLException {
         Boolean result;
         PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_UPDATE_ORDER_BY_ID);
@@ -337,7 +331,7 @@ public class OrderDaoImpl implements Dao<Order, Integer> {
         return result;
     }
 
-    private List<Order> findAllOrdersByUserId(Integer offset, Integer size,Integer userId, Connection connection) throws SQLException {
+    private List<Order> findAllOrdersByUserId(Integer offset, Integer size, Integer userId, Connection connection) throws SQLException {
         List<Order> result = new ArrayList<>();
         ResultSet resultSet;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_ORDER_BY_USER_ID)) {

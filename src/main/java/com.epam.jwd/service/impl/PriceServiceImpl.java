@@ -17,9 +17,9 @@ import java.util.List;
 public class PriceServiceImpl implements Service<PriceDto, Integer> {
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
     public final Integer NUMBER_HOUR = 6;
-    private final PriceDaoImpl priceDao = new PriceDaoImpl();
-    private final PriceConverter converter = new PriceConverter();
-    private final PriceValidator validator = new PriceValidator();
+    private PriceDaoImpl priceDao = new PriceDaoImpl();
+    private PriceConverter converter = new PriceConverter();
+    private PriceValidator validator = new PriceValidator();
 
     /**
      * Validate, convert and create new entity
@@ -33,7 +33,8 @@ public class PriceServiceImpl implements Service<PriceDto, Integer> {
         validator.validate(value);
         value.setPricePerHour(Math.ceil(value.getPricePerDay() / NUMBER_HOUR));
         Price price = converter.convert(value);
-        return converter.convert(priceDao.save(price));
+        Price priceReturn = priceDao.save(price);
+        return converter.convert(priceReturn);
     }
 
     /**

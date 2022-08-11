@@ -1,5 +1,6 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.api.AccountDao;
 import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.AccountDaoImpl;
@@ -25,7 +26,7 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
     private static final Logger logger = LogManager.getLogger(AccountServiceImpl.class);
     private static final String EXCEPTION_NOT_BE_CLOSED_MESSAGE = "The order cannot be closed. ";
     private static final Double AMOUNT_IS_ZERO = 0.00;
-    private final AccountDaoImpl accountDao = new AccountDaoImpl();
+    private AccountDao accountDao = new AccountDaoImpl();
     private final AccountConverter accountConverter = new AccountConverter();
     private final AccountValidator accountValidator = new AccountValidator();
     private final CarConverter carConverter = new CarConverter();
@@ -79,18 +80,6 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
             accountDtos.add(accountConverter.convert(account));
         }
         return accountDtos;
-    }
-
-    /**
-     * Found by email
-     *
-     * @param email
-     * @return the String
-     */
-    public AccountDto getByEmail(String email) throws DaoException, ServiceException {
-        logger.info("get by email method " + AccountServiceImpl.class);
-        Account account = accountDao.findByEmail(email);
-        return accountConverter.convert(account);
     }
 
     /**

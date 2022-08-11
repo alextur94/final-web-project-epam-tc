@@ -1,6 +1,6 @@
 package com.epam.jwd.dao.impl;
 
-import com.epam.jwd.dao.api.Dao;
+import com.epam.jwd.dao.api.AccountDao;
 import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AccountDaoImpl implements Dao<Account, Integer> {
+public class AccountDaoImpl implements AccountDao {
 
     private static final Logger logger = LogManager.getLogger(AccountDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
@@ -84,6 +84,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
+    @Override
     public Account findByEmail(String email) throws DaoException {
         logger.info("find by email method " + AccountDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -103,6 +104,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
+    @Override
     public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException, SQLException {
         logger.info("save transaction account to admin method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -123,6 +125,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
+    @Override
     public Boolean cancelOrder(Account account, Account admin, Car car, Order order) throws DaoException, SQLException {
         logger.info("cancel transaction method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -144,6 +147,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         }
     }
 
+    @Override
     public Account saveAccount(Account account, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_ACCOUNT, new String[]{"id"});
         statement.setInt(1, account.getRole().getRoleId());
@@ -166,6 +170,7 @@ public class AccountDaoImpl implements Dao<Account, Integer> {
         return account;
     }
 
+    @Override
     public Boolean updateAccountById(Account account, Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_UPDATE_ACCOUNT_BY_ID);
         statement.setInt(1, account.getRole().getRoleId());

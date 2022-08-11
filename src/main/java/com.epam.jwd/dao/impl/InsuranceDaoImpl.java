@@ -1,6 +1,6 @@
 package com.epam.jwd.dao.impl;
 
-import com.epam.jwd.dao.api.Dao;
+import com.epam.jwd.dao.api.InsuranceDao;
 import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
-public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
+public class InsuranceDaoImpl implements InsuranceDao {
     private static final Logger logger = LogManager.getLogger(InsuranceDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
 
@@ -88,6 +88,7 @@ public class InsuranceDaoImpl implements Dao<Insurance, Integer> {
         }
     }
 
+    @Override
     public Insurance saveInsurance(Insurance insurance, Connection connection) throws SQLException {
         ResultSet resultSet;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_INSURANCE, new String[]{"id"})) {
