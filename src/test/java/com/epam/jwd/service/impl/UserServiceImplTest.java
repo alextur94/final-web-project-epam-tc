@@ -29,30 +29,28 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceImplTest {
     @Mock
-    UserDaoImpl userDao;
+    private UserDaoImpl userDao;
     @Mock
-    AccountDaoImpl accountDao;
+    private AccountDaoImpl accountDao;
     @Mock
-    UserConverter userConverter;
+    private UserConverter userConverter;
     @Mock
-    AccountConverter accountConverter;
+    private UserValidator userValidator;
     @Mock
-    UserValidator userValidator;
-    @Mock
-    AccountValidator accountValidator;
+    private AccountValidator accountValidator;
     @InjectMocks
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Test
-    public void createShouldReturnUser() throws ServiceException, DaoException, SQLException {
-        User user = getUser();
-        User userId = getUserId();
-        UserDto userDto = getUserDto();
-        UserDto userDtoId = getUserDtoId();
+    public void createShouldReturnUser() throws ServiceException, DaoException {
+        User user = createUser();
+        User userId = createUserWithId();
+        UserDto userDto = createUserDto();
+        UserDto userDtoId = createUserDtoWithId();
 
         doNothing().when(userValidator).validate(userDto);
-        when(userDao.findByLogin(userDto.getLogin())).thenReturn(userId);
         doNothing().when(userValidator).validateLoginUnique(userId);
+        when(userDao.findByLogin(userDto.getLogin())).thenReturn(userId);
         when(userConverter.convert(userDto)).thenReturn(user);
         when(userDao.save(user)).thenReturn(userId);
         when(userConverter.convert(userId)).thenReturn(userDtoId);
@@ -62,9 +60,9 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void updateShouldReturnTrue() throws DaoException, ServiceException {
-        User userId = getUserId();
-        UserDto userDtoId = getUserDtoId();
+    public void updateShouldReturnTrue() throws ServiceException, DaoException {
+        User userId = createUserWithId();
+        UserDto userDtoId = createUserDtoWithId();
 
         when(userConverter.convert(userDtoId)).thenReturn(userId);
         when(userDao.update(userId)).thenReturn(true);
@@ -75,8 +73,8 @@ public class UserServiceImplTest {
 
     @Test
     public void updateShouldReturnFalse() throws DaoException, ServiceException {
-        User userId = getUserId();
-        UserDto userDtoId = getUserDtoId();
+        User userId = createUserWithId();
+        UserDto userDtoId = createUserDtoWithId();
 
         when(userConverter.convert(userDtoId)).thenReturn(userId);
         when(userDao.update(userId)).thenReturn(false);
@@ -87,22 +85,23 @@ public class UserServiceImplTest {
 
     @Test
     public void getByIdShouldReturnUserDto() throws DaoException, ServiceException {
-        User userId = getUserId();
-        UserDto userDtoId = getUserDtoId();
+        Integer id = 0;
+        User userId = createUserWithId();
+        UserDto userDtoId = createUserDtoWithId();
 
-        when(userDao.findById(0)).thenReturn(userId);
+        when(userDao.findById(id)).thenReturn(userId);
         when(userConverter.convert(userId)).thenReturn(userDtoId);
 
-        UserDto actualUser = userService.getById(0);
+        UserDto actualUser = userService.getById(id);
         assertEquals(userDtoId, actualUser);
     }
 
     @Test
     public void getAllShouldReturnListUserDto() throws DaoException, ServiceException {
-        User userId = getUserId();
-        UserDto userDtoId = getUserDtoId();
-        List<User> listUser = getAllUser();
-        List<UserDto> listUserDto = getAllUserDto();
+        User userId = createUserWithId();
+        UserDto userDtoId = createUserDtoWithId();
+        List<User> listUser = createListUsers();
+        List<UserDto> listUserDto = createListUsersDro();
 
         when(userDao.findAll()).thenReturn(listUser);
         when(userConverter.convert(userId)).thenReturn(userDtoId);
@@ -114,7 +113,7 @@ public class UserServiceImplTest {
     @Test
     public void getByLoginShouldReturnUser() throws ServiceException, DaoException {
         String login = "login";
-        User userId = getUserId();
+        User userId = createUserWithId();
 
         doNothing().when(userValidator).validateLogin(login);
         when(userDao.findByLogin(login)).thenReturn(userId);
@@ -125,7 +124,7 @@ public class UserServiceImplTest {
 
     @Test
     public void getByLoginForUpdateShouldReturnNull() throws ServiceException, DaoException {
-        User userId = getUserId();
+        User userId = createUserWithId();
 
         doNothing().when(userValidator).validateLogin(userId.getLogin());
         when(userDao.findByLoginForUpdate(userId.getLogin())).thenReturn(null);
@@ -136,7 +135,7 @@ public class UserServiceImplTest {
 
     @Test(expected = ServiceException.class)
     public void getByLoginForUpdateShouldThrowsException() throws ServiceException, DaoException {
-        User userId = getUserId();
+        User userId = createUserWithId();
 
         when(userDao.findByLoginForUpdate(userId.getLogin())).thenReturn(userId);
 
@@ -145,17 +144,17 @@ public class UserServiceImplTest {
 
     @Test
     public void savePersonShouldSavePersonInDB() throws ServiceException, DaoException, SQLException {
-        User user = getUser();
-        UserDto userDto = getUserDto();
-        Account account = getAccount();
-        AccountDto accountDto = getAccountDto();
+        User user = createUser();
+        UserDto userDto = createUserDto();
+        Account account = createAccount();
+        AccountDto accountDto = createAccountDto();
 
         doNothing().when(userValidator).validate(userDto);
-        when(userDao.findByLoginForUpdate(userDto.getLogin())).thenReturn(user);
         doNothing().when(userValidator).validateLoginUnique(user);
         doNothing().when(accountValidator).validate(accountDto);
-        when(accountDao.findByEmail(accountDto.getEmail())).thenReturn(account);
         doNothing().when(accountValidator).validateEmailUnique(account);
+        when(userDao.findByLoginForUpdate(userDto.getLogin())).thenReturn(user);
+        when(accountDao.findByEmail(accountDto.getEmail())).thenReturn(account);
         when(userConverter.convert(userDto)).thenReturn(user);
 
         userService.savePerson(userDto, accountDto);
@@ -164,8 +163,9 @@ public class UserServiceImplTest {
 
     @Test
     public void checkPasswordOnCorrectShouldReturnTrue() throws DaoException {
-        User user = getUserId();
         Integer id = 1;
+        User user = createUserWithId();
+
         when(userDao.findById(id)).thenReturn(user);
         when(userDao.criptPassword(user.getPassword())).thenReturn(user.getPassword());
 
@@ -175,8 +175,9 @@ public class UserServiceImplTest {
 
     @Test
     public void checkPasswordOnCorrectShouldReturnFalse() throws DaoException {
-        User user = getUserId();
         Integer id = 1;
+        User user = createUserWithId();
+
         when(userDao.findById(id)).thenReturn(user);
         when(userDao.criptPassword(user.getPassword())).thenReturn("anotherPass");
 
@@ -188,8 +189,8 @@ public class UserServiceImplTest {
     public void checkLoginPasswordShouldReturnUserDto() throws DaoException, ServiceException {
         String login = "login";
         String pass = "pass";
-        User user = getUserId();
-        UserDto userDto = getUserDtoId();
+        User user = createUserWithId();
+        UserDto userDto = createUserDtoWithId();
 
         when(userDao.checkLoginPassword(login, pass)).thenReturn(user);
         when(userConverter.convert(user)).thenReturn(userDto);
@@ -202,7 +203,7 @@ public class UserServiceImplTest {
     public void changePasswordShouldUpdatePass() throws DaoException {
         Integer id = 0;
         String pass = "pass";
-        User user = getUserId();
+        User user = createUserWithId();
 
         when(userDao.findById(id)).thenReturn(user);
         when(userDao.criptPassword(pass)).thenReturn(user.getPassword());
@@ -212,7 +213,7 @@ public class UserServiceImplTest {
         verify(userDao, times(1)).update(user);
     }
 
-    private UserDto getUserDto() {
+    private UserDto createUserDto() {
         UserDto userDto = new UserDto();
         userDto.setLogin("Login");
         userDto.setPassword("Password");
@@ -220,7 +221,7 @@ public class UserServiceImplTest {
         return userDto;
     }
 
-    private UserDto getUserDtoId() {
+    private UserDto createUserDtoWithId() {
         UserDto userDto = new UserDto();
         userDto.setId(1);
         userDto.setLogin("Login");
@@ -229,7 +230,7 @@ public class UserServiceImplTest {
         return userDto;
     }
 
-    private User getUser() {
+    private User createUser() {
         User user = new User();
         user.setLogin("User");
         user.setPassword("Password");
@@ -237,7 +238,7 @@ public class UserServiceImplTest {
         return user;
     }
 
-    private User getUserId() {
+    private User createUserWithId() {
         User user = new User();
         user.setId(1);
         user.setLogin("User");
@@ -246,23 +247,23 @@ public class UserServiceImplTest {
         return user;
     }
 
-    private List<User> getAllUser() {
+    private List<User> createListUsers() {
         List<User> list = new ArrayList<>();
-        list.add(getUserId());
-        list.add(getUserId());
-        list.add(getUserId());
+        list.add(createUserWithId());
+        list.add(createUserWithId());
+        list.add(createUserWithId());
         return list;
     }
 
-    private List<UserDto> getAllUserDto() {
+    private List<UserDto> createListUsersDro() {
         List<UserDto> list = new ArrayList<>();
-        list.add(getUserDtoId());
-        list.add(getUserDtoId());
-        list.add(getUserDtoId());
+        list.add(createUserDtoWithId());
+        list.add(createUserDtoWithId());
+        list.add(createUserDtoWithId());
         return list;
     }
 
-    private AccountDto getAccountDto() {
+    private AccountDto createAccountDto() {
         return new AccountDto.Builder()
                 .withRole(Role.USER)
                 .withEmail("email@mail.com")
@@ -271,7 +272,7 @@ public class UserServiceImplTest {
                 .build();
     }
 
-    private Account getAccount() {
+    private Account createAccount() {
         return new Account.Builder()
                 .withRole(Role.USER)
                 .withEmail("email@mail.com")

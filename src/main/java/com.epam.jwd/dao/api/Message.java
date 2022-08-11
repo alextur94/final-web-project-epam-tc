@@ -54,7 +54,7 @@ public interface Message {
     String FIND_ALL_USERS_ERROR = "Find all users ";
     String FIND_BY_ID_USER_ERROR = "User wasn't found by id. ";
     String FIND_BY_LOGIN_ERROR = "User wasn't found by login. ";
-    String FIND_BY_ACCOUNT_ID_ERROR = "User wasn't found by account id. ";
+    String ROLLBACK_ERROR = "Failed to rollback ";
     String INCORRECT_LOGIN_ERROR = "Incorrect login or password. ";
     String ENCRYPT_PASSWORD_ERROR = "Password encryption error. ";
 }

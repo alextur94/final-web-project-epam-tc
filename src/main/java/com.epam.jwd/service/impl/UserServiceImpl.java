@@ -19,7 +19,6 @@ import com.epam.jwd.service.validator.impl.UserValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
      * @return userdto
      */
     @Override
-    public UserDto create(UserDto userDto) throws ServiceException, DaoException, SQLException {
+    public UserDto create(UserDto userDto) throws ServiceException, DaoException {
         logger.info("save method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
         User check = userDao.findByLogin(userDto.getLogin());
@@ -131,7 +130,7 @@ public class UserServiceImpl implements Service<UserDto, Integer> {
      *
      * @param userDto, accountDto
      */
-    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException, SQLException {
+    public void savePerson(UserDto userDto, AccountDto accountDto) throws ServiceException, DaoException {
         logger.info("create method " + UserServiceImpl.class);
         validatorUser.validate(userDto);
         User checkUser = userDao.findByLoginForUpdate(userDto.getLogin());

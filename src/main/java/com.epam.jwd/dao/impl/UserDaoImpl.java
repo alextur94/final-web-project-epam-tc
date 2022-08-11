@@ -134,7 +134,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Boolean savePerson(User user, Account account) throws DaoException, SQLException {
+    public Boolean savePerson(User user, Account account) throws DaoException {
         logger.info("save method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -146,7 +146,11 @@ public class UserDaoImpl implements UserDao {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
-            connection.rollback();
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                throw new DaoException(Message.ROLLBACK_ERROR);
+            }
             throw new DaoException(Message.SAVE_PERSON_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -154,7 +158,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Boolean updateUserAccount(User user, Account account) throws DaoException, SQLException {
+    public Boolean updateUserAccount(User user, Account account) throws DaoException {
         logger.info("update user and account method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -165,7 +169,11 @@ public class UserDaoImpl implements UserDao {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
-            connection.rollback();
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                throw new DaoException(Message.ROLLBACK_ERROR);
+            }
             throw new DaoException(Message.UPDATE_PERSON_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
