@@ -19,6 +19,11 @@ public class PriceDto extends AbstractDto<Integer>{
         this.pricePerHour = pricePerHour;
     }
 
+    public PriceDto(Double pricePerDay, Double pricePerHour) {
+        this.pricePerDay = pricePerDay;
+        this.pricePerHour = pricePerHour;
+    }
+
     public Double getPricePerDay() {
         return pricePerDay;
     }
@@ -40,7 +45,7 @@ public class PriceDto extends AbstractDto<Integer>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PriceDto priceDto = (PriceDto) o;
-        return pricePerDay.equals(priceDto.pricePerDay) && pricePerHour.equals(priceDto.pricePerHour);
+        return id.equals(priceDto.id) && pricePerDay.equals(priceDto.pricePerDay) && pricePerHour.equals(priceDto.pricePerHour);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.epam.jwd.dao.impl;
 
+import com.epam.jwd.dao.api.CarDao;
 import com.epam.jwd.dao.api.Dao;
 import com.epam.jwd.dao.api.Message;
+import com.epam.jwd.dao.api.PriceDao;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;
 import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
 import com.epam.jwd.dao.exception.DaoException;
@@ -19,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CarDaoImpl implements Dao<Car, Integer> {
+public class CarDaoImpl implements CarDao {
     private static final Logger logger = LogManager.getLogger(CarDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
-    private final PriceDaoImpl priceDao = new PriceDaoImpl();
+    private PriceDao priceDao = new PriceDaoImpl();
 
     @Override
     public Car save(Car car) throws DaoException {
@@ -100,6 +102,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         }
     }
 
+    @Override
     public List<Car> findByRange(Integer skip, Integer size) throws DaoException {
         logger.info("find by range method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -131,6 +134,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         }
     }
 
+    @Override
     public Boolean saveCarPrice(Car car, Price price) throws DaoException, SQLException {
         logger.info("save car and price method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
@@ -173,6 +177,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         return car;
     }
 
+    @Override
     public Boolean updateCarById(Car car, Connection connection) throws SQLException {
         Boolean result;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_UPDATE_CAR_BY_ID)) {
@@ -258,6 +263,7 @@ public class CarDaoImpl implements Dao<Car, Integer> {
         return car;
     }
 
+    @Override
     public Integer countRowFromCars() throws SQLException, DaoException {
         logger.info("save car and price method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();

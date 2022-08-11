@@ -6,7 +6,6 @@ import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.UserDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
-import com.epam.jwd.dao.model.account.Role;
 import com.epam.jwd.dao.model.user.User;
 import com.epam.jwd.service.converter.impl.AccountConverter;
 import com.epam.jwd.service.converter.impl.UserConverter;
