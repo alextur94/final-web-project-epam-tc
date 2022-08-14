@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface Service<T extends AbstractDto<K>, K> {
-    T create(T value) throws ServiceException, SQLException, DaoException;
+    T create(T value) throws ServiceException, DaoException;
     Boolean update(T value) throws ServiceException, DaoException;
     Boolean delete(T value) throws ServiceException, DaoException;
     T getById(K id) throws ServiceException, DaoException;

@@ -19,7 +19,7 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
     private final InsuranceDaoImpl insuranceDao = new InsuranceDaoImpl();
 
     @Override
-    public InsuranceDto create(InsuranceDto insuranceDto) throws ServiceException, SQLException {
+    public InsuranceDto create(InsuranceDto insuranceDto) throws ServiceException {
         return null;
     }
 
@@ -40,9 +40,13 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
      * @return entity insuranceDto
      */
     @Override
-    public InsuranceDto getById(Integer id) throws ServiceException, DaoException {
+    public InsuranceDto getById(Integer id) throws ServiceException {
         logger.info("get by id " + InsuranceServiceImpl.class);
-        return converter.convert(insuranceDao.findById(id));
+        try {
+            return converter.convert(insuranceDao.findById(id));
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     @Override

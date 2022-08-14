@@ -121,7 +121,7 @@ public enum UpdatePersonCommand implements Command {
             userDao.updateUserAccount(convertUser, convertAccount);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_SAVE_PERSON_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | SQLException e) {
+        } catch (DaoException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

@@ -58,7 +58,7 @@ public enum ShowAdminNewCarPage implements Command {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             session.setAttribute("countRow", countRow);
             return SUCCESS_RESPONSE;
-        } catch (DaoException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

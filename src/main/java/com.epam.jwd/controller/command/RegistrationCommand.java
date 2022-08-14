@@ -54,7 +54,7 @@ public enum RegistrationCommand implements Command {
             userService.savePerson(userDto, accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.NEW_ACCOUNT_WAS_CREATE);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | ServiceException | SQLException exception) {
+        } catch (DaoException | ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

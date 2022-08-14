@@ -37,8 +37,7 @@ public class AccountDaoImpl implements AccountDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updateAccountById(account, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_ACCOUNT_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_ACCOUNT_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -56,8 +55,7 @@ public class AccountDaoImpl implements AccountDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllAccounts(connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_ALL_ACCOUNTS_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_ACCOUNTS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -74,10 +72,8 @@ public class AccountDaoImpl implements AccountDao {
             if (account != null) {
                 return account;
             }
-            logger.error(Message.FIND_BY_ID_ACCOUNT_ERROR);
             throw new DaoException(Message.FIND_BY_ID_ACCOUNT_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_ID_ACCOUNT_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_ID_ACCOUNT_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -94,10 +90,8 @@ public class AccountDaoImpl implements AccountDao {
             if (account == null) {
                 return account;
             }
-            logger.error(Message.FIND_BY_EMAIL_ERROR);
             throw new DaoException(Message.FIND_BY_EMAIL_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_EMAIL_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_EMAIL_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -105,7 +99,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException, SQLException {
+    public Boolean saveTransactionUserAdmin(Account user, Account admin, Order order) throws DaoException {
         logger.info("save transaction account to admin method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -116,9 +110,12 @@ public class AccountDaoImpl implements AccountDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
-            connection.rollback();
-            logger.error(Message.TRANSACTION_ACCOUNT_ADMIN_ERROR, throwables);
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException exception) {
+                throw new DaoException(Message.ROLLBACK_ERROR);
+            }
             throw new DaoException(Message.TRANSACTION_ACCOUNT_ADMIN_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -126,7 +123,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public Boolean cancelOrder(Account account, Account admin, Car car, Order order) throws DaoException, SQLException {
+    public Boolean cancelOrder(Account account, Account admin, Car car, Order order) throws DaoException {
         logger.info("cancel transaction method " + UserDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -138,9 +135,12 @@ public class AccountDaoImpl implements AccountDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
-            connection.rollback();
-            logger.error(Message.CANCEL_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException exception) {
+                throw new DaoException(Message.ROLLBACK_ERROR);
+            }
             throw new DaoException(Message.CANCEL_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);

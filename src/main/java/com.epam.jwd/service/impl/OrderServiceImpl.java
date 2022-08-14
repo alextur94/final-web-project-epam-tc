@@ -73,11 +73,15 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @return List OrderDto
      */
     @Override
-    public List<OrderDto> getAll() throws ServiceException, DaoException {
+    public List<OrderDto> getAll() throws ServiceException {
         logger.info("get all method " + OrderServiceImpl.class);
         List<OrderDto> orderDtoList = new ArrayList<>();
-        for (Order order : orderDao.findAll()) {
-            orderDtoList.add(orderConverter.convert(order));
+        try {
+            for (Order order : orderDao.findAll()) {
+                orderDtoList.add(orderConverter.convert(order));
+            }
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
         return orderDtoList;
     }
@@ -90,26 +94,30 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param orderId, refusal
      * @return the boolean
      */
-    public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException, DaoException, SQLException {
-        Order order = orderDao.findById(orderId);
-        UserDto userDto = userService.getById(order.getUserId());
-        AccountDto accountDto = accountService.getById(userDto.getAccountId());
-        CarDto carDto = carService.getById(order.getCarId());
-        Double amount = order.getCurrentSum();
-        order.setCurrentSum(SET_CURRENT_AMOUNT);
-        order.setPledge(SET_CURRENT_AMOUNT);
-        order.setRefusal(refusal);
-        order.setStatus(Status.CLOSE.getId());
-        carDto.setAvailable((byte) 1);
-        AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());
-        if (order.getPaymentStatus() == 1) {
-            mainAdmin.setBalance(mainAdmin.getBalance() - amount);
-            accountDto.setBalance(accountDto.getBalance() + amount);
+    public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException {
+        try {
+            Order order = orderDao.findById(orderId);
+            UserDto userDto = userService.getById(order.getUserId());
+            AccountDto accountDto = accountService.getById(userDto.getAccountId());
+            CarDto carDto = carService.getById(order.getCarId());
+            Double amount = order.getCurrentSum();
+            order.setCurrentSum(SET_CURRENT_AMOUNT);
+            order.setPledge(SET_CURRENT_AMOUNT);
+            order.setRefusal(refusal);
+            order.setStatus(Status.CLOSE.getId());
+            carDto.setAvailable((byte) 1);
+            AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());
+            if (order.getPaymentStatus() == 1) {
+                mainAdmin.setBalance(mainAdmin.getBalance() - amount);
+                accountDto.setBalance(accountDto.getBalance() + amount);
+            }
+            Account person = accountConverter.convert(accountDto);
+            Account admin = accountConverter.convert(mainAdmin);
+            Car car = carConverter.convert(carDto);
+            orderDao.cancelOrderAdmin(admin, person, order, car);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
-        Account person = accountConverter.convert(accountDto);
-        Account admin = accountConverter.convert(mainAdmin);
-        Car car = carConverter.convert(carDto);
-        orderDao.cancelOrderAdmin(admin, person, order, car);
         return true;
     }
 
@@ -248,9 +256,13 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param status
      * @return the integer
      */
-    public Integer getCountRowByStatus(Integer status) throws DaoException {
+    public Integer getCountRowByStatus(Integer status) throws ServiceException {
         logger.info("get count row by status method " + OrderServiceImpl.class);
-        return orderDao.findByStatus(status).size();
+        try {
+            return orderDao.findByStatus(status).size();
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     /**
@@ -423,8 +435,6 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
                         cancelOrderAdmin(orderId, TIMEOUT_TO_PAY_MSS);
                     } catch (ServiceException e) {
                         e.printStackTrace();
-                    } catch (DaoException | SQLException exception) {
-                        exception.printStackTrace();
                     }
                 }
             }

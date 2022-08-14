@@ -4,7 +4,6 @@ import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.model.Entity;
 
 import java.util.List;
-
 public interface Dao<T extends Entity<K>, K> {
     T save(T entity) throws DaoException;
     Boolean update(T entity) throws DaoException;

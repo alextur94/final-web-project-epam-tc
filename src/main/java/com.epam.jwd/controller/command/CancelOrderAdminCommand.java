@@ -44,7 +44,7 @@ public enum CancelOrderAdminCommand implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException, SQLException {
+    public CommandResponse execute(CommandRequest request) throws ServiceException {
         HttpSession session = request.getCurrentSession().get();
         String refusal = request.getParameter(Constant.REFUSAL_PARAM);
         Integer orderId = (Integer) session.getAttribute(Constant.ORDER_ID_PARAM);
@@ -52,7 +52,7 @@ public enum CancelOrderAdminCommand implements Command {
             orderService.cancelOrderAdmin(orderId, refusal);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CANCEL_ORDER_ADMIN_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

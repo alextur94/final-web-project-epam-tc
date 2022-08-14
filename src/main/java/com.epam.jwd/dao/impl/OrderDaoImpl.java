@@ -176,7 +176,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException, SQLException {
+    public Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException {
         logger.info("cancel order admin method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -188,9 +188,12 @@ public class OrderDaoImpl implements OrderDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
-            connection.rollback();
-            logger.error(Message.CANCEL_ORDER_ADMIN_ERROR, throwables);
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException exception) {
+                throw new DaoException(e);
+            }
             throw new DaoException(Message.CANCEL_ORDER_ADMIN_ERROR);
         } finally {
             connectionPool.returnConnection(connection);

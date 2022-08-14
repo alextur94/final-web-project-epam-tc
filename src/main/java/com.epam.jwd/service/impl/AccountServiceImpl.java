@@ -105,7 +105,7 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param user and order entity
      * @return the boolean
      */
-    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException, SQLException {
+    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException {
         logger.info("transfer from user to admin method " + AccountServiceImpl.class);
         Double accountBalance = user.getBalance();
         Double amount = order.getCurrentSum();
