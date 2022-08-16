@@ -22,7 +22,7 @@ public enum Commands {
     NEW_CAR(NewCarCommand.INSTANCE, Role.ADMIN),
     APPROVE_CAR(ApproveCarCommand.INSTANCE, Role.ADMIN),
     CANCEL_ORDER_ADMIN(CancelOrderAdminCommand.INSTANCE, Role.ADMIN),
-    BEGIN_RENT(BrginRentCommand.INSTANCE, Role.ADMIN),
+    BEGIN_RENT(BeginRentCommand.INSTANCE, Role.ADMIN),
     END_RENT(EndRentCommand.INSTANCE, Role.ADMIN),
     UPDATE_PERSON(UpdatePersonCommand.INSTANCE, Role.ADMIN),
 

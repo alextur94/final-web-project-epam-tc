@@ -81,6 +81,7 @@ public class Constant {
     public static final String ERROR_LESS_ROOTS_MSS = "You do not have sufficient rights to execute this command. ";
     public static final String ERROR_PAGINATION_PAGE_MSS = "The page does not exist. ";
     public static final String ERROR_FOUND_CANT_BE_NULL_MSS = "Error, there must be at least one search parameter. ";
+    public static final String ERROR_DONT_ONCE_ORDER_MSS = "You don't have any order. ";
     public static final String SUCCESS_UPDATE_PASS_MSS = "Password updated successfully. ";
     public static final String SUCCESS_UPDATE_BALANCE_MSS = "Balance changed successfully. ";
     public static final String SUCCESS_CAR_BOOKING_MSS = "Car was booked successfully. ";

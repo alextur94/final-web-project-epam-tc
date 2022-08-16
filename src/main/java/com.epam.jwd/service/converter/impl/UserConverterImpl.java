@@ -3,9 +3,8 @@ package com.epam.jwd.service.converter.impl;
 import com.epam.jwd.dao.model.user.User;
 import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.UserDto;
-import com.epam.jwd.service.exception.ServiceException;
 
-public class UserConverter implements Converter<User, UserDto, Integer> {
+public class UserConverterImpl implements Converter<User, UserDto, Integer> {
     @Override
     public User convert(UserDto userDto) {
         return new User(

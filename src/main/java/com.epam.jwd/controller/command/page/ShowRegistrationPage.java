@@ -22,7 +22,7 @@ public enum ShowRegistrationPage implements Command {
     };
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         return DEFAULT_PAGE_CONTEXT;
     }
 }

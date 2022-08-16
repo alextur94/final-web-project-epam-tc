@@ -27,8 +27,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return saveInsurance(insurance, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.SAVE_INSURANCE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_INSURANCE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -41,8 +40,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updateInsuranceById(insurance, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_INSURANCE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_INSURANCE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -54,9 +52,8 @@ public class InsuranceDaoImpl implements InsuranceDao {
         logger.info("delete method " + InsuranceDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
-            return deleteInsurancetById(insurance.getId(), connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.DELETE_INSURANCE_ERROR, throwables);
+            return deleteInsuranceById(insurance.getId(), connection);
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_INSURANCE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -78,10 +75,8 @@ public class InsuranceDaoImpl implements InsuranceDao {
             if (insurance != null) {
                 return insurance;
             }
-            logger.error(Message.FIND_BY_ID_INSURANCE_ERROR);
             throw new DaoException(Message.FIND_BY_ID_INSURANCE_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_ID_INSURANCE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_ID_INSURANCE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -119,7 +114,7 @@ public class InsuranceDaoImpl implements InsuranceDao {
         return result;
     }
 
-    private Boolean deleteInsurancetById(Integer id, Connection connection) throws SQLException {
+    private Boolean deleteInsuranceById(Integer id, Connection connection) throws SQLException {
         Boolean result;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_DELETE_INSURANCE_BY_ID)) {
             statement.setInt(1, id);

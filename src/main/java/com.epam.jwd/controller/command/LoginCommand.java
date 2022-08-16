@@ -56,7 +56,7 @@ public enum LoginCommand implements Command {
             UserDto userDto = userService.checkLoginPassword(login, password);
             AccountDto accountDto = new AccountServiceImpl().getById(userDto.getAccountId());
             return successResponse(request, userDto, accountDto, lang);
-        } catch (DaoException | ServiceException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

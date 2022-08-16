@@ -65,7 +65,7 @@ public enum ShowCarsPage implements Command {
     private final PriceDaoImpl priceDao = new PriceDaoImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         String tempPage = request.getParameter(Constant.PAGE_PARAM);
         Integer page = 1;
@@ -90,7 +90,7 @@ public enum ShowCarsPage implements Command {
             request.setAttribute("currentPage", page);
             request.setAttribute("pages", countPages);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException | DaoException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

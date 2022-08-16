@@ -4,9 +4,11 @@ import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.controller.command.Constant;
+import com.epam.jwd.dao.api.OrderDao;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.OrderDaoImpl;
-import com.epam.jwd.dao.model.order.Order;
+import com.epam.jwd.service.api.CarService;
+import com.epam.jwd.service.api.OrderService;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.dto.OrderDto;
 import com.epam.jwd.service.exception.ServiceException;
@@ -50,21 +52,21 @@ public enum ShowUserOrdersPage implements Command {
     private static final CommandResponse ERROR_PAGE_RESPONSE = new CommandResponse() {
         @Override
         public String getPath() {
-            return Constant.COMM_USER_ORDERS_PAGE;
+            return Constant.PATH_PAGE_USER_ORDERS;
         }
 
         @Override
         public boolean isRedirect() {
-            return true;
+            return false;
         }
     };
 
-    private final CarServiceImpl carService = new CarServiceImpl();
-    private final OrderServiceImpl orderService = new OrderServiceImpl();
-    private final OrderDaoImpl orderDao = new OrderDaoImpl();
+    private final CarService carService = new CarServiceImpl();
+    private final OrderService orderService = new OrderServiceImpl();
+    private final OrderDao orderDao = new OrderDaoImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         Integer size = 10;
@@ -80,7 +82,7 @@ public enum ShowUserOrdersPage implements Command {
             List<OrderDto> listOrder = orderService.findCountOrders(start, size, userId);
             int countPages = (int) Math.ceil(countOrders * 1.0 / size);
             if (page > countPages || page < 1) {
-                logger.error(Constant.ERROR_PAGINATION_PAGE_MSS);
+                logger.error(Constant.ERROR_DONT_ONCE_ORDER_MSS);
                 return ERROR_PAGE_RESPONSE;
             }
             request.setAttribute("orderList", listOrder);
@@ -89,7 +91,7 @@ public enum ShowUserOrdersPage implements Command {
             request.setAttribute("pages", countPages);
             request.setAttribute("currentPage", page);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException | DaoException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

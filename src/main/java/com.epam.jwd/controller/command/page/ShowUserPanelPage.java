@@ -47,7 +47,7 @@ public enum ShowUserPanelPage implements Command {
     private final AccountServiceImpl accountService = new AccountServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         try {
@@ -58,7 +58,7 @@ public enum ShowUserPanelPage implements Command {
             String success = request.getParameter(Constant.SUCCESS_PARAM);
             request.setAttribute(Constant.SUCCESS_PARAM, success);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

@@ -8,7 +8,7 @@ import com.epam.jwd.service.exception.ServiceException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class OrderConverter implements Converter<Order, OrderDto, Integer> {
+public class OrderConverterImpl implements Converter<Order, OrderDto, Integer> {
     @Override
     public Order convert(OrderDto orderDto) {
         return new Order.Builder()

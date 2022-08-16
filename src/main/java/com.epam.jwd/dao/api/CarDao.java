@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CarDao extends Dao<Car, Integer> {
     List<Car> findByRange(Integer skip, Integer size) throws DaoException;
-    Boolean saveCarPrice(Car car, Price price) throws DaoException, SQLException;
+    Boolean saveCarPrice(Car car, Price price) throws DaoException;
     Boolean updateCarById(Car car, Connection connection) throws SQLException;
-    Integer countRowFromCars() throws SQLException, DaoException;
+    Integer countRowFromCars() throws DaoException;
 }

@@ -43,7 +43,7 @@ public enum EndRentCommand implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         final Integer orderId = (Integer) session.getAttribute(Constant.ORDER_ID_PARAM);
         final Double amountDamage = Double.parseDouble(request.getParameter(Constant.DAMAGE_PARAM));
@@ -52,7 +52,7 @@ public enum EndRentCommand implements Command {
             orderService.endRent(orderId, amountDamage, description);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_END_RENT_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

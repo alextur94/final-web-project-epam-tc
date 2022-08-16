@@ -5,7 +5,7 @@ import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.exception.ServiceException;
 
-public class CarConverter implements Converter<Car, CarDto, Integer> {
+public class CarConverterImpl implements Converter<Car, CarDto, Integer> {
     @Override
     public Car convert(CarDto carDto) {
         return new Car.Builder()

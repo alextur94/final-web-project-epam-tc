@@ -1,5 +1,6 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.api.OrderDao;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.OrderDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
@@ -8,37 +9,38 @@ import com.epam.jwd.dao.model.insurance.Insurance;
 import com.epam.jwd.dao.model.mark.Mark;
 import com.epam.jwd.dao.model.order.Order;
 import com.epam.jwd.dao.model.order.Status;
-import com.epam.jwd.service.api.Service;
-import com.epam.jwd.service.converter.impl.*;
+import com.epam.jwd.service.api.*;
+import com.epam.jwd.service.converter.api.Converter;
+import com.epam.jwd.service.converter.impl.AccountConverterImpl;
+import com.epam.jwd.service.converter.impl.CarConverterImpl;
+import com.epam.jwd.service.converter.impl.MarkConverterImpl;
+import com.epam.jwd.service.converter.impl.OrderConverterImpl;
 import com.epam.jwd.service.dto.*;
 import com.epam.jwd.service.exception.ServiceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
-import java.util.Timer;
 import java.util.*;
 
-public class OrderServiceImpl implements Service<OrderDto, Integer> {
+public class OrderServiceImpl implements OrderService {
     private static final Logger logger = LogManager.getLogger(OrderServiceImpl.class);
-
+    private OrderDao orderDao = new OrderDaoImpl();
+    private InsuranceService insuranceService = new InsuranceServiceImpl();
+    private UserService userService = new UserServiceImpl();
+    private CarService carService = new CarServiceImpl();
+    private PriceService priceService = new PriceServiceImpl();
+    private AccountService accountService = new AccountServiceImpl();
+    private MarkService markService = new MarkServiceImpl();
+    private Converter<Order, OrderDto, Integer> orderConverterImpl = new OrderConverterImpl();
+    private Converter<Car, CarDto, Integer> carConverterImpl = new CarConverterImpl();
+    private Converter<Account, AccountDto, Integer> accountConverterImpl = new AccountConverterImpl();
+    private Converter<Mark, MarkDto, Integer> markConverterImpl = new MarkConverterImpl();
     private final Double LiterCostFuel = 1.95;
     private final Integer COUNT_MS_IN_MIN = 60000;
     private final Double SET_CURRENT_AMOUNT = 0.00;
     private final Long TIME_TO_PAY = (long) 10 * COUNT_MS_IN_MIN;
     private final String MAIN_ACCOUNT = "admin";
     private final String TIMEOUT_TO_PAY_MSS = "Payment time expired";
-    private final OrderDaoImpl orderDao = new OrderDaoImpl();
-    private final InsuranceServiceImpl insuranceService = new InsuranceServiceImpl();
-    private final PriceServiceImpl priceService = new PriceServiceImpl();
-    private final OrderConverter orderConverter = new OrderConverter();
-    private final CarConverter carConverter = new CarConverter();
-    private final UserServiceImpl userService = new UserServiceImpl();
-    private final CarServiceImpl carService = new CarServiceImpl();
-    private final AccountServiceImpl accountService = new AccountServiceImpl();
-    private final AccountConverter accountConverter = new AccountConverter();
-    private final MarkConverter markConverter = new MarkConverter();
-    private final MarkServiceImpl markService = new MarkServiceImpl();
 
     @Override
     public OrderDto create(OrderDto orderDto) throws ServiceException {
@@ -62,9 +64,13 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @return OrderDto entity
      */
     @Override
-    public OrderDto getById(Integer id) throws ServiceException, DaoException {
+    public OrderDto getById(Integer id) throws ServiceException {
         logger.info("get by id method " + OrderServiceImpl.class);
-        return orderConverter.convert(orderDao.findById(id));
+        try {
+            return orderConverterImpl.convert(orderDao.findById(id));
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     /**
@@ -78,7 +84,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         List<OrderDto> orderDtoList = new ArrayList<>();
         try {
             for (Order order : orderDao.findAll()) {
-                orderDtoList.add(orderConverter.convert(order));
+                orderDtoList.add(orderConverterImpl.convert(order));
             }
         } catch (DaoException e) {
             throw new ServiceException(e);
@@ -94,6 +100,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param orderId, refusal
      * @return the boolean
      */
+    @Override
     public Boolean cancelOrderAdmin(Integer orderId, String refusal) throws ServiceException {
         try {
             Order order = orderDao.findById(orderId);
@@ -111,9 +118,9 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
                 mainAdmin.setBalance(mainAdmin.getBalance() - amount);
                 accountDto.setBalance(accountDto.getBalance() + amount);
             }
-            Account person = accountConverter.convert(accountDto);
-            Account admin = accountConverter.convert(mainAdmin);
-            Car car = carConverter.convert(carDto);
+            Account person = accountConverterImpl.convert(accountDto);
+            Account admin = accountConverterImpl.convert(mainAdmin);
+            Car car = carConverterImpl.convert(carDto);
             orderDao.cancelOrderAdmin(admin, person, order, car);
         } catch (DaoException e) {
             throw new ServiceException(e);
@@ -128,7 +135,8 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param carDto, userId, count days rent, type insurance
      * @return the boolean
      */
-    public Boolean createOrder(CarDto carDto, Integer userId, Integer day, Byte type) throws ServiceException, DaoException, SQLException {
+    @Override
+    public Boolean createOrder(CarDto carDto, Integer userId, Integer day, Byte type) throws ServiceException {
         logger.info("create method " + OrderServiceImpl.class);
         Mark mark = new Mark();
         String number = insuranceService.getGenerateNumber();
@@ -147,9 +155,14 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
                 .withUserId(userId)
                 .withCarId(carDto.getId())
                 .build();
-        Car car = carConverter.convert(carDto);
-        Boolean resultCreateOrder = orderDao.saveOrderMarkInsurance(mark, insurance, order, car);
-        if (resultCreateOrder){
+        Car car = carConverterImpl.convert(carDto);
+        Boolean resultCreateOrder = null;
+        try {
+            resultCreateOrder = orderDao.saveOrderMarkInsurance(mark, insurance, order, car);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+        if (resultCreateOrder) {
             timerPay(order.getId());
         }
         return resultCreateOrder;
@@ -161,14 +174,20 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param orderId
      * @return the boolean
      */
-    public Boolean beginRent(Integer orderId) throws ServiceException, DaoException {
+    @Override
+    public Boolean beginRent(Integer orderId) throws ServiceException {
         logger.info("begin rent method " + OrderServiceImpl.class);
-        Order order = orderDao.findById(orderId);
-        order.setStatus(Status.ACTIVE.getId());
-        Date date = new Date();
-        order.setRentStartDtm(date.getTime());
-        order.setStartLevel(carService.getById(order.getCarId()).getEngineVolume());
-        orderDao.update(order);
+        Order order = null;
+        try {
+            order = orderDao.findById(orderId);
+            order.setStatus(Status.ACTIVE.getId());
+            Date date = new Date();
+            order.setRentStartDtm(date.getTime());
+            order.setStartLevel(carService.getById(order.getCarId()).getEngineVolume());
+            orderDao.update(order);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         return true;
     }
 
@@ -181,9 +200,15 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param orderId, amount damage, mark about damage
      * @return the boolean
      */
-    public Boolean endRent(Integer orderId, Double amountDamage, String markDesc) throws DaoException, ServiceException {
+    @Override
+    public Boolean endRent(Integer orderId, Double amountDamage, String markDesc) throws ServiceException {
         logger.info("end rent method " + OrderServiceImpl.class);
-        Order order = orderDao.findById(orderId);
+        Order order = null;
+        try {
+            order = orderDao.findById(orderId);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         MarkDto markDto = markService.getById(order.getMarkId());
         if (amountDamage > 0) {
             markDto.setDescription(markDesc);
@@ -211,11 +236,15 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
         AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());
         mainAdmin.setBalance(mainAdmin.getBalance() - finishSum);
         accountDto.setBalance(newAccountBalance);
-        Mark mark = markConverter.convert(markDto);
-        Car car = carConverter.convert(carDto);
-        Account account = accountConverter.convert(accountDto);
-        Account admin = accountConverter.convert(mainAdmin);
-        orderDao.finishSaveOrder(order, account, car, mark, admin);
+        Mark mark = markConverterImpl.convert(markDto);
+        Car car = carConverterImpl.convert(carDto);
+        Account account = accountConverterImpl.convert(accountDto);
+        Account admin = accountConverterImpl.convert(mainAdmin);
+        try {
+            orderDao.finishSaveOrder(order, account, car, mark, admin);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         return true;
     }
 
@@ -225,11 +254,16 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param status order
      * @return list orderDto
      */
-    public List<OrderDto> getByStatus(Integer status) throws DaoException, ServiceException {
+    @Override
+    public List<OrderDto> getByStatus(Integer status) throws ServiceException {
         logger.info("get list by status method " + OrderServiceImpl.class);
         List<OrderDto> orderDtoList = new ArrayList<>();
-        for (Order order : orderDao.findByStatus(status)) {
-            orderDtoList.add(orderConverter.convert(order));
+        try {
+            for (Order order : orderDao.findByStatus(status)) {
+                orderDtoList.add(orderConverterImpl.convert(order));
+            }
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
         return orderDtoList;
     }
@@ -240,12 +274,18 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param userId
      * @return list orderDto
      */
-    public List<OrderDto> findCountOrders(Integer start, Integer count, Integer userId) throws ServiceException, DaoException {
+    @Override
+    public List<OrderDto> findCountOrders(Integer start, Integer count, Integer userId) throws ServiceException {
         logger.info("Find count orders by status method " + OrderServiceImpl.class);
-        List<Order> listOrder = orderDao.findCountOrdersInBase(start, count, userId);
+        List<Order> listOrder = null;
+        try {
+            listOrder = orderDao.findCountOrdersInBase(start, count, userId);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         List<OrderDto> listOrderDto = new ArrayList<>();
         for (Order order : listOrder) {
-            listOrderDto.add(orderConverter.convert(order));
+            listOrderDto.add(orderConverterImpl.convert(order));
         }
         return listOrderDto;
     }
@@ -256,6 +296,7 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      * @param status
      * @return the integer
      */
+    @Override
     public Integer getCountRowByStatus(Integer status) throws ServiceException {
         logger.info("get count row by status method " + OrderServiceImpl.class);
         try {
@@ -270,11 +311,17 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      *
      * @param orderId
      */
-    public void approveOrder(Integer orderId) throws DaoException {
+    @Override
+    public void approveOrder(Integer orderId) throws ServiceException {
         logger.info("approve order method " + OrderServiceImpl.class);
-        Order order = orderDao.findById(orderId);
-        order.setStatus(Status.READY.getId());
-        orderDao.update(order);
+        Order order = null;
+        try {
+            order = orderDao.findById(orderId);
+            order.setStatus(Status.READY.getId());
+            orderDao.update(order);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     /**
@@ -282,9 +329,39 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
      *
      * @param userId
      */
-    public void onlyOne(Integer userId) throws DaoException {
+    @Override
+    public void onlyOne(Integer userId) throws ServiceException {
         logger.info("only one method " + OrderServiceImpl.class);
-        orderDao.OnlyOne(userId);
+        try {
+            orderDao.OnlyOne(userId);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    /**
+     * We receive all orders for a certain status and put two entities in the map
+     *
+     * @param status
+     * @return mapPerson
+     */
+    @Override
+    public Map<Integer, AccountDto> unionUserAndAccount(Integer status) throws ServiceException {
+        List<Order> orders = null;
+        try {
+            orders = orderDao.findByStatus(status);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+        List<UserDto> listUser = new ArrayList<>();
+        for (Order order : orders) {
+            listUser.add(userService.getById(order.getUserId()));
+        }
+        Map<Integer, AccountDto> mapPerson = new HashMap<>();
+        for (UserDto userDto : listUser) {
+            mapPerson.put(userDto.getId(), accountService.getById(userDto.getAccountId()));
+        }
+        return mapPerson;
     }
 
     /**
@@ -315,25 +392,6 @@ public class OrderServiceImpl implements Service<OrderDto, Integer> {
             }
         }
         return pledge;
-    }
-
-    /**
-     * We receive all orders for a certain status and put two entities in the map
-     *
-     * @param status
-     * @return mapPerson
-     */
-    public Map<Integer, AccountDto> unionUserAndAccount(Integer status) throws DaoException, ServiceException {
-        List<Order> orders = orderDao.findByStatus(status);
-        List<UserDto> listUser = new ArrayList<>();
-        for (Order order : orders) {
-            listUser.add(userService.getById(order.getUserId()));
-        }
-        Map<Integer, AccountDto> mapPerson = new HashMap<>();
-        for (UserDto userDto : listUser) {
-            mapPerson.put(userDto.getId(), accountService.getById(userDto.getAccountId()));
-        }
-        return mapPerson;
     }
 
     /**

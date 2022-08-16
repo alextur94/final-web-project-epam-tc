@@ -31,8 +31,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return saveOrder(connection, order);
-        } catch (SQLException throwables) {
-            logger.error(Message.SAVE_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -45,8 +44,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updateOrderById(order, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -59,8 +57,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return deleteOrderById(order.getId(), connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.DELETE_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -73,8 +70,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllOrders(connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_ALL_ORDERS_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_ORDERS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -91,10 +87,8 @@ public class OrderDaoImpl implements OrderDao {
             if (order != null) {
                 return order;
             }
-            logger.error(Message.FIND_BY_ID_ORDER_ERROR);
             throw new DaoException(Message.FIND_BY_ID_ORDER_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_ID_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_ID_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -107,8 +101,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllOrdersByStatus(status, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_USER_BY_ID_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_USER_BY_ID_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -121,8 +114,7 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllOrdersByUserId(offset, count, userId, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_COUNT_ORDERS_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_COUNT_ORDERS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -142,8 +134,7 @@ public class OrderDaoImpl implements OrderDao {
             }
             resultSet.close();
             return numRow;
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_USER_BY_ID_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_USER_BY_ID_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -151,7 +142,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException, SQLException {
+    public Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException {
         logger.info("save order mark insurance method " + OrderDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -166,9 +157,12 @@ public class OrderDaoImpl implements OrderDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
-            connection.rollback();
-            logger.error(Message.SAVE_ORDER_MARK_INSURANCE_ERROR, throwables);
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                throw new DaoException(ex);
+            }
             throw new DaoException(Message.SAVE_ORDER_MARK_INSURANCE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -191,8 +185,8 @@ public class OrderDaoImpl implements OrderDao {
         } catch (SQLException e) {
             try {
                 connection.rollback();
-            } catch (SQLException exception) {
-                throw new DaoException(e);
+            } catch (SQLException ex) {
+                throw new DaoException(ex);
             }
             throw new DaoException(Message.CANCEL_ORDER_ADMIN_ERROR);
         } finally {
@@ -214,8 +208,7 @@ public class OrderDaoImpl implements OrderDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
-            logger.error(Message.CANCEL_SAVE_FINISH_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.CANCEL_SAVE_FINISH_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -239,10 +232,8 @@ public class OrderDaoImpl implements OrderDao {
             if (numRow == 0) {
                 return true;
             }
-            logger.error(Message.ONLY_ONE_ACTIVE_ORDER_ERROR);
             throw new DaoException(Message.ONLY_ONE_ACTIVE_ORDER_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.ONLY_ONE_ACTIVE_ORDER_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.ONLY_ONE_ACTIVE_ORDER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);

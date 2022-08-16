@@ -3,10 +3,9 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.UserServiceImpl;
-import com.epam.jwd.service.validator.impl.UserValidator;
+import com.epam.jwd.service.validator.impl.UserValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,7 +39,7 @@ public enum ChangePasswordCommand implements Command {
         }
     };
     private final UserServiceImpl userService = new UserServiceImpl();
-    private final UserValidator userValidator = new UserValidator();
+    private final UserValidatorImpl userValidatorImpl = new UserValidatorImpl();
 
     @Override
     public CommandResponse execute(CommandRequest request) {
@@ -56,9 +55,9 @@ public enum ChangePasswordCommand implements Command {
                     session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FAILED_PASS_MSS);
                     return ERROR_RESPONSE;
                 }
-                userValidator.validatePassword(password);
-                userValidator.validatePassword(passwordRepeat);
-                userValidator.validateRepeatPassword(password, passwordRepeat);
+                userValidatorImpl.validatePassword(password);
+                userValidatorImpl.validatePassword(passwordRepeat);
+                userValidatorImpl.validateRepeatPassword(password, passwordRepeat);
             } catch (ServiceException e) {
                 logger.error(e);
                 session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
@@ -67,7 +66,7 @@ public enum ChangePasswordCommand implements Command {
             userService.changePassword(userId, password);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_UPDATE_PASS_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

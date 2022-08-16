@@ -32,8 +32,7 @@ public class CarDaoImpl implements CarDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return saveCar(car, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.SAVE_CAR_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_CAR_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -46,8 +45,7 @@ public class CarDaoImpl implements CarDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updateCarById(car, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_CAR_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_CAR_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -60,8 +58,7 @@ public class CarDaoImpl implements CarDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return deleteCarById(car.getId(), connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.DELETE_CAR_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_CAR_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -74,8 +71,7 @@ public class CarDaoImpl implements CarDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllCars(connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_ALL_CARS_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_CARS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -92,10 +88,8 @@ public class CarDaoImpl implements CarDao {
             if (car != null) {
                 return car;
             }
-            logger.error(Message.FIND_BY_ID_CAR_ERROR);
             throw new DaoException(Message.FIND_BY_ID_CAR_ERROR);
         } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_ID_CAR_ERROR, throwables);
             throw new DaoException(Message.FIND_BY_ID_CAR_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -126,8 +120,7 @@ public class CarDaoImpl implements CarDao {
             }
             resultSet.close();
             return result;
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_RANGE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_RANGE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -135,7 +128,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public Boolean saveCarPrice(Car car, Price price) throws DaoException, SQLException {
+    public Boolean saveCarPrice(Car car, Price price) throws DaoException {
         logger.info("save car and price method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
@@ -147,7 +140,11 @@ public class CarDaoImpl implements CarDao {
             connection.setAutoCommit(true);
             return true;
         } catch (SQLException throwables) {
-            connection.rollback();
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                throw new DaoException(e);
+            }
             logger.error(Message.SAVE_CAR_AND_PRICE_ERROR, throwables);
             throw new DaoException(Message.SAVE_CAR_AND_PRICE_ERROR);
         } finally {
@@ -264,7 +261,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public Integer countRowFromCars() throws SQLException, DaoException {
+    public Integer countRowFromCars() throws DaoException {
         logger.info("save car and price method " + CarDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         Integer numRow = 0;

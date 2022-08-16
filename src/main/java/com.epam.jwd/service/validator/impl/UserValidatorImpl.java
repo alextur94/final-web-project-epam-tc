@@ -4,15 +4,15 @@ import com.epam.jwd.dao.model.user.User;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.exception.ValidateException;
+import com.epam.jwd.service.validator.api.UserValidator;
 import com.epam.jwd.service.validator.api.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public class UserValidator implements Validator<UserDto, Integer> {
-    private static final Logger logger = LogManager.getLogger(UserValidator.class);
-
+public class UserValidatorImpl implements UserValidator {
+    private static final Logger logger = LogManager.getLogger(UserValidatorImpl.class);
     private static final Integer LOGIN_MIN_LENGTH = 3;
     private static final Integer LOGIN_MAX_LENGTH = 20;
     private static final Integer PASSWORD_MIN_LENGTH = 5;
@@ -26,7 +26,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
     @Override
     public void validate(UserDto userDto) throws ServiceException {
         if (Objects.isNull(userDto)) {
-            logger.info(ValidateException.USER_IS_EMPTY + UserValidator.class);
+            logger.info(ValidateException.USER_IS_EMPTY + UserValidatorImpl.class);
             throw new ServiceException(ValidateException.USER_IS_EMPTY);
         }
         validateLogin(userDto.getLogin());
@@ -38,11 +38,12 @@ public class UserValidator implements Validator<UserDto, Integer> {
      *
      * @param login
      */
+    @Override
     public void validateLogin(String login) throws ServiceException {
         if (Objects.isNull(login)
                 || login.length() <= LOGIN_MIN_LENGTH
                 || login.length() > LOGIN_MAX_LENGTH) {
-            logger.info(ValidateException.LOGIN + UserValidator.class);
+            logger.info(ValidateException.LOGIN + UserValidatorImpl.class);
             throw new ServiceException(ValidateException.LOGIN);
         }
     }
@@ -52,6 +53,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
      *
      * @param user
      */
+    @Override
     public void validateLoginUnique(User user) throws ServiceException {
         if (!Objects.isNull(user)) {
             throw new ServiceException(ValidateException.USER_IS_NOT_UNIQUE);
@@ -63,6 +65,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
      *
      * @param password
      */
+    @Override
     public void validatePassword(String password) throws ServiceException {
         if (Objects.isNull(password)
                 || password.length() < PASSWORD_MIN_LENGTH
@@ -76,6 +79,7 @@ public class UserValidator implements Validator<UserDto, Integer> {
      *
      * @param firstPass, secondPass
      */
+    @Override
     public void validateRepeatPassword(String firstPass, String secondPass) throws ServiceException {
         if (!firstPass.equals(secondPass)) {
             throw new ServiceException(ValidateException.REPEAT_PASSWORD);

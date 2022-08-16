@@ -26,7 +26,7 @@ public enum LogoutCommand implements Command {
     };
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Collections.list(session.getAttributeNames())
                 .forEach(session::removeAttribute);

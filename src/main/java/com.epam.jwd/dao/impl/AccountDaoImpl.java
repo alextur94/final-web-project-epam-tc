@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class AccountDaoImpl implements AccountDao {
-
     private static final Logger logger = LogManager.getLogger(AccountDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
 

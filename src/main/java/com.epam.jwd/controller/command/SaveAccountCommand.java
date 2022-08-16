@@ -46,7 +46,7 @@ public enum SaveAccountCommand implements Command {
     private final UserServiceImpl userService = new UserServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         try {
@@ -77,7 +77,7 @@ public enum SaveAccountCommand implements Command {
             session.setAttribute(Constant.ACCOUNT_PARAM, accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_SAVE_INFO_ACCOUNT_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

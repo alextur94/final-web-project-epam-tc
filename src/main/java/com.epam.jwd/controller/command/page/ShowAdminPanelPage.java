@@ -56,7 +56,7 @@ public enum ShowAdminPanelPage implements Command {
     private final AccountServiceImpl accountService = new AccountServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
@@ -70,7 +70,7 @@ public enum ShowAdminPanelPage implements Command {
             }
             session.setAttribute("countRow", countRow);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

@@ -1,22 +1,24 @@
 package com.epam.jwd.service.impl;
 
+import com.epam.jwd.dao.api.InsuranceDao;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.InsuranceDaoImpl;
-import com.epam.jwd.service.api.Service;
-import com.epam.jwd.service.converter.impl.InsuranceConverter;
+import com.epam.jwd.dao.model.insurance.Insurance;
+import com.epam.jwd.service.api.InsuranceService;
+import com.epam.jwd.service.converter.api.Converter;
+import com.epam.jwd.service.converter.impl.InsuranceConverterImpl;
 import com.epam.jwd.service.dto.InsuranceDto;
 import com.epam.jwd.service.exception.ServiceException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
 
-public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
+public class InsuranceServiceImpl implements InsuranceService {
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
-    private final InsuranceConverter converter = new InsuranceConverter();
-    private final InsuranceDaoImpl insuranceDao = new InsuranceDaoImpl();
+    private InsuranceDao insuranceDao = new InsuranceDaoImpl();
+    private Converter<Insurance, InsuranceDto, Integer> converter = new InsuranceConverterImpl();
 
     @Override
     public InsuranceDto create(InsuranceDto insuranceDto) throws ServiceException {
@@ -60,7 +62,8 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
      * @param type insurance
      * @return amount
      */
-    protected Double getAmountInsurance(Byte type) {
+    @Override
+    public Double getAmountInsurance(Byte type) {
         logger.info("get amount insurance method " + InsuranceServiceImpl.class);
         Double amount = 0.00;
         switch (type) {
@@ -85,7 +88,8 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
      *
      * @return insurance number
      */
-    protected String getGenerateNumber() {
+    @Override
+    public String getGenerateNumber() {
         logger.info("generate number method " + InsuranceServiceImpl.class);
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
@@ -101,7 +105,7 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
      *
      * @return company name
      */
-    protected String getCompany() {
+    public String getCompany() {
         logger.info("get company method " + InsuranceServiceImpl.class);
         return "comGovInsurance";
     }
@@ -112,7 +116,7 @@ public class InsuranceServiceImpl implements Service<InsuranceDto, Integer> {
      * @param type insurance
      * @return amount
      */
-    protected Double getCostInsurance(Byte type) {
+    public Double getCostInsurance(Byte type) {
         logger.info("get cost method " + InsuranceServiceImpl.class);
         Double cost = 0.00;
         switch (type) {

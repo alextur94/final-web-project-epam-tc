@@ -7,20 +7,19 @@ import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.UserDaoImpl;
 import com.epam.jwd.dao.model.account.Account;
 import com.epam.jwd.dao.model.user.User;
-import com.epam.jwd.service.converter.impl.AccountConverter;
-import com.epam.jwd.service.converter.impl.UserConverter;
+import com.epam.jwd.service.converter.impl.AccountConverterImpl;
+import com.epam.jwd.service.converter.impl.UserConverterImpl;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.AccountServiceImpl;
 import com.epam.jwd.service.impl.UserServiceImpl;
-import com.epam.jwd.service.validator.impl.AccountValidator;
-import com.epam.jwd.service.validator.impl.UserValidator;
+import com.epam.jwd.service.validator.impl.AccountValidatorImpl;
+import com.epam.jwd.service.validator.impl.UserValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public enum UpdatePersonCommand implements Command {
     INSTANCE;
@@ -54,13 +53,13 @@ public enum UpdatePersonCommand implements Command {
     private final AccountServiceImpl accountService = new AccountServiceImpl();
     private final UserServiceImpl userService = new UserServiceImpl();
     private final UserDaoImpl userDao = new UserDaoImpl();
-    private final UserValidator userValidator = new UserValidator();
-    private final AccountValidator accountValidator = new AccountValidator();
-    private final UserConverter userConverter = new UserConverter();
-    private final AccountConverter accountConverter = new AccountConverter();
+    private final UserValidatorImpl userValidatorImpl = new UserValidatorImpl();
+    private final AccountValidatorImpl accountValidatorImpl = new AccountValidatorImpl();
+    private final UserConverterImpl userConverterImpl = new UserConverterImpl();
+    private final AccountConverterImpl accountConverterImpl = new AccountConverterImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             String userLogin = request.getParameter(Constant.LOGIN_PARAM);
@@ -75,7 +74,7 @@ public enum UpdatePersonCommand implements Command {
             }
             if (!userPassword.isEmpty()){
                 if (!userDao.criptPassword(userPassword).equals(user.getPassword())){
-                    userValidator.validatePassword(userPassword);
+                    userValidatorImpl.validatePassword(userPassword);
                     user.setPassword(userDao.criptPassword(userPassword));
                 }
             }
@@ -116,12 +115,12 @@ public enum UpdatePersonCommand implements Command {
             if (!balance.equals(account.getBalance())) {
                 account.setBalance(balance);
             }
-            User convertUser = userConverter.convert(user);
-            Account convertAccount = accountConverter.convert(account);
+            User convertUser = userConverterImpl.convert(user);
+            Account convertAccount = accountConverterImpl.convert(account);
             userDao.updateUserAccount(convertUser, convertAccount);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_SAVE_PERSON_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException | DaoException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

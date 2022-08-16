@@ -5,7 +5,7 @@ import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.MarkDto;
 import com.epam.jwd.service.exception.ServiceException;
 
-public class MarkConverter implements Converter<Mark, MarkDto, Integer> {
+public class MarkConverterImpl implements Converter<Mark, MarkDto, Integer> {
     @Override
     public Mark convert(MarkDto markDto) {
         return new Mark(

@@ -22,15 +22,13 @@ import java.util.Objects;
 public class PriceDaoImpl implements PriceDao {
     private static final Logger logger = LogManager.getLogger(PriceDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
-
     @Override
     public Price save(Price price) throws DaoException {
         logger.info("save method " + PriceDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
             return savePrice(price, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.SAVE_PRICE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_PRICE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -43,8 +41,7 @@ public class PriceDaoImpl implements PriceDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updatePriceById(price, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_PRICE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_PRICE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -57,8 +54,7 @@ public class PriceDaoImpl implements PriceDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return deletePriceById(price.getId(), connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.DELETE_PRICE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_PRICE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -71,8 +67,7 @@ public class PriceDaoImpl implements PriceDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllPrices(connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_ALL_PRICE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_PRICE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -89,10 +84,8 @@ public class PriceDaoImpl implements PriceDao {
             if (price != null) {
                 return price;
             }
-            logger.error(Message.FIND_BY_ID_PRICE_ERROR);
             throw new DaoException(Message.FIND_BY_ID_PRICE_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_BY_ID_PRICE_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_ID_PRICE_ERROR);
         } finally {
             connectionPool.returnConnection(connection);

@@ -21,15 +21,13 @@ import java.util.Objects;
 public class MarkDaoImpl implements MarkDao {
     private static final Logger logger = LogManager.getLogger(InsuranceDaoImpl.class);
     private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
-
     @Override
     public Mark save(Mark mark) throws DaoException {
         logger.info("save method " + MarkDaoImpl.class);
         Connection connection = connectionPool.takeConnection();
         try {
             return saveMark(mark, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.SAVE_MARK_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -42,8 +40,7 @@ public class MarkDaoImpl implements MarkDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return updateMarkById(mark, connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.UPDATE_MARK_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -56,8 +53,7 @@ public class MarkDaoImpl implements MarkDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return deleteMarkById(mark.getId(), connection);
-        } catch (SQLException throwables) {
-            logger.error(Message.DELETE_MARK_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_MARK_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -78,10 +74,8 @@ public class MarkDaoImpl implements MarkDao {
             if (mark != null) {
                 return mark;
             }
-            logger.error(Message.FIND_ALL_MARKS_ERROR);
             throw new DaoException(Message.FIND_ALL_MARKS_ERROR);
-        } catch (SQLException throwables) {
-            logger.error(Message.FIND_ALL_MARKS_ERROR, throwables);
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_MARKS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);

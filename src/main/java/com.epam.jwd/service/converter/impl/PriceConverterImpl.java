@@ -5,7 +5,7 @@ import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.PriceDto;
 import com.epam.jwd.service.exception.ServiceException;
 
-public class PriceConverter implements Converter<Price, PriceDto, Integer> {
+public class PriceConverterImpl implements Converter<Price, PriceDto, Integer> {
     @Override
     public Price convert(PriceDto priceDto) {
         return new Price(

@@ -4,21 +4,16 @@ import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.controller.command.Constant;
-import com.epam.jwd.dao.exception.DaoException;
-import com.epam.jwd.dao.model.order.Status;
-import com.epam.jwd.service.converter.impl.UserConverter;
+import com.epam.jwd.service.converter.impl.UserConverterImpl;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;
-import com.epam.jwd.service.exception.ValidateException;
 import com.epam.jwd.service.impl.AccountServiceImpl;
-import com.epam.jwd.service.impl.OrderServiceImpl;
 import com.epam.jwd.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.util.Objects;
 
 public enum ShowEditUserPage implements Command {
     INSTANCE;
@@ -51,10 +46,10 @@ public enum ShowEditUserPage implements Command {
 
     private final UserServiceImpl userService = new UserServiceImpl();
     private final AccountServiceImpl accountService = new AccountServiceImpl();
-    private final UserConverter userConverter = new UserConverter();
+    private final UserConverterImpl userConverterImpl = new UserConverterImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Integer id;
         UserDto userDto;
@@ -69,7 +64,7 @@ public enum ShowEditUserPage implements Command {
                 accountDto = accountService.getById(userDto.getAccountId());
             }
             else if (!userLogin.isEmpty()) {
-                userDto = userConverter.convert(userService.getByLogin(userLogin));
+                userDto = userConverterImpl.convert(userService.getByLogin(userLogin));
                 userDto.setPassword("");
                 accountDto = accountService.getById(userDto.getAccountId());
             } else {
@@ -80,7 +75,7 @@ public enum ShowEditUserPage implements Command {
             request.setAttribute("user", userDto);
             request.setAttribute("account", accountDto);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

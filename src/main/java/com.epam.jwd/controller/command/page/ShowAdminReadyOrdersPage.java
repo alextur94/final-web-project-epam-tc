@@ -52,7 +52,7 @@ public enum ShowAdminReadyOrdersPage implements Command {
     private final CarServiceImpl carService = new CarServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
@@ -64,7 +64,7 @@ public enum ShowAdminReadyOrdersPage implements Command {
             session.setAttribute("carList", listCar);
             session.setAttribute("countRow", countRow);
             return SUCCESS_RESPONSE;
-        } catch (DaoException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

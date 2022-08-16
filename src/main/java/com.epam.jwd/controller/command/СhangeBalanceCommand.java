@@ -39,11 +39,11 @@ public enum СhangeBalanceCommand implements Command {
             return true;
         }
     };
+
     private final UserServiceImpl userService = new UserServiceImpl();
     private final AccountServiceImpl accountService = new AccountServiceImpl();
-
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
@@ -56,7 +56,7 @@ public enum СhangeBalanceCommand implements Command {
             accountService.update(accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_UPDATE_BALANCE_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | NumberFormatException e) {
+        } catch (NumberFormatException | ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

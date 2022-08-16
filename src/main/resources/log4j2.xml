@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="off" strict="true"
+<Configuration status="on" strict="true"
                name="XMLConfigTest" packages="org.apache.logging.log4j.test">
     <Filter type="ThresholdFilter" level="INFO" />
     <Appenders>
@@ -14,7 +14,7 @@
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval = "1"/>
-                <SizeBasedTriggeringPolicy size="5 KB"/>
+                <SizeBasedTriggeringPolicy size="100 KB"/>
             </Policies>
         </RollingFile>
     </Appenders>

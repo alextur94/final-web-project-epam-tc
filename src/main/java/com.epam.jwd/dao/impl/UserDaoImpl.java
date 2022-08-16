@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return saveUser(user, connection);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.SAVE_USER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -51,7 +51,7 @@ public class UserDaoImpl implements UserDao {
                 user.setPassword(criptPassword(user.getPassword()));
             }
             return updateUserById(user, connection);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.UPDATE_USER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -64,7 +64,7 @@ public class UserDaoImpl implements UserDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return deleteUserById(user.getId(), connection);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.DELETE_USER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -82,7 +82,7 @@ public class UserDaoImpl implements UserDao {
                 return user;
             }
             throw new DaoException(Message.FIND_BY_ID_USER_ERROR);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_ID_USER_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -95,7 +95,7 @@ public class UserDaoImpl implements UserDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findAllUsers(connection);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_ALL_USERS_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -113,7 +113,7 @@ public class UserDaoImpl implements UserDao {
                 return user;
             }
             throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -126,7 +126,7 @@ public class UserDaoImpl implements UserDao {
         Connection connection = connectionPool.takeConnection();
         try {
             return findUserByLogin(login, connection);
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             throw new DaoException(Message.FIND_BY_LOGIN_ERROR);
         } finally {
             connectionPool.returnConnection(connection);
@@ -145,10 +145,10 @@ public class UserDaoImpl implements UserDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             try {
                 connection.rollback();
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
                 throw new DaoException(Message.ROLLBACK_ERROR);
             }
             throw new DaoException(Message.SAVE_PERSON_ERROR);
@@ -168,10 +168,10 @@ public class UserDaoImpl implements UserDao {
             connection.commit();
             connection.setAutoCommit(true);
             return true;
-        } catch (SQLException throwables) {
+        } catch (SQLException e) {
             try {
                 connection.rollback();
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
                 throw new DaoException(Message.ROLLBACK_ERROR);
             }
             throw new DaoException(Message.UPDATE_PERSON_ERROR);
@@ -208,7 +208,6 @@ public class UserDaoImpl implements UserDao {
     public String criptPassword(String password) throws DaoException {
         try {
             if (password == null) {
-                logger.error("Password null");
                 throw new DaoException("Password null");
             }
             return Encoder.hashPass(password);

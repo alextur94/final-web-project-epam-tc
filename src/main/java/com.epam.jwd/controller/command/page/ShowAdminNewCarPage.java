@@ -52,7 +52,7 @@ public enum ShowAdminNewCarPage implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());

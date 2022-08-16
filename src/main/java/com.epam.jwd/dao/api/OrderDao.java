@@ -15,8 +15,8 @@ public interface OrderDao extends Dao<Order, Integer> {
     List<Order> findByStatus(Integer status) throws DaoException;
     List<Order> findCountOrdersInBase(Integer offset, Integer count, Integer userId) throws DaoException;
     Integer countOrdersByUser(Integer userId) throws DaoException;
-    Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException, SQLException;
-    Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException, SQLException;
+    Boolean saveOrderMarkInsurance(Mark mark, Insurance insurance, Order order, Car car) throws DaoException;
+    Boolean cancelOrderAdmin(Account admin, Account person, Order order, Car car) throws DaoException;
     Boolean finishSaveOrder(Order order, Account account, Car car, Mark mark, Account admin) throws DaoException;
     Boolean OnlyOne(Integer userId) throws DaoException;
     Boolean updateOrderById(Order order, Connection connection) throws SQLException;

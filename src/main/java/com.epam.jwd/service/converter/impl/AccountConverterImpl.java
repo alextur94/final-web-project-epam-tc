@@ -5,7 +5,7 @@ import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.exception.ServiceException;
 
-public class AccountConverter implements Converter<Account, AccountDto, Integer> {
+public class AccountConverterImpl implements Converter<Account, AccountDto, Integer> {
     @Override
     public Account convert(AccountDto accountDto) {
         return new Account.Builder()

@@ -83,7 +83,7 @@ public enum NewCarCommand implements Command {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_FIELDS_IS_NULL_MSS);
             return ERROR_RESPONSE;
-        } catch (DaoException | ServiceException | SQLException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

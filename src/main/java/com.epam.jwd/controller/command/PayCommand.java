@@ -49,7 +49,7 @@ public enum PayCommand implements Command {
     private final UserServiceImpl userService = new UserServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException, SQLException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             final Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
@@ -68,7 +68,7 @@ public enum PayCommand implements Command {
             }
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_PAY_MSS);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | NumberFormatException e) {
+        } catch (ServiceException | DaoException | NumberFormatException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

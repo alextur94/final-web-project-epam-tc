@@ -44,7 +44,7 @@ public enum CancelOrderAdminCommand implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         String refusal = request.getParameter(Constant.REFUSAL_PARAM);
         Integer orderId = (Integer) session.getAttribute(Constant.ORDER_ID_PARAM);

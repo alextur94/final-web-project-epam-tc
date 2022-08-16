@@ -5,7 +5,7 @@ import com.epam.jwd.service.converter.api.Converter;
 import com.epam.jwd.service.dto.InsuranceDto;
 import com.epam.jwd.service.exception.ServiceException;
 
-public class InsuranceConverter implements Converter<Insurance, InsuranceDto, Integer> {
+public class InsuranceConverterImpl implements Converter<Insurance, InsuranceDto, Integer> {
     @Override
     public Insurance convert(InsuranceDto insuranceDto) {
         return new Insurance(

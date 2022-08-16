@@ -1,33 +1,31 @@
 package com.epam.jwd.service.impl;
 
-import com.epam.jwd.dao.connectionpool.ConnectionPool;
-import com.epam.jwd.dao.connectionpool.impl.ConnectionPoolImpl;
+import com.epam.jwd.dao.api.CarDao;
 import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.impl.CarDaoImpl;
 import com.epam.jwd.dao.model.car.Car;
 import com.epam.jwd.dao.model.price.Price;
-import com.epam.jwd.service.api.Service;
-import com.epam.jwd.service.converter.impl.CarConverter;
-import com.epam.jwd.service.converter.impl.PriceConverter;
+import com.epam.jwd.service.api.CarService;
+import com.epam.jwd.service.converter.api.Converter;
+import com.epam.jwd.service.converter.impl.CarConverterImpl;
+import com.epam.jwd.service.converter.impl.PriceConverterImpl;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.dto.PriceDto;
 import com.epam.jwd.service.exception.ServiceException;
-import com.epam.jwd.service.validator.impl.PriceValidator;
+import com.epam.jwd.service.validator.api.PriceValidator;
+import com.epam.jwd.service.validator.impl.PriceValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarServiceImpl implements Service<CarDto, Integer> {
+public class CarServiceImpl implements CarService {
     private static final Logger logger = LogManager.getLogger(CarServiceImpl.class);
-    private final ConnectionPool connectionPool = ConnectionPoolImpl.getInstance();
-    private final CarDaoImpl carDao = new CarDaoImpl();
-    private final CarConverter converterCar = new CarConverter();
-    private final PriceConverter converterPrice = new PriceConverter();
-    private final PriceValidator validatorPrice = new PriceValidator();
+    private CarDao carDao = new CarDaoImpl();
+    private PriceValidator validatorPrice = new PriceValidatorImpl();
+    private Converter<Car, CarDto, Integer> converterCar = new CarConverterImpl();
+    private Converter<Price, PriceDto, Integer> converterPrice = new PriceConverterImpl();
 
     /**
      * Convert and create new entity
@@ -36,10 +34,14 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
      * @return CarDto
      */
     @Override
-    public CarDto create(CarDto carDto) throws DaoException, ServiceException {
+    public CarDto create(CarDto carDto) throws ServiceException {
         logger.info("create method " + CarServiceImpl.class);
         Car car = converterCar.convert(carDto);
-        return converterCar.convert(carDao.save(car));
+        try {
+            return converterCar.convert(carDao.save(car));
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     @Override
@@ -59,9 +61,13 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
      * @return CarDto entity
      */
     @Override
-    public CarDto getById(Integer id) throws DaoException, ServiceException {
+    public CarDto getById(Integer id) throws ServiceException {
         logger.info("get by id method " + CarServiceImpl.class);
-        return converterCar.convert(carDao.findById(id));
+        try {
+            return converterCar.convert(carDao.findById(id));
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     /**
@@ -70,25 +76,15 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
      * @return List CarDTO
      */
     @Override
-    public List<CarDto> getAll() throws ServiceException, DaoException {
+    public List<CarDto> getAll() throws ServiceException {
         logger.info("get all method " + CarServiceImpl.class);
         List<CarDto> carDto = new ArrayList<>();
-        for (Car car : carDao.findAll()) {
-            carDto.add(converterCar.convert(car));
-        }
-        return carDto;
-    }
-
-    /**
-     * Retrieving all records by range
-     *
-     * @return List CarDTO
-     */
-    public List<CarDto> getByRange(Integer skip, Integer size) throws ServiceException, DaoException {
-        logger.info("get all by range method " + CarServiceImpl.class);
-        List<CarDto> carDto = new ArrayList<>();
-        for (Car car : carDao.findByRange(skip, size)) {
-            carDto.add(converterCar.convert(car));
+        try {
+            for (Car car : carDao.findAll()) {
+                carDto.add(converterCar.convert(car));
+            }
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
         return carDto;
     }
@@ -98,13 +94,13 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
      *
      * @return the integer
      */
-    public Integer getCountRowFromCars() throws ServiceException, DaoException {
+    @Override
+    public Integer getCountRowFromCars() throws ServiceException {
         logger.info("get all by range method " + CarServiceImpl.class);
         try {
             return carDao.countRowFromCars();
-        } catch (SQLException throwables) {
-            logger.error(throwables);
-            throw new ServiceException(throwables);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
     }
 
@@ -114,12 +110,17 @@ public class CarServiceImpl implements Service<CarDto, Integer> {
      * @param carDto and priceDto
      * @return the boolean
      */
-    public Boolean saveCar(CarDto carDto, PriceDto priceDto) throws ServiceException, DaoException, SQLException {
+    @Override
+    public Boolean saveCar(CarDto carDto, PriceDto priceDto) throws ServiceException {
         logger.info("save car method " + CarServiceImpl.class);
         validatorPrice.validate(priceDto);
         Car car = converterCar.convert(carDto);
         Price price = converterPrice.convert(priceDto);
         price.setPricePerHour(Math.ceil(price.getPricePerDay() / 6));
-        return carDao.saveCarPrice(car, price);
+        try {
+            return carDao.saveCarPrice(car, price);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 }

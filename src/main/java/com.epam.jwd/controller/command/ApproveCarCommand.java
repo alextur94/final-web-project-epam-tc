@@ -42,13 +42,13 @@ public enum ApproveCarCommand implements Command {
     private final OrderServiceImpl orderService = new OrderServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         final Integer orderId = (Integer) session.getAttribute(Constant.ORDER_PARAM);
         try {
             orderService.approveOrder(orderId);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

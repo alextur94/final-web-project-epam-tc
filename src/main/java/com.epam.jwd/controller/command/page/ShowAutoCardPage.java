@@ -45,7 +45,7 @@ public enum ShowAutoCardPage implements Command {
     final PriceServiceImpl priceService = new PriceServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         try {
             Integer carId = Integer.parseInt(request.getParameter(Constant.CAR_ID_PARAM));
@@ -55,7 +55,7 @@ public enum ShowAutoCardPage implements Command {
             request.setAttribute("car", car);
             request.setAttribute("carId", carId);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

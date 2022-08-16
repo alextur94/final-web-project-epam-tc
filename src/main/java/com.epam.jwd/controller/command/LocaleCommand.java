@@ -23,7 +23,7 @@ public enum LocaleCommand implements Command {
     };
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         final String lang = request.getParameter(Constant.LANG_PARAM);
         HttpSession session = request.getCurrentSession().get();
         session.setAttribute(Constant.LANG_PARAM, lang);

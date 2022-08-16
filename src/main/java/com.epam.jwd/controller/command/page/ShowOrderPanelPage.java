@@ -48,7 +48,7 @@ public enum ShowOrderPanelPage implements Command {
     private final AccountServiceImpl accountService = new AccountServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         Integer userId = (Integer) session.getAttribute(Constant.USER_ID_NAME);
         Integer carId = Integer.parseInt(request.getParameter(Constant.CAR_ID_PARAM));
@@ -59,7 +59,7 @@ public enum ShowOrderPanelPage implements Command {
             request.setAttribute("car", carDto);
             request.setAttribute("priceDay", priceDay);
             return SUCCESS_RESPONSE;
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             logger.error(e);
             session.setAttribute(Constant.ERROR_PARAM, e.getMessage());
             return ERROR_RESPONSE;

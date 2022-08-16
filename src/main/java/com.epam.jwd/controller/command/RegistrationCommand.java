@@ -43,7 +43,7 @@ public enum RegistrationCommand implements Command {
     public final UserServiceImpl userService = new UserServiceImpl();
 
     @Override
-    public CommandResponse execute(CommandRequest request) throws ServiceException {
+    public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         final String login = request.getParameter(Constant.LOGIN_PARAM);
         final String email = request.getParameter(Constant.EMAIL_PARAM);
@@ -54,7 +54,7 @@ public enum RegistrationCommand implements Command {
             userService.savePerson(userDto, accountDto);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.NEW_ACCOUNT_WAS_CREATE);
             return SUCCESS_RESPONSE;
-        } catch (DaoException | ServiceException exception) {
+        } catch (ServiceException exception) {
             logger.error(exception);
             session.setAttribute(Constant.ERROR_PARAM, exception.getMessage());
             return ERROR_RESPONSE;

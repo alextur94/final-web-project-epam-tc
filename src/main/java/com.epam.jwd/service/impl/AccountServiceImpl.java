@@ -8,31 +8,32 @@ import com.epam.jwd.dao.model.account.Account;
 import com.epam.jwd.dao.model.car.Car;
 import com.epam.jwd.dao.model.order.Order;
 import com.epam.jwd.dao.model.order.Status;
-import com.epam.jwd.service.api.Service;
-import com.epam.jwd.service.converter.impl.AccountConverter;
-import com.epam.jwd.service.converter.impl.CarConverter;
+import com.epam.jwd.service.api.AccountService;
+import com.epam.jwd.service.converter.api.Converter;
+import com.epam.jwd.service.converter.impl.AccountConverterImpl;
+import com.epam.jwd.service.converter.impl.CarConverterImpl;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.exception.ServiceException;
-import com.epam.jwd.service.validator.impl.AccountValidator;
+import com.epam.jwd.service.validator.api.AccountValidator;
+import com.epam.jwd.service.validator.impl.AccountValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountServiceImpl implements Service<AccountDto, Integer> {
+public class AccountServiceImpl implements AccountService {
+    private AccountDao accountDao = new AccountDaoImpl();
+    private AccountValidator accountValidator = new AccountValidatorImpl();
+    private Converter<Account, AccountDto, Integer> accountConverter = new AccountConverterImpl();
+    private Converter<Car, CarDto, Integer> carConverter = new CarConverterImpl();
     private static final Logger logger = LogManager.getLogger(AccountServiceImpl.class);
     private static final String EXCEPTION_NOT_BE_CLOSED_MESSAGE = "The order cannot be closed. ";
     private static final Double AMOUNT_IS_ZERO = 0.00;
-    private AccountDao accountDao = new AccountDaoImpl();
-    private final AccountConverter accountConverter = new AccountConverter();
-    private final AccountValidator accountValidator = new AccountValidator();
-    private final CarConverter carConverter = new CarConverter();
 
     @Override
-    public AccountDto create(AccountDto accountDto) throws ServiceException {
+    public AccountDto create(AccountDto value) throws ServiceException {
         return null;
     }
 
@@ -43,14 +44,18 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @return
      */
     @Override
-    public Boolean update(AccountDto accountDto) throws DaoException {
+    public Boolean update(AccountDto accountDto) throws ServiceException {
         logger.info("update method " + AccountServiceImpl.class);
         Account account = accountConverter.convert(accountDto);
-        return accountDao.update(account);
+        try {
+            return accountDao.update(account);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
     }
 
     @Override
-    public Boolean delete(AccountDto accountDto) throws ServiceException {
+    public Boolean delete(AccountDto value) throws ServiceException {
         return null;
     }
 
@@ -61,9 +66,14 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @return AccountDao
      */
     @Override
-    public AccountDto getById(Integer id) throws DaoException, ServiceException {
+    public AccountDto getById(Integer id) throws ServiceException {
         logger.info("get by id method " + AccountServiceImpl.class);
-        Account account = accountDao.findById(id);
+        Account account = null;
+        try {
+            account = accountDao.findById(id);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         return accountConverter.convert(account);
     }
 
@@ -73,11 +83,15 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @return List<AccountDao></>
      */
     @Override
-    public List<AccountDto> getAll() throws ServiceException, DaoException {
+    public List<AccountDto> getAll() throws ServiceException {
         logger.info("get all method " + AccountServiceImpl.class);
         List<AccountDto> accountDtos = new ArrayList<>();
-        for (Account account : accountDao.findAll()) {
-            accountDtos.add(accountConverter.convert(account));
+        try {
+            for (Account account : accountDao.findAll()) {
+                accountDtos.add(accountConverter.convert(account));
+            }
+        } catch (DaoException e) {
+            throw new ServiceException(e);
         }
         return accountDtos;
     }
@@ -88,10 +102,16 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param email
      * @return the String
      */
-    public AccountDto getByEmailForUpdate(String email) throws DaoException, ServiceException {
+    @Override
+    public AccountDto getByEmailForUpdate(String email) throws ServiceException {
         logger.info("get by email for update method " + AccountServiceImpl.class);
         accountValidator.validateEmail(email);
-        Account account = accountDao.findByEmail(email);
+        Account account = null;
+        try {
+            account = accountDao.findByEmail(email);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         if (account == null) {
             return null;
         } else {
@@ -105,19 +125,29 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param user and order entity
      * @return the boolean
      */
-    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws DaoException, ServiceException {
+    @Override
+    public Boolean transferAmountAccountAdmin(AccountDto user, Order order) throws ServiceException {
         logger.info("transfer from user to admin method " + AccountServiceImpl.class);
         Double accountBalance = user.getBalance();
         Double amount = order.getCurrentSum();
         if (accountBalance >= amount) {
-            AccountDto admin = accountConverter.convert(accountDao.findById(1));
+            AccountDto admin = null;
+            try {
+                admin = accountConverter.convert(accountDao.findById(1));
+            } catch (DaoException e) {
+                throw new ServiceException(e);
+            }
             admin.setBalance(admin.getBalance() + amount);
             user.setBalance(user.getBalance() - amount);
             order.setStatus(Status.NEW.getId());
             order.setPaymentStatus((byte) 1);
             Account daoAdmin = accountConverter.convert(admin);
             Account daoUser = accountConverter.convert(user);
-            return accountDao.saveTransactionUserAdmin(daoUser, daoAdmin, order);
+            try {
+                return accountDao.saveTransactionUserAdmin(daoUser, daoAdmin, order);
+            } catch (DaoException e) {
+                throw new ServiceException(e);
+            }
         }
         return false;
     }
@@ -128,10 +158,16 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param accountDto, carDto and order
      * @return the boolean
      */
-    public Boolean cancelOrder(AccountDto accountDto, CarDto carDto, Order order) throws ServiceException, DaoException, SQLException {
+    @Override
+    public Boolean cancelOrder(AccountDto accountDto, CarDto carDto, Order order) throws ServiceException {
         logger.info("cancel order method " + AccountServiceImpl.class);
         Byte orderStatus = order.getStatus();
-        AccountDto adminDto = accountConverter.convert(accountDao.findById(1));
+        AccountDto adminDto = null;
+        try {
+            adminDto = accountConverter.convert(accountDao.findById(1));
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
         Double amount = order.getCurrentSum();
         if (orderStatus > 3) {
             logger.error(EXCEPTION_NOT_BE_CLOSED_MESSAGE);
@@ -148,7 +184,11 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
             car.setAvailable((byte) 1);
             Account account = accountConverter.convert(accountDto);
             Account admin = accountConverter.convert(adminDto);
-            return accountDao.cancelOrder(account, admin, car, order);
+            try {
+                return accountDao.cancelOrder(account, admin, car, order);
+            } catch (DaoException e) {
+                throw new ServiceException(e);
+            }
         }
     }
 
@@ -158,6 +198,7 @@ public class AccountServiceImpl implements Service<AccountDto, Integer> {
      * @param param string
      * @return the boolean
      */
+    @Override
     public Boolean checkNotNull(String param) {
         return param.isEmpty();
     }
