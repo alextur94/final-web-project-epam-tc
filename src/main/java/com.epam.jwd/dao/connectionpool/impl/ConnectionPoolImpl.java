@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
-import java.util.Properties;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -20,10 +19,12 @@ public final class ConnectionPoolImpl implements ConnectionPool {
     private static final ConnectionPool INSTANCE = new ConnectionPoolImpl();
     private static final int CONNECTION_POOL_SIZE = 25;
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/rent_cars";
-    private static final String USER = "root";
-    private static final String PASS = "1111";
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+//    private static final String DB_URL = "jdbc:mysql://localhost:3306/rent_cars";
+//    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DB_URL = "jdbc:postgresql://localhost:5432/rent_cars";
+    private static final String USER = "postgres";
+    private static final String PASS = "ADMIN";
+    private static final String DRIVER = "org.postgresql.Driver";
 
     private final Queue<ProxyConnection> availableConnection = new ArrayBlockingQueue<>(CONNECTION_POOL_SIZE);
     private final List<ProxyConnection> usedConnection = new CopyOnWriteArrayList<>();

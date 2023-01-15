@@ -104,8 +104,8 @@ public class CarDaoImpl implements CarDao {
             List<Car> result = new ArrayList<>();
             ResultSet resultSet;
             try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_BY_RANGE)) {
-                statement.setInt(1, skip);
-                statement.setInt(2, size);
+                statement.setInt(1, size);
+                statement.setInt(2, skip);
                 resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     Car car = new Car.Builder()

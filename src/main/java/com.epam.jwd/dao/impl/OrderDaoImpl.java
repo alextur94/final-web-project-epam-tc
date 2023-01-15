@@ -330,8 +330,8 @@ public class OrderDaoImpl implements OrderDao {
         ResultSet resultSet;
         try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_FIND_ORDER_BY_USER_ID)) {
             statement.setInt(1, userId);
-            statement.setInt(2, offset);
-            statement.setInt(3, size);
+            statement.setInt(2, size);
+            statement.setInt(3, offset);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Order order = new Order.Builder()
