@@ -19,8 +19,6 @@ public final class ConnectionPoolImpl implements ConnectionPool {
     private static final ConnectionPool INSTANCE = new ConnectionPoolImpl();
     private static final int CONNECTION_POOL_SIZE = 25;
 
-//    private static final String DB_URL = "jdbc:mysql://localhost:3306/rent_cars";
-//    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/rent_cars";
     private static final String USER = "postgres";
     private static final String PASS = "ADMIN";
