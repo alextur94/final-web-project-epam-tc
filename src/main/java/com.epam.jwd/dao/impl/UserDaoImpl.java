@@ -195,7 +195,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User saveUser(User user, Connection connection) throws SQLException, DaoException {
-        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_USER, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement statement = connection.prepareStatement(SqlQueries.SQL_SAVE_USER)) {
             statement.setString(1, user.getLogin());
             statement.setString(2, criptPassword(user.getPassword()));
             statement.setInt(3, user.getAccountId());
