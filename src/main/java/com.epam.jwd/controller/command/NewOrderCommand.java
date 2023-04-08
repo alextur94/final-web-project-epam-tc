@@ -3,7 +3,6 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.CarServiceImpl;
@@ -12,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public enum NewOrderCommand implements Command {
     INSTANCE;

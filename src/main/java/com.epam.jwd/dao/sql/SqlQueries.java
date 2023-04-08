@@ -19,7 +19,7 @@ public interface SqlQueries {
     String SQL_SAVE_CAR = "INSERT INTO car (brand, model, year, level, body, engine_volume, transmission, doors, color, available, price_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     String SQL_UPDATE_CAR_BY_ID = "UPDATE car SET brand = ?, model = ?, year = ?, level = ?, body = ?, engine_volume = ?, transmission = ?, doors = ?, color = ?, available = ?, price_id = ? WHERE id = ?";
     String SQL_DELETE_CAR_BY_ID = "DELETE FROM car WHERE id = ?";
-    String SQL_FIND_ALL_CARS = "SELECT id, brand, model, year, level, body, engine_volume, transmission, doors, color, available, price_id FROM car";
+    String SQL_FIND_ALL_CARS = "SELECT id, brand, model, year, level, body, engine_volume, transmission, doors, color, available, price_id FROM car ORDER BY id";
     String SQL_FIND_CAR_BY_ID = "SELECT id, brand, model, year, level, body, engine_volume, transmission, doors, color, available, price_id FROM car WHERE id = ?";
     String SQL_FIND_BY_RANGE = "SELECT id, brand, model, available, price_id FROM car LIMIT ? OFFSET ?";
 

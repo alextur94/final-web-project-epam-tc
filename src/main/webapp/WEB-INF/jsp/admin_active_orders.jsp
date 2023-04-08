@@ -139,6 +139,7 @@
                                 <th>Damage</th>
                                 <th>Description</th>
                                 <th>Complete</th>
+                                <th>Test</th>
                             </thead>
                             <c:forEach var="order" items="${sessionScope.orderList}">
                                 <tbody>
@@ -158,6 +159,14 @@
                                         <button type="submit" class="btn btn-outline-dark">${butComplete}</button>
                                     </td>
                                 </form>
+<%--                                <form action="${pageContext.request.contextPath}/controller?command=end_rent" method="POST">--%>
+<%--                                    <td><input type="number" name="damage" value="0.00"></td>--%>
+<%--                                    <td><input type="text" name="description"></td>--%>
+<%--                                    <td>--%>
+<%--                                        <c:set scope="session" var="orderId" value="${order.id}"/>--%>
+<%--                                        <button type="submit" class="btn btn-outline-dark">${butComplete}</button>--%>
+<%--                                    </td>--%>
+<%--                                </form>--%>
                                 </tr>
                                 </tbody>
                             </c:forEach>

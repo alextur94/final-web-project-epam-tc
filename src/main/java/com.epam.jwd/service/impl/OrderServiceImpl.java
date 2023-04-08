@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
     private final Integer COUNT_MS_IN_MIN = 60000;
     private final Double SET_CURRENT_AMOUNT = 0.00;
     private final Long TIME_TO_PAY = (long) 10 * COUNT_MS_IN_MIN;
-    private final String MAIN_ACCOUNT = "admin";
+    private final String MAIN_ACCOUNT = "Admin";
     private final String TIMEOUT_TO_PAY_MSS = "Payment time expired";
 
     @Override
@@ -210,32 +210,30 @@ public class OrderServiceImpl implements OrderService {
             throw new ServiceException(e);
         }
         MarkDto markDto = markService.getById(order.getMarkId());
-        if (amountDamage > 0) {
-            markDto.setDescription(markDesc);
-            order.setStatus((byte) 1);
-        }
-        Double amountInsurance = insuranceService.getById(order.getInsuranceId()).getAmount();
-        Double sumMoreInsurance = amountMoreInsurance(amountDamage, amountInsurance);
-        long timeStart = order.getRentStartDtm();
-        long timeReal = rentalTimeSimulator(order.getRentalTime());
-        order.setStatus(Status.CLOSE.getId());
-        order.setRentalTime(convertMsMin(timeReal));
-        order.setRentEndDtm(timeStart + timeReal);
-        order.setEndLevel(fuelLevelRandom(order.getStartLevel()));
-        CarDto carDto = carService.getById(order.getCarId());
-        carDto.setAvailable((byte) 1);
-        carDto.setEngineVolume(order.getEndLevel());
-        PriceDto priceDto = priceService.getById(carDto.getPriceId());
-        Double currentAmount = order.getCurrentSum();
-        Double realTimeSum = realSum(order.getRentalTime(), priceDto);
-        Double sumFuel = fuelDifference(order.getStartLevel(), order.getEndLevel());
-        AccountDto accountDto = accountService.getById(userService.getById(order.getUserId()).getAccountId());
-        Double finishSum = finishAmount(realTimeSum, sumFuel, sumMoreInsurance, currentAmount);
-        order.setCurrentSum(finishSum);
-        Double newAccountBalance = accountDto.getBalance() + finishSum;
-        AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());
-        mainAdmin.setBalance(mainAdmin.getBalance() - finishSum);
-        accountDto.setBalance(newAccountBalance);
+
+        if (amountDamage > 0) { setDescriptionMark(order, markDto, markDesc);}//Если есть ущерб, делаем пометку
+        Double costInsuranse = 20.00;
+        Double amountInsurance = insuranceService.getById(order.getInsuranceId()).getAmount(); //сумма возмещения ущерба от страховки
+        Double sumDamage = amountMoreInsurance(amountDamage, amountInsurance); //определение суммы ущерба
+        long timeRentalStart = order.getRentStartDtm(); //время начало аренды
+        long timeRentalEnd = new Date().getTime(); //время конца аренды
+        order.setStatus(Status.CLOSE.getId()); //устанавливаем ордеру статус закрты
+        order.setRentalTime(realRentalTime(timeRentalStart, timeRentalEnd)); //реальное время аренды
+        order.setRentEndDtm(timeRentalEnd); //устанавливаем время окончания аренды
+        order.setEndLevel(getLevelFuelFromCar(order.getStartLevel()));// !!!метод вернет текущее значение бензина. Заменить на метод плучения даных с авто!!!
+        CarDto carDto = carService.getById(order.getCarId()); //получаем авто
+        carDto.setAvailable((byte) 1);//устанавливаем статус авто на "Досутпен"
+        carDto.setEngineVolume(order.getEndLevel());//устанавливаем значение топлива из ордера
+        PriceDto priceDto = priceService.getById(carDto.getPriceId());//получаем прайс
+        Double currentAmount = order.getCurrentSum();//получаем сумму которую человек уже оплатил
+        Double realRentTimeSum = realSum(order.getRentalTime(), priceDto);//расчитываем реальную сумму по времени аренды
+        Double sumFuel = fuelDifference(order.getStartLevel(), order.getEndLevel());//получаем сумму за бензин (положительную/отрицательную)
+        AccountDto accountDto = accountService.getById(userService.getById(order.getUserId()).getAccountId());//получем аккаунт
+        Double realRentSum = realRentAmount(realRentTimeSum, sumFuel, costInsuranse, sumDamage);//подсчет суммы аренды
+        order.setCurrentSum(realRentSum);//установка реальной суммы аренды
+        AccountDto mainAdmin = accountService.getById(userService.getByLogin(MAIN_ACCOUNT).getAccountId());//берем аккаунт админа
+        Double differentSum = currentAmount-realRentSum;//получаем разницу заплаченой суммы и фактической
+        setBalanceAmount(mainAdmin, accountDto, differentSum);//устанавливаем новые суммы для аккаунтов
         Mark mark = markConverterImpl.convert(markDto);
         Car car = carConverterImpl.convert(carDto);
         Account account = accountConverterImpl.convert(accountDto);
@@ -246,6 +244,10 @@ public class OrderServiceImpl implements OrderService {
             throw new ServiceException(e);
         }
         return true;
+    }
+
+        public Boolean endTestRent(Integer orderId, Double amountDamage, String markDesc) throws ServiceException {
+        return false;
     }
 
     /**
@@ -411,7 +413,7 @@ public class OrderServiceImpl implements OrderService {
      * @param timeMs
      * @return the integer
      */
-    private Integer convertMsMin(Long timeMs) {
+    private Integer convertMsToMin(Long timeMs) {
         return (int) (timeMs / COUNT_MS_IN_MIN);
     }
 
@@ -442,7 +444,7 @@ public class OrderServiceImpl implements OrderService {
      */
     private Double amountMoreInsurance(Double damage, Double insurance) {
         if (damage > insurance) {
-            return insurance - damage;
+            return damage - insurance;
         }
         return 0.00;
     }
@@ -470,11 +472,12 @@ public class OrderServiceImpl implements OrderService {
      * taking into account all parameters (the amount for the trip,
      * the difference in the amount for fuel, the amount after payment of insurance)
      *
-     * @param timeSum, fuelSum, insuranceSum, currentSum
+     * @param timeSum, fuelSum, insuranceSum
+     * @param insuranceSum
      * @return the double
      */
-    private Double finishAmount(Double timeSum, Double fuelSum, Double insuranceSum, Double currentSum) {
-        return (currentSum + fuelSum) - (timeSum + insuranceSum);
+    private Double realRentAmount(Double timeSum, Double fuelSum, Double costInsurance, Double insuranceSum) {
+        return timeSum + fuelSum + costInsurance + insuranceSum;
     }
 
     private void timerPay(Integer orderId) {
@@ -497,5 +500,47 @@ public class OrderServiceImpl implements OrderService {
                 }
             }
         }, TIME_TO_PAY);
+    }
+
+    /**
+     * This method returns the difference between time start rent and end rent in minutes.
+     *
+     * @param startTime, endTime
+     * @return the double
+     */
+    private Integer realRentalTime(Long startTime, Long endTime){
+        return convertMsToMin(endTime - startTime);
+    }
+
+    private void setDescriptionMark(Order order, MarkDto markDto, String markDesc) {
+        markDto.setDescription(markDesc);
+        order.setStatus((byte) 1);
+    }
+
+    private Integer getLevelFuelFromCar(Integer startLevel){
+        return startLevel;
+    }
+
+    private void setBalanceAmount(AccountDto mainAdmin, AccountDto accountDto, Double differentSum) {
+        Double adminAmount = mainAdmin.getBalance();
+        Double clientAmount = accountDto.getBalance();
+        Double sumAccountsAmount = adminAmount + clientAmount;
+        if (differentSum > 0) {
+            mainAdmin.setBalance(adminAmount - differentSum);
+            accountDto.setBalance(clientAmount + differentSum);
+        } else {
+            mainAdmin.setBalance(adminAmount + differentSum);
+            accountDto.setBalance(clientAmount - differentSum);
+        }
+        adminAmount = mainAdmin.getBalance();
+        clientAmount = accountDto.getBalance();
+        if (sumAccountsAmount != adminAmount + clientAmount) {
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }
