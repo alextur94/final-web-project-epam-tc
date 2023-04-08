@@ -247,6 +247,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
         public Boolean endTestRent(Integer orderId, Double amountDamage, String markDesc) throws ServiceException {
+
         return false;
     }
 
@@ -417,10 +418,6 @@ public class OrderServiceImpl implements OrderService {
         return (int) (timeMs / COUNT_MS_IN_MIN);
     }
 
-    private Integer fuelLevelRandom(Integer startLevel) {
-        return (int) (Math.random() * startLevel + (startLevel * 0.5));
-    }
-
     /**
      * Getting the difference in the amount of gasoline
      *
@@ -431,10 +428,6 @@ public class OrderServiceImpl implements OrderService {
         return (endFuel - startFuel) * LiterCostFuel;
     }
 
-    private Long rentalTimeSimulator(Integer min) {
-        Long ms = (long) min * COUNT_MS_IN_MIN;
-        return (long) ((Math.random() * ms) + (ms * 0.5));
-    }
 
     /**
      * Receiving the difference in money if there is damage to the car, taking into account insurance
@@ -541,6 +534,5 @@ public class OrderServiceImpl implements OrderService {
                 throw new RuntimeException(e);
             }
         }
-
     }
 }
