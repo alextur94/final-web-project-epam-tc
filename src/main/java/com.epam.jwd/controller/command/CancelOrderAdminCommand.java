@@ -47,7 +47,7 @@ public enum CancelOrderAdminCommand implements Command {
     public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.getCurrentSession().get();
         String refusal = request.getParameter(Constant.REFUSAL_PARAM);
-        Integer orderId = (Integer) session.getAttribute(Constant.ORDER_ID_PARAM);
+        Integer orderId = Integer.parseInt(request.getParameter(Constant.ORDER_ID_PARAM));
         try {
             orderService.cancelOrderAdmin(orderId, refusal);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CANCEL_ORDER_ADMIN_MSS);
