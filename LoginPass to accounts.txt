@@ -1,4 +1,0 @@
-Login and Password for ready accounts from databases
-1) Admin -> Admin123
-2) Oleg -> Oleg555
-4) Ivan -> Ivan222

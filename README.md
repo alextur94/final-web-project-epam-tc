@@ -38,3 +38,8 @@ Web-project (Сервис по аренде автомобилей)
 1. В репозитории лежит sql код для mysql
 2. Подключить tomcat
 3. Запустить проект
+
+Login and Password for ready accounts from databases
+1) Admin -> Admin123
+2) Oleg -> Oleg555
+4) Ivan -> Ivan222
