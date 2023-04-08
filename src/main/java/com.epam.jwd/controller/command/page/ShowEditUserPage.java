@@ -62,8 +62,7 @@ public enum ShowEditUserPage implements Command {
                 userDto = userService.getById(id);
                 userDto.setPassword("");
                 accountDto = accountService.getById(userDto.getAccountId());
-            }
-            else if (!userLogin.isEmpty()) {
+            } else if (!userLogin.isEmpty()) {
                 userDto = userConverterImpl.convert(userService.getByLogin(userLogin));
                 userDto.setPassword("");
                 accountDto = accountService.getById(userDto.getAccountId());

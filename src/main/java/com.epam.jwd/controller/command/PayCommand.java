@@ -14,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public enum PayCommand implements Command {
     INSTANCE;
@@ -57,7 +56,7 @@ public enum PayCommand implements Command {
             Integer accountId = userService.getById(userId).getAccountId();
             AccountDto accountDto = accountService.getById(accountId);
             Order order = orderDao.findById(orderId);
-            if (order.getUserId() != userId || order.getPaymentStatus() != 0){
+            if (order.getUserId() != userId || order.getPaymentStatus() != 0) {
                 session.setAttribute(Constant.ERROR_PARAM, Constant.ERROR_LESS_ROOTS_MSS);
                 return ERROR_RESPONSE;
             }

@@ -3,7 +3,6 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.service.exception.ServiceException;
 
 import javax.servlet.http.HttpSession;
 

@@ -3,7 +3,6 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.UserDto;
 import com.epam.jwd.service.exception.ServiceException;

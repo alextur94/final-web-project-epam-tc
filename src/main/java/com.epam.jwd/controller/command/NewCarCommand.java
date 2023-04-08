@@ -3,7 +3,6 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.service.dto.CarDto;
 import com.epam.jwd.service.dto.PriceDto;
 import com.epam.jwd.service.exception.ServiceException;
@@ -12,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public enum NewCarCommand implements Command {
     INSTANCE;
@@ -54,14 +52,20 @@ public enum NewCarCommand implements Command {
             final Integer engineVolume = Integer.parseInt(request.getParameter(Constant.ENGINE_VOLUME_PARAM));
             Byte trans;
             String tempTrans = request.getParameter(Constant.TRANSMISSION_PARAM);
-            if (tempTrans.equals("on")) { trans = 1;
-            } else { trans = 0; }
+            if (tempTrans.equals("on")) {
+                trans = 1;
+            } else {
+                trans = 0;
+            }
             final Byte doors = Byte.parseByte(request.getParameter(Constant.DOORS_PARAM));
             final String color = request.getParameter(Constant.COLOR_PARAM);
             Byte available;
             String ava = request.getParameter(Constant.AVAILABLE_PARAM);
-            if (ava.equals("on")) { available = 1;
-            } else { available = 0; }
+            if (ava.equals("on")) {
+                available = 1;
+            } else {
+                available = 0;
+            }
             final Double price = Double.parseDouble(request.getParameter(Constant.PRICE_PARAM));
             CarDto carDto = new CarDto.Builder()
                     .withBrand(brand)

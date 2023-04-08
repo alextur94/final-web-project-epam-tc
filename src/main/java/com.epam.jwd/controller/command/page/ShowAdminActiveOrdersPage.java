@@ -4,7 +4,6 @@ import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.controller.command.Constant;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.dao.model.order.Status;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.dto.CarDto;
@@ -57,7 +56,7 @@ public enum ShowAdminActiveOrdersPage implements Command {
         try {
             Integer countRow = orderService.getCountRowByStatus((int) Status.NEW.getId());
             List<CarDto> listCar = carService.getAll();
-            List<OrderDto> listOrderActive = orderService.getByStatus((int)Status.ACTIVE.getId());
+            List<OrderDto> listOrderActive = orderService.getByStatus((int) Status.ACTIVE.getId());
             Map<Integer, AccountDto> personMap = orderService.unionUserAndAccount((int) Status.ACTIVE.getId());
             session.setAttribute("orderList", listOrderActive);
             session.setAttribute("carList", listCar);

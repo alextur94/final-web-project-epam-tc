@@ -3,7 +3,6 @@ package com.epam.jwd.controller.command;
 import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
-import com.epam.jwd.dao.exception.DaoException;
 import com.epam.jwd.service.dto.AccountDto;
 import com.epam.jwd.service.exception.ServiceException;
 import com.epam.jwd.service.impl.AccountServiceImpl;
@@ -59,7 +58,7 @@ public enum SaveAccountCommand implements Command {
             String address = request.getParameter(Constant.ADDRESS_PARAM);
             String[] params = {name, surname, phone, docId, license, address};
             for (String param : params) {
-                if (accountService.checkNotNull(param)){
+                if (accountService.checkNotNull(param)) {
                     logger.error(Constant.FIELDS_NOT_BE_NULL_MSS);
                     session.setAttribute(Constant.ERROR_PARAM, Constant.FIELDS_NOT_BE_NULL_MSS);
                     return ERROR_RESPONSE;

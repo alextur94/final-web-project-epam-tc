@@ -72,8 +72,8 @@ public enum UpdatePersonCommand implements Command {
                 userService.getByLoginForUpdate(userLogin);
                 user.setLogin(userLogin);
             }
-            if (!userPassword.isEmpty()){
-                if (!userDao.criptPassword(userPassword).equals(user.getPassword())){
+            if (!userPassword.isEmpty()) {
+                if (!userDao.criptPassword(userPassword).equals(user.getPassword())) {
                     userValidatorImpl.validatePassword(userPassword);
                     user.setPassword(userDao.criptPassword(userPassword));
                 }

@@ -4,21 +4,13 @@ import com.epam.jwd.controller.api.Command;
 import com.epam.jwd.controller.api.CommandRequest;
 import com.epam.jwd.controller.api.CommandResponse;
 import com.epam.jwd.controller.command.Constant;
-import com.epam.jwd.dao.exception.DaoException;
-import com.epam.jwd.dao.model.order.Order;
 import com.epam.jwd.dao.model.order.Status;
-import com.epam.jwd.service.dto.AccountDto;
-import com.epam.jwd.service.dto.CarDto;
-import com.epam.jwd.service.dto.OrderDto;
 import com.epam.jwd.service.exception.ServiceException;
-import com.epam.jwd.service.impl.CarServiceImpl;
 import com.epam.jwd.service.impl.OrderServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
 
 public enum ShowAdminNewCarPage implements Command {
     INSTANCE;

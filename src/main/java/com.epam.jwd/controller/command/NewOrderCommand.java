@@ -40,7 +40,7 @@ public enum NewOrderCommand implements Command {
             }
             final Byte insuranceType = Byte.parseByte(request.getParameter(Constant.INSURANCE_TYPE_PARAM));
             CarDto carDto = null;
-                carDto = carService.getById(carId);
+            carDto = carService.getById(carId);
             orderService.createOrder(carDto, userId, day, insuranceType);
             session.setAttribute(Constant.SUCCESS_PARAM, Constant.SUCCESS_CAR_BOOKING_MSS);
             return SUCCESS_RESPONSE;
