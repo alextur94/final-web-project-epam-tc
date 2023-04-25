@@ -25,7 +25,6 @@ import java.util.Set;
 @WebFilter("/*")
 public class AuthFilter implements Filter {
     private static final String ERROR_PAGE_LOCATION = "/controller?command=error";
-
     private final Map<Role, Set<Commands>> commandsByRoles;
 
     public AuthFilter() {commandsByRoles = new EnumMap<>(Role.class); }

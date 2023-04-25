@@ -1,7 +1,6 @@
 package com.epam.jwd.dao.impl;
 
 import com.epam.jwd.dao.api.CarDao;
-import com.epam.jwd.dao.api.Dao;
 import com.epam.jwd.dao.api.Message;
 import com.epam.jwd.dao.api.PriceDao;
 import com.epam.jwd.dao.connectionpool.ConnectionPool;

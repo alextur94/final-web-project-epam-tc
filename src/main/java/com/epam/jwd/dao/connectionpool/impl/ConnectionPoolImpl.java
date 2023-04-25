@@ -17,13 +17,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class ConnectionPoolImpl implements ConnectionPool {
     private static final Logger logger = LogManager.getLogger(ConnectionPoolImpl.class);
     private static final ConnectionPool INSTANCE = new ConnectionPoolImpl();
-    private static final int CONNECTION_POOL_SIZE = 25;
-
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/rent_cars";
     private static final String USER = "postgres";
     private static final String PASS = "ADMIN";
     private static final String DRIVER = "org.postgresql.Driver";
-
+    private static final Integer CONNECTION_POOL_SIZE = 25;
     private final Queue<ProxyConnection> availableConnection = new ArrayBlockingQueue<>(CONNECTION_POOL_SIZE);
     private final List<ProxyConnection> usedConnection = new CopyOnWriteArrayList<>();
     private static boolean initialized = false;
